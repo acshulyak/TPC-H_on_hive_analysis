@@ -1,0 +1,485 @@
+
+Logging initialized using configuration in jar:file:/home/ashulyak/hive/lib/hive-common-1.2.1.jar!/hive-log4j.properties
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/home/ashulyak/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/ashulyak/tez/apache-tez-0.7.0-src/tez_minimal_jars/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+set hive.execution.engine=tez
+
+
+DROP TABLE lineitem
+OK
+Time taken: 1.479 seconds
+
+DROP TABLE part
+OK
+Time taken: 0.081 seconds
+
+DROP TABLE q19_discounted_revenue
+OK
+Time taken: 0.082 seconds
+
+
+create external table lineitem (L_ORDERKEY INT, L_PARTKEY INT, L_SUPPKEY INT, L_LINENUMBER INT, L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE, L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING, L_SHIPDATE STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING, L_SHIPINSTRUCT STRING, L_SHIPMODE STRING, L_COMMENT STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' STORED AS TEXTFILE LOCATION '/tpch/lineitem'
+OK
+Time taken: 0.277 seconds
+
+create external table part (P_PARTKEY INT, P_NAME STRING, P_MFGR STRING, P_BRAND STRING, P_TYPE STRING, P_SIZE INT, P_CONTAINER STRING, P_RETAILPRICE DOUBLE, P_COMMENT STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' STORED AS TEXTFILE LOCATION '/tpch/part'
+OK
+Time taken: 0.032 seconds
+
+
+create table q19_discounted_revenue(revenue double)
+OK
+Time taken: 0.083 seconds
+set mapred.min.split.size=268435456
+set hive.exec.reducers.bytes.per.reducer=1040000000
+
+
+insert overwrite table q19_discounted_revenue
+select
+  sum(l_extendedprice * (1 - l_discount) ) as revenue
+from
+  lineitem l join part p
+  on 
+    p.p_partkey = l.l_partkey    
+where
+  (
+    p_brand = 'Brand#12'
+	and p_container REGEXP 'SM CASE||SM BOX||SM PACK||SM PKG'
+	and l_quantity >= 1 and l_quantity <= 11
+	and p_size >= 1 and p_size <= 5
+	and l_shipmode REGEXP 'AIR||AIR REG'
+	and l_shipinstruct = 'DELIVER IN PERSON'
+  ) 
+  or 
+  (
+    p_brand = 'Brand#23'
+	and p_container REGEXP 'MED BAG||MED BOX||MED PKG||MED PACK'
+	and l_quantity >= 10 and l_quantity <= 20
+	and p_size >= 1 and p_size <= 10
+	and l_shipmode REGEXP 'AIR||AIR REG'
+	and l_shipinstruct = 'DELIVER IN PERSON'
+  )
+  or
+  (
+	p_brand = 'Brand#34'
+	and p_container REGEXP 'LG CASE||LG BOX||LG PACK||LG PKG'
+	and l_quantity >= 20 and l_quantity <= 30
+	and p_size >= 1 and p_size <= 15
+	and l_shipmode REGEXP 'AIR||AIR REG'
+	and l_shipinstruct = 'DELIVER IN PERSON'
+  )
+
+Query ID = ashulyak_20160716182937_48309b07-d1b5-4de9-9bc7-1b2f48c5f0ef
+Total jobs = 1
+Launching Job 1 out of 1
+
+
+Status: Running (Executing on YARN cluster with App id application_1468705078518_0025)
+
+Map 1: -/-	Map 4: -/-	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0/15	Map 4: 0/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0/15	Map 4: 0/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0/15	Map 4: 0(+1)/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+1)/15	Map 4: 0(+1)/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+2)/15	Map 4: 0(+1)/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+3)/15	Map 4: 0(+1)/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+4)/15	Map 4: 0(+1)/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+5)/15	Map 4: 0(+1)/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+6)/15	Map 4: 0(+1)/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+6)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 1(+6)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 1(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 2(+6)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 2(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 3(+6)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 4(+6)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 4(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 4(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 4(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 7(+4)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 7(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 7(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 7(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 7(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 7(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 7(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 9(+5)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 9(+6)/15	Map 4: 1/1	Reducer 2: 0(+1)/4	Reducer 3: 0/1	
+Map 1: 10(+5)/15	Map 4: 1/1	Reducer 2: 0(+2)/4	Reducer 3: 0/1	
+Map 1: 11(+4)/15	Map 4: 1/1	Reducer 2: 0(+3)/4	Reducer 3: 0/1	
+Map 1: 11(+4)/15	Map 4: 1/1	Reducer 2: 0(+3)/4	Reducer 3: 0/1	
+Map 1: 11(+4)/15	Map 4: 1/1	Reducer 2: 0(+3)/4	Reducer 3: 0/1	
+Map 1: 13(+2)/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 14(+1)/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 1(+3)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 1(+3)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 2(+2)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 3(+1)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 3(+1)/4	Reducer 3: 0(+1)/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 4/4	Reducer 3: 0(+1)/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 4/4	Reducer 3: 1/1	
+Loading data to table default.q19_discounted_revenue
+Table default.q19_discounted_revenue stats: [numFiles=1, numRows=1, totalSize=21, rawDataSize=20]
+OK
+Time taken: 147.65 seconds
+Time:156.20
+
+Logging initialized using configuration in jar:file:/home/ashulyak/hive/lib/hive-common-1.2.1.jar!/hive-log4j.properties
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/home/ashulyak/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/ashulyak/tez/apache-tez-0.7.0-src/tez_minimal_jars/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+set hive.execution.engine=tez
+
+
+DROP TABLE lineitem
+OK
+Time taken: 1.476 seconds
+
+DROP TABLE part
+OK
+Time taken: 0.081 seconds
+
+DROP TABLE q19_discounted_revenue
+OK
+Time taken: 0.085 seconds
+
+
+create external table lineitem (L_ORDERKEY INT, L_PARTKEY INT, L_SUPPKEY INT, L_LINENUMBER INT, L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE, L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING, L_SHIPDATE STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING, L_SHIPINSTRUCT STRING, L_SHIPMODE STRING, L_COMMENT STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' STORED AS TEXTFILE LOCATION '/tpch/lineitem'
+OK
+Time taken: 0.281 seconds
+
+create external table part (P_PARTKEY INT, P_NAME STRING, P_MFGR STRING, P_BRAND STRING, P_TYPE STRING, P_SIZE INT, P_CONTAINER STRING, P_RETAILPRICE DOUBLE, P_COMMENT STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' STORED AS TEXTFILE LOCATION '/tpch/part'
+OK
+Time taken: 0.032 seconds
+
+
+create table q19_discounted_revenue(revenue double)
+OK
+Time taken: 0.092 seconds
+set mapred.min.split.size=268435456
+set hive.exec.reducers.bytes.per.reducer=1040000000
+
+
+insert overwrite table q19_discounted_revenue
+select
+  sum(l_extendedprice * (1 - l_discount) ) as revenue
+from
+  lineitem l join part p
+  on 
+    p.p_partkey = l.l_partkey    
+where
+  (
+    p_brand = 'Brand#12'
+	and p_container REGEXP 'SM CASE||SM BOX||SM PACK||SM PKG'
+	and l_quantity >= 1 and l_quantity <= 11
+	and p_size >= 1 and p_size <= 5
+	and l_shipmode REGEXP 'AIR||AIR REG'
+	and l_shipinstruct = 'DELIVER IN PERSON'
+  ) 
+  or 
+  (
+    p_brand = 'Brand#23'
+	and p_container REGEXP 'MED BAG||MED BOX||MED PKG||MED PACK'
+	and l_quantity >= 10 and l_quantity <= 20
+	and p_size >= 1 and p_size <= 10
+	and l_shipmode REGEXP 'AIR||AIR REG'
+	and l_shipinstruct = 'DELIVER IN PERSON'
+  )
+  or
+  (
+	p_brand = 'Brand#34'
+	and p_container REGEXP 'LG CASE||LG BOX||LG PACK||LG PKG'
+	and l_quantity >= 20 and l_quantity <= 30
+	and p_size >= 1 and p_size <= 15
+	and l_shipmode REGEXP 'AIR||AIR REG'
+	and l_shipinstruct = 'DELIVER IN PERSON'
+  )
+
+Query ID = ashulyak_20160717102151_9a7b874a-2648-4338-9f6d-a8e628537cca
+Total jobs = 1
+Launching Job 1 out of 1
+
+
+Status: Running (Executing on YARN cluster with App id application_1468705078518_0029)
+
+Map 1: -/-	Map 4: -/-	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0/15	Map 4: 0/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0/15	Map 4: 0/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+1)/15	Map 4: 0/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+1)/15	Map 4: 0(+1)/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+2)/15	Map 4: 0(+1)/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+3)/15	Map 4: 0(+1)/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+4)/15	Map 4: 0(+1)/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+5)/15	Map 4: 0(+1)/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+6)/15	Map 4: 0(+1)/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+6)/15	Map 4: 0(+1)/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+6)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 1(+6)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 1(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 2(+6)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 2(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 3(+6)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 3(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 4(+6)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 4(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 5(+6)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 5(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 6(+6)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 7(+6)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 7(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 7(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 7(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 7(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 7(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 7(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 8(+6)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 8(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 9(+6)/15	Map 4: 1/1	Reducer 2: 0(+1)/4	Reducer 3: 0/1	
+Map 1: 10(+5)/15	Map 4: 1/1	Reducer 2: 0(+2)/4	Reducer 3: 0/1	
+Map 1: 11(+4)/15	Map 4: 1/1	Reducer 2: 0(+3)/4	Reducer 3: 0/1	
+Map 1: 12(+3)/15	Map 4: 1/1	Reducer 2: 0(+3)/4	Reducer 3: 0/1	
+Map 1: 12(+3)/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 13(+2)/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 13(+2)/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 14(+1)/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 1(+3)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 1(+3)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 2(+2)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 3(+1)/4	Reducer 3: 0(+1)/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 4/4	Reducer 3: 0(+1)/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 4/4	Reducer 3: 1/1	
+Loading data to table default.q19_discounted_revenue
+Table default.q19_discounted_revenue stats: [numFiles=1, numRows=1, totalSize=21, rawDataSize=20]
+OK
+Time taken: 141.236 seconds
+Time:149.36
+
+Logging initialized using configuration in jar:file:/home/ashulyak/hive/lib/hive-common-1.2.1.jar!/hive-log4j.properties
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/home/ashulyak/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/ashulyak/tez/apache-tez-0.7.0-src/tez_minimal_jars/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+set hive.execution.engine=tez
+
+
+DROP TABLE lineitem
+OK
+Time taken: 1.478 seconds
+
+DROP TABLE part
+OK
+Time taken: 0.072 seconds
+
+DROP TABLE q19_discounted_revenue
+OK
+Time taken: 0.093 seconds
+
+
+create external table lineitem (L_ORDERKEY INT, L_PARTKEY INT, L_SUPPKEY INT, L_LINENUMBER INT, L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE, L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING, L_SHIPDATE STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING, L_SHIPINSTRUCT STRING, L_SHIPMODE STRING, L_COMMENT STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' STORED AS TEXTFILE LOCATION '/tpch/lineitem'
+OK
+Time taken: 0.283 seconds
+
+create external table part (P_PARTKEY INT, P_NAME STRING, P_MFGR STRING, P_BRAND STRING, P_TYPE STRING, P_SIZE INT, P_CONTAINER STRING, P_RETAILPRICE DOUBLE, P_COMMENT STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' STORED AS TEXTFILE LOCATION '/tpch/part'
+OK
+Time taken: 0.04 seconds
+
+
+create table q19_discounted_revenue(revenue double)
+OK
+Time taken: 0.083 seconds
+set mapred.min.split.size=268435456
+set hive.exec.reducers.bytes.per.reducer=1040000000
+
+
+EXPLAIN insert overwrite table q19_discounted_revenue
+select
+  sum(l_extendedprice * (1 - l_discount) ) as revenue
+from
+  lineitem l join part p
+  on 
+    p.p_partkey = l.l_partkey    
+where
+  (
+    p_brand = 'Brand#12'
+	and p_container REGEXP 'SM CASE||SM BOX||SM PACK||SM PKG'
+	and l_quantity >= 1 and l_quantity <= 11
+	and p_size >= 1 and p_size <= 5
+	and l_shipmode REGEXP 'AIR||AIR REG'
+	and l_shipinstruct = 'DELIVER IN PERSON'
+  ) 
+  or 
+  (
+    p_brand = 'Brand#23'
+	and p_container REGEXP 'MED BAG||MED BOX||MED PKG||MED PACK'
+	and l_quantity >= 10 and l_quantity <= 20
+	and p_size >= 1 and p_size <= 10
+	and l_shipmode REGEXP 'AIR||AIR REG'
+	and l_shipinstruct = 'DELIVER IN PERSON'
+  )
+  or
+  (
+	p_brand = 'Brand#34'
+	and p_container REGEXP 'LG CASE||LG BOX||LG PACK||LG PKG'
+	and l_quantity >= 20 and l_quantity <= 30
+	and p_size >= 1 and p_size <= 15
+	and l_shipmode REGEXP 'AIR||AIR REG'
+	and l_shipinstruct = 'DELIVER IN PERSON'
+  )
+
+OK
+STAGE DEPENDENCIES:
+  Stage-1 is a root stage
+  Stage-2 depends on stages: Stage-1
+  Stage-0 depends on stages: Stage-2
+  Stage-3 depends on stages: Stage-0
+
+STAGE PLANS:
+  Stage: Stage-1
+    Tez
+      Edges:
+        Reducer 2 <- Map 1 (SIMPLE_EDGE), Map 4 (SIMPLE_EDGE)
+        Reducer 3 <- Reducer 2 (SIMPLE_EDGE)
+      DagName: ashulyak_20160717102636_1deec526-bc50-4d38-9dd1-3d00f194fc4a:1
+      Vertices:
+        Map 1 
+            Map Operator Tree:
+                TableScan
+                  alias: l
+                  Statistics: Num rows: 34104068 Data size: 7775727616 Basic stats: COMPLETE Column stats: NONE
+                  Filter Operator
+                    predicate: l_partkey is not null (type: boolean)
+                    Statistics: Num rows: 17052034 Data size: 3887863808 Basic stats: COMPLETE Column stats: NONE
+                    Reduce Output Operator
+                      key expressions: l_partkey (type: int)
+                      sort order: +
+                      Map-reduce partition columns: l_partkey (type: int)
+                      Statistics: Num rows: 17052034 Data size: 3887863808 Basic stats: COMPLETE Column stats: NONE
+                      value expressions: l_quantity (type: double), l_extendedprice (type: double), l_discount (type: double), l_shipinstruct (type: string), l_shipmode (type: string)
+        Map 4 
+            Map Operator Tree:
+                TableScan
+                  alias: p
+                  Statistics: Num rows: 1169885 Data size: 243336160 Basic stats: COMPLETE Column stats: NONE
+                  Filter Operator
+                    predicate: p_partkey is not null (type: boolean)
+                    Statistics: Num rows: 584943 Data size: 121668184 Basic stats: COMPLETE Column stats: NONE
+                    Reduce Output Operator
+                      key expressions: p_partkey (type: int)
+                      sort order: +
+                      Map-reduce partition columns: p_partkey (type: int)
+                      Statistics: Num rows: 584943 Data size: 121668184 Basic stats: COMPLETE Column stats: NONE
+                      value expressions: p_brand (type: string), p_size (type: int), p_container (type: string)
+        Reducer 2 
+            Reduce Operator Tree:
+              Merge Join Operator
+                condition map:
+                     Inner Join 0 to 1
+                keys:
+                  0 l_partkey (type: int)
+                  1 p_partkey (type: int)
+                outputColumnNames: _col4, _col5, _col6, _col13, _col14, _col22, _col24, _col25
+                Statistics: Num rows: 18757237 Data size: 4276650281 Basic stats: COMPLETE Column stats: NONE
+                Filter Operator
+                  predicate: ((((((((((_col22 = 'Brand#12') and (_col25 regexp 'SM CASE||SM BOX||SM PACK||SM PKG')) and (_col4 >= 1.0)) and (_col4 <= 11.0)) and (_col24 >= 1)) and (_col24 <= 5)) and (_col14 regexp 'AIR||AIR REG')) and (_col13 = 'DELIVER IN PERSON')) or ((((((((_col22 = 'Brand#23') and (_col25 regexp 'MED BAG||MED BOX||MED PKG||MED PACK')) and (_col4 >= 10.0)) and (_col4 <= 20.0)) and (_col24 >= 1)) and (_col24 <= 10)) and (_col14 regexp 'AIR||AIR REG')) and (_col13 = 'DELIVER IN PERSON'))) or ((((((((_col22 = 'Brand#34') and (_col25 regexp 'LG CASE||LG BOX||LG PACK||LG PKG')) and (_col4 >= 20.0)) and (_col4 <= 30.0)) and (_col24 >= 1)) and (_col24 <= 15)) and (_col14 regexp 'AIR||AIR REG')) and (_col13 = 'DELIVER IN PERSON'))) (type: boolean)
+                  Statistics: Num rows: 43419 Data size: 9899532 Basic stats: COMPLETE Column stats: NONE
+                  Select Operator
+                    expressions: _col5 (type: double), _col6 (type: double)
+                    outputColumnNames: _col5, _col6
+                    Statistics: Num rows: 43419 Data size: 9899532 Basic stats: COMPLETE Column stats: NONE
+                    Group By Operator
+                      aggregations: sum((_col5 * (1 - _col6)))
+                      mode: hash
+                      outputColumnNames: _col0
+                      Statistics: Num rows: 1 Data size: 8 Basic stats: COMPLETE Column stats: NONE
+                      Reduce Output Operator
+                        sort order: 
+                        Statistics: Num rows: 1 Data size: 8 Basic stats: COMPLETE Column stats: NONE
+                        value expressions: _col0 (type: double)
+        Reducer 3 
+            Reduce Operator Tree:
+              Group By Operator
+                aggregations: sum(VALUE._col0)
+                mode: mergepartial
+                outputColumnNames: _col0
+                Statistics: Num rows: 1 Data size: 8 Basic stats: COMPLETE Column stats: NONE
+                File Output Operator
+                  compressed: false
+                  Statistics: Num rows: 1 Data size: 8 Basic stats: COMPLETE Column stats: NONE
+                  table:
+                      input format: org.apache.hadoop.mapred.TextInputFormat
+                      output format: org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat
+                      serde: org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe
+                      name: default.q19_discounted_revenue
+
+  Stage: Stage-2
+    Dependency Collection
+
+  Stage: Stage-0
+    Move Operator
+      tables:
+          replace: true
+          table:
+              input format: org.apache.hadoop.mapred.TextInputFormat
+              output format: org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat
+              serde: org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe
+              name: default.q19_discounted_revenue
+
+  Stage: Stage-3
+    Stats-Aggr Operator
+
+Time taken: 0.891 seconds, Fetched: 100 row(s)
+Time:9.05

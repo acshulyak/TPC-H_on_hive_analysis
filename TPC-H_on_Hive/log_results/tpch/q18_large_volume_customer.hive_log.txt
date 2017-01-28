@@ -1,0 +1,1 @@
+Running Hive query: tpch/q18_large_volume_customer.hive

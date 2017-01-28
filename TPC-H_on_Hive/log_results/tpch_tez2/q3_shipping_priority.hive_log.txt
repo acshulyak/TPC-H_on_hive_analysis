@@ -1,0 +1,3 @@
+Running Hive query: tpch/q3_shipping_priority.hive
+Running Hive query: tpch/q3_shipping_priority.hive
+Running Hive query: tpch/q3_shipping_priority.hive

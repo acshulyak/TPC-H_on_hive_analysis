@@ -1,0 +1,13 @@
+# started on Wed Oct 28 10:44:48 2015
+
+#           time             counts unit events
+     0.770768104      3,008,734,926      instructions             
+     0.770768104         33,313,069      cache-references         
+     0.770768104          2,328,784      cache-misses             
+     0.770768104                  0      mem-loads                
+     0.770768104        412,622,185      mem-stores               
+     0.792164086         47,057,851      instructions             
+     0.792164086            756,648      cache-references         
+     0.792164086            134,746      cache-misses             
+     0.792164086                  0      mem-loads                
+     0.792164086          6,460,344      mem-stores               

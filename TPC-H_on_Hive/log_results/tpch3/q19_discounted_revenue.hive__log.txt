@@ -1,0 +1,473 @@
+
+Logging initialized using configuration in jar:file:/home/ashulyak/hive/lib/hive-common-1.2.1.jar!/hive-log4j.properties
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/home/ashulyak/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/ashulyak/tez/apache-tez-0.7.0-src/tez_minimal_jars/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+DROP TABLE lineitem
+OK
+Time taken: 1.715 seconds
+
+DROP TABLE part
+OK
+Time taken: 0.02 seconds
+
+DROP TABLE q19_discounted_revenue
+OK
+Time taken: 0.101 seconds
+
+
+create external table lineitem (L_ORDERKEY INT, L_PARTKEY INT, L_SUPPKEY INT, L_LINENUMBER INT, L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE, L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING, L_SHIPDATE STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING, L_SHIPINSTRUCT STRING, L_SHIPMODE STRING, L_COMMENT STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' STORED AS TEXTFILE LOCATION '/tpch/lineitem'
+OK
+Time taken: 0.335 seconds
+
+
+create table q19_discounted_revenue(revenue double)
+OK
+Time taken: 0.082 seconds
+set mapred.min.split.size=268435456
+set hive.exec.reducers.bytes.per.reducer=1040000000
+
+
+insert overwrite table q19_discounted_revenue
+select
+  sum(l_extendedprice * (1 - l_discount) ) as revenue
+from
+  lineitem l join part_orc p
+  on 
+    p.p_partkey = l.l_partkey    
+where
+  (
+    p_brand = 'Brand#12'
+	and p_container REGEXP 'SM CASE||SM BOX||SM PACK||SM PKG'
+	and l_quantity >= 1 and l_quantity <= 11
+	and p_size >= 1 and p_size <= 5
+	and l_shipmode REGEXP 'AIR||AIR REG'
+	and l_shipinstruct = 'DELIVER IN PERSON'
+  ) 
+  or 
+  (
+    p_brand = 'Brand#23'
+	and p_container REGEXP 'MED BAG||MED BOX||MED PKG||MED PACK'
+	and l_quantity >= 10 and l_quantity <= 20
+	and p_size >= 1 and p_size <= 10
+	and l_shipmode REGEXP 'AIR||AIR REG'
+	and l_shipinstruct = 'DELIVER IN PERSON'
+  )
+  or
+  (
+	p_brand = 'Brand#34'
+	and p_container REGEXP 'LG CASE||LG BOX||LG PACK||LG PKG'
+	and l_quantity >= 20 and l_quantity <= 30
+	and p_size >= 1 and p_size <= 15
+	and l_shipmode REGEXP 'AIR||AIR REG'
+	and l_shipinstruct = 'DELIVER IN PERSON'
+  )
+
+Query ID = ashulyak_20160419225044_b3dc5004-2aa8-48f0-98d5-b76aaf835204
+Total jobs = 2
+Stage-1 is selected by condition resolver.
+Launching Job 1 out of 2
+Number of reduce tasks not specified. Estimated from input data size: 8
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1460557272467_0058, Tracking URL = http://jupiter1.ece.utexas.edu:8088/proxy/application_1460557272467_0058/
+Kill Command = /home/ashulyak/hadoop/bin/hadoop job  -kill job_1460557272467_0058
+Hadoop job information for Stage-1: number of mappers: 30; number of reducers: 8
+2016-04-19 22:50:51,212 Stage-1 map = 0%,  reduce = 0%
+2016-04-19 22:51:05,928 Stage-1 map = 7%,  reduce = 0%, Cumulative CPU 81.57 sec
+2016-04-19 22:51:11,129 Stage-1 map = 8%,  reduce = 0%, Cumulative CPU 105.53 sec
+2016-04-19 22:51:12,174 Stage-1 map = 13%,  reduce = 0%, Cumulative CPU 122.15 sec
+2016-04-19 22:51:14,259 Stage-1 map = 18%,  reduce = 0%, Cumulative CPU 132.47 sec
+2016-04-19 22:51:15,293 Stage-1 map = 20%,  reduce = 0%, Cumulative CPU 144.65 sec
+2016-04-19 22:51:28,768 Stage-1 map = 21%,  reduce = 0%, Cumulative CPU 194.69 sec
+2016-04-19 22:51:30,837 Stage-1 map = 24%,  reduce = 0%, Cumulative CPU 203.67 sec
+2016-04-19 22:51:31,874 Stage-1 map = 26%,  reduce = 0%, Cumulative CPU 210.77 sec
+2016-04-19 22:51:32,914 Stage-1 map = 27%,  reduce = 0%, Cumulative CPU 213.91 sec
+2016-04-19 22:51:37,033 Stage-1 map = 28%,  reduce = 0%, Cumulative CPU 245.98 sec
+2016-04-19 22:51:40,159 Stage-1 map = 33%,  reduce = 0%, Cumulative CPU 259.57 sec
+2016-04-19 22:51:41,199 Stage-1 map = 34%,  reduce = 0%, Cumulative CPU 262.35 sec
+2016-04-19 22:51:43,279 Stage-1 map = 37%,  reduce = 0%, Cumulative CPU 276.0 sec
+2016-04-19 22:51:44,305 Stage-1 map = 39%,  reduce = 0%, Cumulative CPU 281.01 sec
+2016-04-19 22:51:45,330 Stage-1 map = 40%,  reduce = 0%, Cumulative CPU 284.71 sec
+2016-04-19 22:51:50,508 Stage-1 map = 40%,  reduce = 2%, Cumulative CPU 287.77 sec
+2016-04-19 22:51:56,730 Stage-1 map = 40%,  reduce = 3%, Cumulative CPU 291.72 sec
+2016-04-19 22:52:00,889 Stage-1 map = 41%,  reduce = 3%, Cumulative CPU 321.77 sec
+2016-04-19 22:52:01,926 Stage-1 map = 44%,  reduce = 3%, Cumulative CPU 338.56 sec
+2016-04-19 22:52:07,104 Stage-1 map = 46%,  reduce = 3%, Cumulative CPU 356.13 sec
+2016-04-19 22:52:08,134 Stage-1 map = 49%,  reduce = 3%, Cumulative CPU 364.76 sec
+2016-04-19 22:52:10,201 Stage-1 map = 51%,  reduce = 3%, Cumulative CPU 370.59 sec
+2016-04-19 22:52:11,229 Stage-1 map = 53%,  reduce = 3%, Cumulative CPU 378.2 sec
+2016-04-19 22:52:12,258 Stage-1 map = 53%,  reduce = 4%, Cumulative CPU 381.7 sec
+2016-04-19 22:52:26,672 Stage-1 map = 57%,  reduce = 4%, Cumulative CPU 419.4 sec
+2016-04-19 22:52:27,706 Stage-1 map = 58%,  reduce = 4%, Cumulative CPU 422.78 sec
+2016-04-19 22:52:32,838 Stage-1 map = 61%,  reduce = 4%, Cumulative CPU 448.11 sec
+2016-04-19 22:52:33,867 Stage-1 map = 62%,  reduce = 4%, Cumulative CPU 451.34 sec
+2016-04-19 22:52:34,901 Stage-1 map = 63%,  reduce = 4%, Cumulative CPU 454.83 sec
+2016-04-19 22:52:35,925 Stage-1 map = 66%,  reduce = 4%, Cumulative CPU 462.6 sec
+2016-04-19 22:52:36,958 Stage-1 map = 67%,  reduce = 5%, Cumulative CPU 466.44 sec
+2016-04-19 22:52:40,063 Stage-1 map = 67%,  reduce = 6%, Cumulative CPU 466.7 sec
+2016-04-19 22:52:45,218 Stage-1 map = 67%,  reduce = 8%, Cumulative CPU 479.29 sec
+2016-04-19 22:52:46,248 Stage-1 map = 68%,  reduce = 8%, Cumulative CPU 486.66 sec
+2016-04-19 22:52:47,280 Stage-1 map = 69%,  reduce = 8%, Cumulative CPU 495.28 sec
+2016-04-19 22:52:48,304 Stage-1 map = 70%,  reduce = 8%, Cumulative CPU 499.76 sec
+2016-04-19 22:52:52,398 Stage-1 map = 71%,  reduce = 8%, Cumulative CPU 515.8 sec
+2016-04-19 22:52:53,423 Stage-1 map = 72%,  reduce = 8%, Cumulative CPU 519.02 sec
+2016-04-19 22:52:54,446 Stage-1 map = 74%,  reduce = 8%, Cumulative CPU 522.85 sec
+2016-04-19 22:52:56,516 Stage-1 map = 77%,  reduce = 8%, Cumulative CPU 532.74 sec
+2016-04-19 22:52:57,552 Stage-1 map = 77%,  reduce = 10%, Cumulative CPU 536.33 sec
+2016-04-19 22:53:05,780 Stage-1 map = 79%,  reduce = 10%, Cumulative CPU 556.4 sec
+2016-04-19 22:53:06,803 Stage-1 map = 80%,  reduce = 10%, Cumulative CPU 565.41 sec
+2016-04-19 22:53:11,932 Stage-1 map = 82%,  reduce = 10%, Cumulative CPU 585.26 sec
+2016-04-19 22:53:12,965 Stage-1 map = 83%,  reduce = 10%, Cumulative CPU 588.7 sec
+2016-04-19 22:53:15,008 Stage-1 map = 87%,  reduce = 10%, Cumulative CPU 599.25 sec
+2016-04-19 22:53:16,042 Stage-1 map = 87%,  reduce = 11%, Cumulative CPU 599.75 sec
+2016-04-19 22:53:23,245 Stage-1 map = 88%,  reduce = 11%, Cumulative CPU 608.9 sec
+2016-04-19 22:53:24,278 Stage-1 map = 89%,  reduce = 11%, Cumulative CPU 617.62 sec
+2016-04-19 22:53:25,300 Stage-1 map = 90%,  reduce = 11%, Cumulative CPU 626.48 sec
+2016-04-19 22:53:29,384 Stage-1 map = 91%,  reduce = 11%, Cumulative CPU 641.91 sec
+2016-04-19 22:53:30,405 Stage-1 map = 92%,  reduce = 11%, Cumulative CPU 645.12 sec
+2016-04-19 22:53:31,427 Stage-1 map = 93%,  reduce = 11%, Cumulative CPU 648.83 sec
+2016-04-19 22:53:32,449 Stage-1 map = 95%,  reduce = 11%, Cumulative CPU 652.44 sec
+2016-04-19 22:53:33,469 Stage-1 map = 97%,  reduce = 11%, Cumulative CPU 658.37 sec
+2016-04-19 22:53:34,501 Stage-1 map = 97%,  reduce = 12%, Cumulative CPU 658.82 sec
+2016-04-19 22:53:42,728 Stage-1 map = 99%,  reduce = 12%, Cumulative CPU 671.84 sec
+2016-04-19 22:53:44,778 Stage-1 map = 99%,  reduce = 16%, Cumulative CPU 678.9 sec
+2016-04-19 22:53:45,799 Stage-1 map = 99%,  reduce = 19%, Cumulative CPU 688.65 sec
+2016-04-19 22:53:46,820 Stage-1 map = 100%,  reduce = 19%, Cumulative CPU 690.49 sec
+2016-04-19 22:53:48,913 Stage-1 map = 100%,  reduce = 33%, Cumulative CPU 701.41 sec
+2016-04-19 22:53:49,951 Stage-1 map = 100%,  reduce = 37%, Cumulative CPU 705.1 sec
+2016-04-19 22:53:50,973 Stage-1 map = 100%,  reduce = 42%, Cumulative CPU 709.75 sec
+2016-04-19 22:53:52,006 Stage-1 map = 100%,  reduce = 43%, Cumulative CPU 726.08 sec
+2016-04-19 22:53:55,103 Stage-1 map = 100%,  reduce = 45%, Cumulative CPU 742.82 sec
+2016-04-19 22:53:56,136 Stage-1 map = 100%,  reduce = 46%, Cumulative CPU 746.17 sec
+2016-04-19 22:53:57,157 Stage-1 map = 100%,  reduce = 49%, Cumulative CPU 755.01 sec
+2016-04-19 22:53:58,194 Stage-1 map = 100%,  reduce = 51%, Cumulative CPU 768.91 sec
+2016-04-19 22:54:00,250 Stage-1 map = 100%,  reduce = 56%, Cumulative CPU 776.08 sec
+2016-04-19 22:54:01,282 Stage-1 map = 100%,  reduce = 58%, Cumulative CPU 789.25 sec
+2016-04-19 22:54:02,307 Stage-1 map = 100%,  reduce = 59%, Cumulative CPU 792.64 sec
+2016-04-19 22:54:04,387 Stage-1 map = 100%,  reduce = 61%, Cumulative CPU 810.38 sec
+2016-04-19 22:54:06,465 Stage-1 map = 100%,  reduce = 63%, Cumulative CPU 823.57 sec
+2016-04-19 22:54:07,498 Stage-1 map = 100%,  reduce = 64%, Cumulative CPU 829.98 sec
+2016-04-19 22:54:09,563 Stage-1 map = 100%,  reduce = 66%, Cumulative CPU 842.86 sec
+2016-04-19 22:54:10,605 Stage-1 map = 100%,  reduce = 67%, Cumulative CPU 849.2 sec
+2016-04-19 22:54:11,631 Stage-1 map = 100%,  reduce = 68%, Cumulative CPU 852.61 sec
+2016-04-19 22:54:12,652 Stage-1 map = 100%,  reduce = 69%, Cumulative CPU 862.08 sec
+2016-04-19 22:54:13,683 Stage-1 map = 100%,  reduce = 70%, Cumulative CPU 868.54 sec
+2016-04-19 22:54:14,704 Stage-1 map = 100%,  reduce = 71%, Cumulative CPU 871.94 sec
+2016-04-19 22:54:15,724 Stage-1 map = 100%,  reduce = 72%, Cumulative CPU 881.69 sec
+2016-04-19 22:54:16,745 Stage-1 map = 100%,  reduce = 73%, Cumulative CPU 885.49 sec
+2016-04-19 22:54:19,805 Stage-1 map = 100%,  reduce = 74%, Cumulative CPU 892.16 sec
+2016-04-19 22:54:25,949 Stage-1 map = 100%,  reduce = 75%, Cumulative CPU 901.44 sec
+2016-04-19 22:54:30,030 Stage-1 map = 100%,  reduce = 79%, Cumulative CPU 909.29 sec
+2016-04-19 22:54:31,052 Stage-1 map = 100%,  reduce = 83%, Cumulative CPU 917.1 sec
+2016-04-19 22:54:32,081 Stage-1 map = 100%,  reduce = 88%, Cumulative CPU 921.0 sec
+2016-04-19 22:54:34,128 Stage-1 map = 100%,  reduce = 92%, Cumulative CPU 925.37 sec
+2016-04-19 22:54:36,167 Stage-1 map = 100%,  reduce = 93%, Cumulative CPU 932.49 sec
+2016-04-19 22:54:39,232 Stage-1 map = 100%,  reduce = 94%, Cumulative CPU 938.89 sec
+2016-04-19 22:54:41,277 Stage-1 map = 100%,  reduce = 95%, Cumulative CPU 942.04 sec
+2016-04-19 22:54:44,338 Stage-1 map = 100%,  reduce = 96%, Cumulative CPU 948.49 sec
+2016-04-19 22:54:47,400 Stage-1 map = 100%,  reduce = 97%, Cumulative CPU 954.82 sec
+2016-04-19 22:54:50,470 Stage-1 map = 100%,  reduce = 98%, Cumulative CPU 961.09 sec
+2016-04-19 22:54:53,560 Stage-1 map = 100%,  reduce = 99%, Cumulative CPU 967.33 sec
+2016-04-19 22:54:56,621 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 975.09 sec
+MapReduce Total cumulative CPU time: 16 minutes 15 seconds 90 msec
+Ended Job = job_1460557272467_0058
+Launching Job 2 out of 2
+Number of reduce tasks determined at compile time: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1460557272467_0059, Tracking URL = http://jupiter1.ece.utexas.edu:8088/proxy/application_1460557272467_0059/
+Kill Command = /home/ashulyak/hadoop/bin/hadoop job  -kill job_1460557272467_0059
+Hadoop job information for Stage-2: number of mappers: 1; number of reducers: 1
+2016-04-19 22:55:07,264 Stage-2 map = 0%,  reduce = 0%
+2016-04-19 22:55:12,392 Stage-2 map = 100%,  reduce = 0%, Cumulative CPU 0.9 sec
+2016-04-19 22:55:17,521 Stage-2 map = 100%,  reduce = 100%, Cumulative CPU 2.25 sec
+MapReduce Total cumulative CPU time: 2 seconds 250 msec
+Ended Job = job_1460557272467_0059
+Loading data to table default.q19_discounted_revenue
+Table default.q19_discounted_revenue stats: [numFiles=1, numRows=1, totalSize=21, rawDataSize=20]
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 30  Reduce: 8   Cumulative CPU: 975.09 sec   HDFS Read: 7780512774 HDFS Write: 968 SUCCESS
+Stage-Stage-2: Map: 1  Reduce: 1   Cumulative CPU: 2.25 sec   HDFS Read: 7833 HDFS Write: 107 SUCCESS
+Total MapReduce CPU Time Spent: 16 minutes 17 seconds 340 msec
+OK
+Time taken: 273.961 seconds
+Time:283.59
+
+Logging initialized using configuration in jar:file:/home/ashulyak/hive/lib/hive-common-1.2.1.jar!/hive-log4j.properties
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/home/ashulyak/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/ashulyak/tez/apache-tez-0.7.0-src/tez_minimal_jars/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+set hive.execution.engine=tez
+
+
+DROP TABLE lineitem
+OK
+Time taken: 1.598 seconds
+
+DROP TABLE part
+OK
+Time taken: 0.079 seconds
+
+DROP TABLE q19_discounted_revenue
+OK
+Time taken: 0.083 seconds
+
+
+create external table lineitem (L_ORDERKEY INT, L_PARTKEY INT, L_SUPPKEY INT, L_LINENUMBER INT, L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE, L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING, L_SHIPDATE STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING, L_SHIPINSTRUCT STRING, L_SHIPMODE STRING, L_COMMENT STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' STORED AS TEXTFILE LOCATION '/tpch/lineitem'
+OK
+Time taken: 0.301 seconds
+
+create external table part (P_PARTKEY INT, P_NAME STRING, P_MFGR STRING, P_BRAND STRING, P_TYPE STRING, P_SIZE INT, P_CONTAINER STRING, P_RETAILPRICE DOUBLE, P_COMMENT STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' STORED AS TEXTFILE LOCATION '/tpch/part'
+OK
+Time taken: 0.033 seconds
+
+
+create table q19_discounted_revenue(revenue double)
+OK
+Time taken: 0.083 seconds
+set mapred.min.split.size=268435456
+set hive.exec.reducers.bytes.per.reducer=1040000000
+
+
+insert overwrite table q19_discounted_revenue
+select
+  sum(l_extendedprice * (1 - l_discount) ) as revenue
+from
+  lineitem l join part p
+  on 
+    p.p_partkey = l.l_partkey    
+where
+  (
+    p_brand = 'Brand#12'
+	and p_container REGEXP 'SM CASE||SM BOX||SM PACK||SM PKG'
+	and l_quantity >= 1 and l_quantity <= 11
+	and p_size >= 1 and p_size <= 5
+	and l_shipmode REGEXP 'AIR||AIR REG'
+	and l_shipinstruct = 'DELIVER IN PERSON'
+  ) 
+  or 
+  (
+    p_brand = 'Brand#23'
+	and p_container REGEXP 'MED BAG||MED BOX||MED PKG||MED PACK'
+	and l_quantity >= 10 and l_quantity <= 20
+	and p_size >= 1 and p_size <= 10
+	and l_shipmode REGEXP 'AIR||AIR REG'
+	and l_shipinstruct = 'DELIVER IN PERSON'
+  )
+  or
+  (
+	p_brand = 'Brand#34'
+	and p_container REGEXP 'LG CASE||LG BOX||LG PACK||LG PKG'
+	and l_quantity >= 20 and l_quantity <= 30
+	and p_size >= 1 and p_size <= 15
+	and l_shipmode REGEXP 'AIR||AIR REG'
+	and l_shipinstruct = 'DELIVER IN PERSON'
+  )
+
+Query ID = ashulyak_20160605115040_9ee76e17-b8bb-47ef-a7de-f2cbf9efa4a6
+Total jobs = 1
+Launching Job 1 out of 1
+
+
+Status: Running (Executing on YARN cluster with App id application_1465144776816_0011)
+
+Map 1: -/-	Map 4: -/-	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0/15	Map 4: 0/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: -/-	Map 4: -/-	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+15)/15	Map 4: 0(+1)/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+15)/15	Map 4: 0(+1)/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Status: Failed
+Application application_1465144776816_0011 failed 2 times due to AM Container for appattempt_1465144776816_0011_000002 exited with  exitCode: -103
+For more detailed output, check application tracking page:http://jupiter1.ece.utexas.edu:8088/cluster/app/application_1465144776816_0011Then, click on links to logs of each attempt.
+Diagnostics: Container [pid=2766,containerID=container_1465144776816_0011_02_000001] is running beyond virtual memory limits. Current usage: 347.4 MB of 1 GB physical memory used; 2.5 GB of 2.1 GB virtual memory used. Killing container.
+Dump of the process-tree for container_1465144776816_0011_02_000001 :
+	|- PID PPID PGRPID SESSID CMD_NAME USER_MODE_TIME(MILLIS) SYSTEM_TIME(MILLIS) VMEM_USAGE(BYTES) RSSMEM_USAGE(PAGES) FULL_CMD_LINE
+	|- 2766 2764 2766 2766 (bash) 0 0 12746752 677 /bin/bash -c /usr/bin/java  -Xmx819m -server -Djava.net.preferIPv4Stack=true -Dhadoop.metrics.log.level=WARN -XX:+PrintGCDetails -verbose:gc -XX:+PrintGCTimeStamps -XX:+UseNUMA -XX:+UseParallelGC -Dlog4j.configuratorClass=org.apache.tez.common.TezLog4jConfigurator -Dlog4j.configuration=tez-container-log4j.properties -Dyarn.app.container.log.dir=/home/ashulyak/hadoop/logs/userlogs/application_1465144776816_0011/container_1465144776816_0011_02_000001 -Dtez.root.logger=INFO,CLA -Dsun.nio.ch.bugLevel='' org.apache.tez.dag.app.DAGAppMaster --session 1>/home/ashulyak/hadoop/logs/userlogs/application_1465144776816_0011/container_1465144776816_0011_02_000001/stdout 2>/home/ashulyak/hadoop/logs/userlogs/application_1465144776816_0011/container_1465144776816_0011_02_000001/stderr  
+	|- 2772 2766 2766 2766 (java) 594 25 2682847232 88269 /usr/bin/java -Xmx819m -server -Djava.net.preferIPv4Stack=true -Dhadoop.metrics.log.level=WARN -XX:+PrintGCDetails -verbose:gc -XX:+PrintGCTimeStamps -XX:+UseNUMA -XX:+UseParallelGC -Dlog4j.configuratorClass=org.apache.tez.common.TezLog4jConfigurator -Dlog4j.configuration=tez-container-log4j.properties -Dyarn.app.container.log.dir=/home/ashulyak/hadoop/logs/userlogs/application_1465144776816_0011/container_1465144776816_0011_02_000001 -Dtez.root.logger=INFO,CLA -Dsun.nio.ch.bugLevel= org.apache.tez.dag.app.DAGAppMaster --session 
+
+Container killed on request. Exit code is 143
+Container exited with a non-zero exit code 143
+Failing this attempt. Failing the application.
+FAILED: Execution Error, return code 2 from org.apache.hadoop.hive.ql.exec.tez.TezTask. Application application_1465144776816_0011 failed 2 times due to AM Container for appattempt_1465144776816_0011_000002 exited with  exitCode: -103
+For more detailed output, check application tracking page:http://jupiter1.ece.utexas.edu:8088/cluster/app/application_1465144776816_0011Then, click on links to logs of each attempt.
+Diagnostics: Container [pid=2766,containerID=container_1465144776816_0011_02_000001] is running beyond virtual memory limits. Current usage: 347.4 MB of 1 GB physical memory used; 2.5 GB of 2.1 GB virtual memory used. Killing container.
+Dump of the process-tree for container_1465144776816_0011_02_000001 :
+	|- PID PPID PGRPID SESSID CMD_NAME USER_MODE_TIME(MILLIS) SYSTEM_TIME(MILLIS) VMEM_USAGE(BYTES) RSSMEM_USAGE(PAGES) FULL_CMD_LINE
+	|- 2766 2764 2766 2766 (bash) 0 0 12746752 677 /bin/bash -c /usr/bin/java  -Xmx819m -server -Djava.net.preferIPv4Stack=true -Dhadoop.metrics.log.level=WARN -XX:+PrintGCDetails -verbose:gc -XX:+PrintGCTimeStamps -XX:+UseNUMA -XX:+UseParallelGC -Dlog4j.configuratorClass=org.apache.tez.common.TezLog4jConfigurator -Dlog4j.configuration=tez-container-log4j.properties -Dyarn.app.container.log.dir=/home/ashulyak/hadoop/logs/userlogs/application_1465144776816_0011/container_1465144776816_0011_02_000001 -Dtez.root.logger=INFO,CLA -Dsun.nio.ch.bugLevel='' org.apache.tez.dag.app.DAGAppMaster --session 1>/home/ashulyak/hadoop/logs/userlogs/application_1465144776816_0011/container_1465144776816_0011_02_000001/stdout 2>/home/ashulyak/hadoop/logs/userlogs/application_1465144776816_0011/container_1465144776816_0011_02_000001/stderr  
+	|- 2772 2766 2766 2766 (java) 594 25 2682847232 88269 /usr/bin/java -Xmx819m -server -Djava.net.preferIPv4Stack=true -Dhadoop.metrics.log.level=WARN -XX:+PrintGCDetails -verbose:gc -XX:+PrintGCTimeStamps -XX:+UseNUMA -XX:+UseParallelGC -Dlog4j.configuratorClass=org.apache.tez.common.TezLog4jConfigurator -Dlog4j.configuration=tez-container-log4j.properties -Dyarn.app.container.log.dir=/home/ashulyak/hadoop/logs/userlogs/application_1465144776816_0011/container_1465144776816_0011_02_000001 -Dtez.root.logger=INFO,CLA -Dsun.nio.ch.bugLevel= org.apache.tez.dag.app.DAGAppMaster --session 
+
+Container killed on request. Exit code is 143
+Container exited with a non-zero exit code 143
+Failing this attempt. Failing the application.
+Command exited with non-zero status 2
+Time:21.11
+
+Logging initialized using configuration in jar:file:/home/ashulyak/hive/lib/hive-common-1.2.1.jar!/hive-log4j.properties
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/home/ashulyak/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/ashulyak/tez/apache-tez-0.7.0-src/tez_minimal_jars/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+set hive.execution.engine=tez
+
+
+DROP TABLE lineitem
+OK
+Time taken: 1.493 seconds
+
+DROP TABLE part
+OK
+Time taken: 0.08 seconds
+
+DROP TABLE q19_discounted_revenue
+OK
+Time taken: 0.071 seconds
+
+
+create external table lineitem (L_ORDERKEY INT, L_PARTKEY INT, L_SUPPKEY INT, L_LINENUMBER INT, L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE, L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING, L_SHIPDATE STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING, L_SHIPINSTRUCT STRING, L_SHIPMODE STRING, L_COMMENT STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' STORED AS TEXTFILE LOCATION '/tpch/lineitem'
+OK
+Time taken: 0.279 seconds
+
+create external table part (P_PARTKEY INT, P_NAME STRING, P_MFGR STRING, P_BRAND STRING, P_TYPE STRING, P_SIZE INT, P_CONTAINER STRING, P_RETAILPRICE DOUBLE, P_COMMENT STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' STORED AS TEXTFILE LOCATION '/tpch/part'
+OK
+Time taken: 0.033 seconds
+
+
+create table q19_discounted_revenue(revenue double)
+OK
+Time taken: 0.083 seconds
+set mapred.min.split.size=268435456
+set hive.exec.reducers.bytes.per.reducer=1040000000
+
+
+insert overwrite table q19_discounted_revenue
+select
+  sum(l_extendedprice * (1 - l_discount) ) as revenue
+from
+  lineitem l join part p
+  on 
+    p.p_partkey = l.l_partkey    
+where
+  (
+    p_brand = 'Brand#12'
+	and p_container REGEXP 'SM CASE||SM BOX||SM PACK||SM PKG'
+	and l_quantity >= 1 and l_quantity <= 11
+	and p_size >= 1 and p_size <= 5
+	and l_shipmode REGEXP 'AIR||AIR REG'
+	and l_shipinstruct = 'DELIVER IN PERSON'
+  ) 
+  or 
+  (
+    p_brand = 'Brand#23'
+	and p_container REGEXP 'MED BAG||MED BOX||MED PKG||MED PACK'
+	and l_quantity >= 10 and l_quantity <= 20
+	and p_size >= 1 and p_size <= 10
+	and l_shipmode REGEXP 'AIR||AIR REG'
+	and l_shipinstruct = 'DELIVER IN PERSON'
+  )
+  or
+  (
+	p_brand = 'Brand#34'
+	and p_container REGEXP 'LG CASE||LG BOX||LG PACK||LG PKG'
+	and l_quantity >= 20 and l_quantity <= 30
+	and p_size >= 1 and p_size <= 15
+	and l_shipmode REGEXP 'AIR||AIR REG'
+	and l_shipinstruct = 'DELIVER IN PERSON'
+  )
+
+Query ID = ashulyak_20160605145932_ff33750e-c33b-44a0-9bc5-685daca50cb1
+Total jobs = 1
+Launching Job 1 out of 1
+
+
+Status: Running (Executing on YARN cluster with App id application_1465156363502_0006)
+
+Map 1: -/-	Map 4: -/-	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0/15	Map 4: 0/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0/15	Map 4: 0/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+1)/15	Map 4: 0/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+1)/15	Map 4: 0(+1)/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+2)/15	Map 4: 0(+1)/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+3)/15	Map 4: 0(+1)/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+4)/15	Map 4: 0(+1)/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+5)/15	Map 4: 0(+1)/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+6)/15	Map 4: 0(+1)/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+6)/15	Map 4: 0(+1)/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+6)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 0(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 1(+6)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 1(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 1(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 2(+6)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 2(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 3(+6)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 3(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 4(+6)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 4(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 5(+6)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 5(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 6(+6)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 6(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 7(+6)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 7(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 7(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 7(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 7(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 7(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 8(+6)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 8(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 8(+7)/15	Map 4: 1/1	Reducer 2: 0/4	Reducer 3: 0/1	
+Map 1: 9(+6)/15	Map 4: 1/1	Reducer 2: 0(+1)/4	Reducer 3: 0/1	
+Map 1: 10(+5)/15	Map 4: 1/1	Reducer 2: 0(+2)/4	Reducer 3: 0/1	
+Map 1: 11(+4)/15	Map 4: 1/1	Reducer 2: 0(+3)/4	Reducer 3: 0/1	
+Map 1: 12(+3)/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 13(+2)/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 13(+2)/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 14(+1)/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 0(+4)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 1(+3)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 2(+2)/4	Reducer 3: 0/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 3(+1)/4	Reducer 3: 0(+1)/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 4/4	Reducer 3: 0(+1)/1	
+Map 1: 15/15	Map 4: 1/1	Reducer 2: 4/4	Reducer 3: 1/1	
+Loading data to table default.q19_discounted_revenue
+Table default.q19_discounted_revenue stats: [numFiles=1, numRows=1, totalSize=21, rawDataSize=20]
+OK
+Time taken: 143.913 seconds
+Time:152.09

@@ -1,0 +1,54 @@
+
+Logging initialized using configuration in jar:file:/home/ashulyak/hive/lib/hive-common-1.2.1.jar!/hive-log4j.properties
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/home/ashulyak/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/ashulyak/tez/apache-tez-0.7.0-src/tez_minimal_jars/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+DROP TABLE part
+OK
+Time taken: 0.841 seconds
+
+DROP TABLE part_txt
+OK
+Time taken: 0.897 seconds
+
+DROP TABLE part_orc
+OK
+Time taken: 0.107 seconds
+
+
+create external table part_txt (P_PARTKEY INT, P_NAME STRING, P_MFGR STRING, P_BRAND STRING, P_TYPE STRING, P_SIZE INT, P_CONTAINER STRING, P_RETAILPRICE DOUBLE, P_COMMENT STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' STORED AS TEXTFILE LOCATION '/tpch/part'
+OK
+Time taken: 0.31 seconds
+
+CREATE TABLE part_orc (P_PARTKEY INT, P_NAME STRING, P_MFGR STRING, P_BRAND STRING, P_TYPE STRING, P_SIZE INT, P_CONTAINER STRING, P_RETAILPRICE DOUBLE, P_COMMENT STRING) STORED AS ORC
+OK
+Time taken: 0.124 seconds
+
+
+INSERT INTO TABLE part_orc SELECT * FROM part_txt
+Query ID = ashulyak_20160419224331_5c7ed7ee-17a1-4285-aa56-b925582dcb61
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1460557272467_0057, Tracking URL = http://jupiter1.ece.utexas.edu:8088/proxy/application_1460557272467_0057/
+Kill Command = /home/ashulyak/hadoop/bin/hadoop job  -kill job_1460557272467_0057
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+2016-04-19 22:43:36,964 Stage-1 map = 0%,  reduce = 0%
+2016-04-19 22:43:50,349 Stage-1 map = 55%,  reduce = 0%, Cumulative CPU 11.42 sec
+2016-04-19 22:43:53,426 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 15.19 sec
+MapReduce Total cumulative CPU time: 15 seconds 190 msec
+Ended Job = job_1460557272467_0057
+Stage-4 is selected by condition resolver.
+Stage-3 is filtered out by condition resolver.
+Stage-5 is filtered out by condition resolver.
+Moving data to: hdfs://localhost:9000/user/hive/warehouse/part_orc/.hive-staging_hive_2016-04-19_22-43-31_419_6910473421738844079-1/-ext-10000
+Loading data to table default.part_orc
+Table default.part_orc stats: [numFiles=1, numRows=2000000, totalSize=39448687, rawDataSize=1228000000]
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1   Cumulative CPU: 15.19 sec   HDFS Read: 243344917 HDFS Write: 39448772 SUCCESS
+Total MapReduce CPU Time Spent: 15 seconds 190 msec
+OK
+Time taken: 23.313 seconds
+Time:33.02

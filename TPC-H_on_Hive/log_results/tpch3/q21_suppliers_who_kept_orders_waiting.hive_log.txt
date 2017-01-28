@@ -1,0 +1,2 @@
+Running Hive query: tpch/q21_suppliers_who_kept_orders_waiting.hive
+Running Hive query: tpch/q21_suppliers_who_kept_orders_waiting.hive

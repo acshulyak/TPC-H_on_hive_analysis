@@ -1,0 +1,34 @@
+Difference in row 1 column 0 using str ----------------> VIOLATION OF SPEC
+./../../TPC-H_on_Hive/test_results//q1.out:N
+         ./../answers//q1.out:A
+Difference in row 1 column 2 9851614.00 37734107.00 using sum: total diff 27882493 percent diff 283.0246 % ----------------> VIOLATION OF SPEC
+Difference in row 1 column 3 14767438399.17 56586554400.73 using sum: total diff 41819116001.56 percent diff 283.1846 % ----------------> VIOLATION OF SPEC
+Difference in row 1 column 4 14028805792.21 53758257134.87 using sum: total diff 39729451342.66 percent diff 283.1991 % ----------------> VIOLATION OF SPEC
+Difference in row 1 column 5 14590490998.37 55909065222.83 using sum: total diff 41318574224.46 percent diff 283.1884 % ----------------> VIOLATION OF SPEC
+Difference in row 1 column 7 F1=38257.81 F2=38273.13 using avg total diff 15.3199999999997 percent diff 0.0400 ----------------> OK WITH SPEC
+Difference in row 1 column 9 385998                1478493 using cnt: total diff 0 percent diff 0.0000 % ----------------> VIOLATION OF SPEC
+Difference in row 2 column 1 using str ----------------> VIOLATION OF SPEC
+./../../TPC-H_on_Hive/test_results//q1.out:O
+         ./../answers//q1.out:F
+Difference in row 2 column 2 743124873.00 991417.00 using sum: total diff 742133456 percent diff 99.8666 % ----------------> VIOLATION OF SPEC
+Difference in row 2 column 3 1114302286901.88 1487504710.38 using sum: total diff 1112814782191.5 percent diff 99.8665 % ----------------> VIOLATION OF SPEC
+Difference in row 2 column 4 1058580922144.96 1413082168.05 using sum: total diff 1057167839976.91 percent diff 99.8665 % ----------------> VIOLATION OF SPEC
+Difference in row 2 column 5 1100937000170.59 1469649223.19 using sum: total diff 1099467350947.4 percent diff 99.8665 % ----------------> VIOLATION OF SPEC
+Difference in row 2 column 6 F1=25.50 F2=25.52 using avg total diff 0.0199999999999996 percent diff 0.0784 ----------------> OK WITH SPEC
+Difference in row 2 column 7 F1=38233.90 F2=38284.47 using avg total diff 50.5699999999997 percent diff 0.1323 ----------------> OK WITH SPEC
+Difference in row 2 column 9 29144351                  38854 using cnt: total diff 0 percent diff 0.0000 % ----------------> VIOLATION OF SPEC
+Difference in row 3 column 0 using str ----------------> VIOLATION OF SPEC
+./../../TPC-H_on_Hive/test_results//q1.out:R
+         ./../answers//q1.out:N
+Difference in row 3 column 1 using str ----------------> VIOLATION OF SPEC
+./../../TPC-H_on_Hive/test_results//q1.out:F
+         ./../answers//q1.out:O
+Difference in row 3 column 2 377732830.00 74476040.00 using sum: total diff 303256790 percent diff 80.2834 % ----------------> VIOLATION OF SPEC
+Difference in row 3 column 3 566431054976.00 111701729697.74 using sum: total diff 454729325278.26 percent diff 80.2797 % ----------------> VIOLATION OF SPEC
+Difference in row 3 column 4 538110922664.77 106118230307.61 using sum: total diff 431992692357.16 percent diff 80.2795 % ----------------> VIOLATION OF SPEC
+Difference in row 3 column 5 559634780885.09 110367043872.50 using sum: total diff 449267737012.59 percent diff 80.2787 % ----------------> VIOLATION OF SPEC
+Difference in row 3 column 6 F1=25.51 F2=25.50 using avg total diff 0.0100000000000016 percent diff 0.0392 ----------------> OK WITH SPEC
+Difference in row 3 column 7 F1=38251.22 F2=38249.12 using avg total diff 2.09999999999854 percent diff 0.0055 ----------------> OK WITH SPEC
+Difference in row 3 column 9 14808183                2920374 using cnt: total diff 0 percent diff 0.0000 % ----------------> VIOLATION OF SPEC
+File1 (./../../TPC-H_on_Hive/test_results//q1.out) exhausted before File2 (./../answers//q1.out)
+Number of rows processed 3

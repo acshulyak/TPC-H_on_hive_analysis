@@ -1,0 +1,2 @@
+Running Hive query: tpch/q20_potential_part_promotion.hive
+Running Hive query: tpch/q20_potential_part_promotion.hive

@@ -1,0 +1,12 @@
+# started on Sun Jul 17 16:16:21 2016
+
+
+ Performance counter stats for process id '12365':
+
+ 3,278,931,452,621      instructions              #    1.51  insns per cycle        
+ 2,171,216,789,676      cycles                   
+           473,218      cs                                                          
+            60,389      migrations                                                  
+
+     150.178724742 seconds time elapsed
+

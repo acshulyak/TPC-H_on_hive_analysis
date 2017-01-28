@@ -1,0 +1,11 @@
+# started on Sat Jun 18 16:35:58 2016
+
+
+ Performance counter stats for process id '42999':
+
+        1041518156      instructions              #    0.75  insns per cycle        
+        1390113043      cycles                   
+        1237892105      r01c2                                                       
+
+      33.743138325 seconds time elapsed
+

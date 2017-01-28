@@ -1,0 +1,314 @@
+
+Logging initialized using configuration in jar:file:/home/ashulyak/hive/lib/hive-common-1.2.1.jar!/hive-log4j.properties
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/home/ashulyak/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/ashulyak/tez/apache-tez-0.7.0-src/tez_minimal_jars/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+set hive.execution.engine=tez
+
+
+DROP TABLE lineitem
+OK
+Time taken: 1.481 seconds
+
+DROP TABLE q1_pricing_summary_report
+OK
+Time taken: 0.098 seconds
+
+
+Create external table lineitem (L_ORDERKEY INT, L_PARTKEY INT, L_SUPPKEY INT, L_LINENUMBER INT, L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE, L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING, L_SHIPDATE STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING, L_SHIPINSTRUCT STRING, L_SHIPMODE STRING, L_COMMENT STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' STORED AS TEXTFILE LOCATION '/tpch/lineitem'
+OK
+Time taken: 0.283 seconds
+
+
+CREATE TABLE q1_pricing_summary_report ( L_RETURNFLAG STRING, L_LINESTATUS STRING, SUM_QTY DOUBLE, SUM_BASE_PRICE DOUBLE, SUM_DISC_PRICE DOUBLE, SUM_CHARGE DOUBLE, AVE_QTY DOUBLE, AVE_PRICE DOUBLE, AVE_DISC DOUBLE, COUNT_ORDER INT)
+OK
+Time taken: 0.082 seconds
+set mapred.min.split.size=536870912
+
+
+INSERT OVERWRITE TABLE q1_pricing_summary_report 
+SELECT 
+  L_RETURNFLAG, L_LINESTATUS, SUM(L_QUANTITY), SUM(L_EXTENDEDPRICE), SUM(L_EXTENDEDPRICE*(1-L_DISCOUNT)), SUM(L_EXTENDEDPRICE*(1-L_DISCOUNT)*(1+L_TAX)), AVG(L_QUANTITY), AVG(L_EXTENDEDPRICE), AVG(L_DISCOUNT), COUNT(1) 
+FROM 
+  lineitem 
+WHERE 
+  L_SHIPDATE<='1998-09-01'
+GROUP BY L_RETURNFLAG, L_LINESTATUS 
+ORDER BY L_RETURNFLAG, L_LINESTATUS
+Query ID = ashulyak_20160605114911_ede0ab5b-e90a-4fa8-989a-1560da002236
+Total jobs = 1
+Launching Job 1 out of 1
+
+
+Status: Running (Executing on YARN cluster with App id application_1465144776816_0007)
+
+Map 1: -/-	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+15)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+15)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Status: Failed
+Application application_1465144776816_0007 failed 2 times due to AM Container for appattempt_1465144776816_0007_000002 exited with  exitCode: -103
+For more detailed output, check application tracking page:http://jupiter1.ece.utexas.edu:8088/cluster/app/application_1465144776816_0007Then, click on links to logs of each attempt.
+Diagnostics: Container [pid=49145,containerID=container_1465144776816_0007_02_000001] is running beyond virtual memory limits. Current usage: 344.6 MB of 1 GB physical memory used; 2.5 GB of 2.1 GB virtual memory used. Killing container.
+Dump of the process-tree for container_1465144776816_0007_02_000001 :
+	|- PID PPID PGRPID SESSID CMD_NAME USER_MODE_TIME(MILLIS) SYSTEM_TIME(MILLIS) VMEM_USAGE(BYTES) RSSMEM_USAGE(PAGES) FULL_CMD_LINE
+	|- 49145 49143 49145 49145 (bash) 0 0 12746752 692 /bin/bash -c /usr/bin/java  -Xmx819m -server -Djava.net.preferIPv4Stack=true -Dhadoop.metrics.log.level=WARN -XX:+PrintGCDetails -verbose:gc -XX:+PrintGCTimeStamps -XX:+UseNUMA -XX:+UseParallelGC -Dlog4j.configuratorClass=org.apache.tez.common.TezLog4jConfigurator -Dlog4j.configuration=tez-container-log4j.properties -Dyarn.app.container.log.dir=/home/ashulyak/hadoop/logs/userlogs/application_1465144776816_0007/container_1465144776816_0007_02_000001 -Dtez.root.logger=INFO,CLA -Dsun.nio.ch.bugLevel='' org.apache.tez.dag.app.DAGAppMaster --session 1>/home/ashulyak/hadoop/logs/userlogs/application_1465144776816_0007/container_1465144776816_0007_02_000001/stdout 2>/home/ashulyak/hadoop/logs/userlogs/application_1465144776816_0007/container_1465144776816_0007_02_000001/stderr  
+	|- 49151 49145 49145 49145 (java) 606 35 2682109952 87527 /usr/bin/java -Xmx819m -server -Djava.net.preferIPv4Stack=true -Dhadoop.metrics.log.level=WARN -XX:+PrintGCDetails -verbose:gc -XX:+PrintGCTimeStamps -XX:+UseNUMA -XX:+UseParallelGC -Dlog4j.configuratorClass=org.apache.tez.common.TezLog4jConfigurator -Dlog4j.configuration=tez-container-log4j.properties -Dyarn.app.container.log.dir=/home/ashulyak/hadoop/logs/userlogs/application_1465144776816_0007/container_1465144776816_0007_02_000001 -Dtez.root.logger=INFO,CLA -Dsun.nio.ch.bugLevel= org.apache.tez.dag.app.DAGAppMaster --session 
+
+Container killed on request. Exit code is 143
+Container exited with a non-zero exit code 143
+Failing this attempt. Failing the application.
+FAILED: Execution Error, return code 2 from org.apache.hadoop.hive.ql.exec.tez.TezTask. Application application_1465144776816_0007 failed 2 times due to AM Container for appattempt_1465144776816_0007_000002 exited with  exitCode: -103
+For more detailed output, check application tracking page:http://jupiter1.ece.utexas.edu:8088/cluster/app/application_1465144776816_0007Then, click on links to logs of each attempt.
+Diagnostics: Container [pid=49145,containerID=container_1465144776816_0007_02_000001] is running beyond virtual memory limits. Current usage: 344.6 MB of 1 GB physical memory used; 2.5 GB of 2.1 GB virtual memory used. Killing container.
+Dump of the process-tree for container_1465144776816_0007_02_000001 :
+	|- PID PPID PGRPID SESSID CMD_NAME USER_MODE_TIME(MILLIS) SYSTEM_TIME(MILLIS) VMEM_USAGE(BYTES) RSSMEM_USAGE(PAGES) FULL_CMD_LINE
+	|- 49145 49143 49145 49145 (bash) 0 0 12746752 692 /bin/bash -c /usr/bin/java  -Xmx819m -server -Djava.net.preferIPv4Stack=true -Dhadoop.metrics.log.level=WARN -XX:+PrintGCDetails -verbose:gc -XX:+PrintGCTimeStamps -XX:+UseNUMA -XX:+UseParallelGC -Dlog4j.configuratorClass=org.apache.tez.common.TezLog4jConfigurator -Dlog4j.configuration=tez-container-log4j.properties -Dyarn.app.container.log.dir=/home/ashulyak/hadoop/logs/userlogs/application_1465144776816_0007/container_1465144776816_0007_02_000001 -Dtez.root.logger=INFO,CLA -Dsun.nio.ch.bugLevel='' org.apache.tez.dag.app.DAGAppMaster --session 1>/home/ashulyak/hadoop/logs/userlogs/application_1465144776816_0007/container_1465144776816_0007_02_000001/stdout 2>/home/ashulyak/hadoop/logs/userlogs/application_1465144776816_0007/container_1465144776816_0007_02_000001/stderr  
+	|- 49151 49145 49145 49145 (java) 606 35 2682109952 87527 /usr/bin/java -Xmx819m -server -Djava.net.preferIPv4Stack=true -Dhadoop.metrics.log.level=WARN -XX:+PrintGCDetails -verbose:gc -XX:+PrintGCTimeStamps -XX:+UseNUMA -XX:+UseParallelGC -Dlog4j.configuratorClass=org.apache.tez.common.TezLog4jConfigurator -Dlog4j.configuration=tez-container-log4j.properties -Dyarn.app.container.log.dir=/home/ashulyak/hadoop/logs/userlogs/application_1465144776816_0007/container_1465144776816_0007_02_000001 -Dtez.root.logger=INFO,CLA -Dsun.nio.ch.bugLevel= org.apache.tez.dag.app.DAGAppMaster --session 
+
+Container killed on request. Exit code is 143
+Container exited with a non-zero exit code 143
+Failing this attempt. Failing the application.
+Command exited with non-zero status 2
+Time:22.82
+
+Logging initialized using configuration in jar:file:/home/ashulyak/hive/lib/hive-common-1.2.1.jar!/hive-log4j.properties
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/home/ashulyak/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/ashulyak/tez/apache-tez-0.7.0-src/tez_minimal_jars/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+set hive.execution.engine=tez
+
+
+DROP TABLE lineitem
+OK
+Time taken: 1.523 seconds
+
+DROP TABLE q1_pricing_summary_report
+OK
+Time taken: 0.077 seconds
+
+
+Create external table lineitem (L_ORDERKEY INT, L_PARTKEY INT, L_SUPPKEY INT, L_LINENUMBER INT, L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE, L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING, L_SHIPDATE STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING, L_SHIPINSTRUCT STRING, L_SHIPMODE STRING, L_COMMENT STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' STORED AS TEXTFILE LOCATION '/tpch/lineitem'
+OK
+Time taken: 0.329 seconds
+
+
+CREATE TABLE q1_pricing_summary_report ( L_RETURNFLAG STRING, L_LINESTATUS STRING, SUM_QTY DOUBLE, SUM_BASE_PRICE DOUBLE, SUM_DISC_PRICE DOUBLE, SUM_CHARGE DOUBLE, AVE_QTY DOUBLE, AVE_PRICE DOUBLE, AVE_DISC DOUBLE, COUNT_ORDER INT)
+OK
+Time taken: 0.082 seconds
+set mapred.min.split.size=536870912
+
+
+INSERT OVERWRITE TABLE q1_pricing_summary_report 
+SELECT 
+  L_RETURNFLAG, L_LINESTATUS, SUM(L_QUANTITY), SUM(L_EXTENDEDPRICE), SUM(L_EXTENDEDPRICE*(1-L_DISCOUNT)), SUM(L_EXTENDEDPRICE*(1-L_DISCOUNT)*(1+L_TAX)), AVG(L_QUANTITY), AVG(L_EXTENDEDPRICE), AVG(L_DISCOUNT), COUNT(1) 
+FROM 
+  lineitem 
+WHERE 
+  L_SHIPDATE<='1998-09-01'
+GROUP BY L_RETURNFLAG, L_LINESTATUS 
+ORDER BY L_RETURNFLAG, L_LINESTATUS
+Query ID = ashulyak_20160605145531_4b3bddd9-af4d-4178-8015-e103c7d87742
+Total jobs = 1
+Launching Job 1 out of 1
+
+
+Status: Running (Executing on YARN cluster with App id application_1465156363502_0002)
+
+Map 1: -/-	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+1)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+2)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+3)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+4)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+5)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+7)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+7)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+7)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+7)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+7)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 1(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 1(+7)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 2(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 2(+7)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 3(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 4(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 4(+7)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 5(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 5(+7)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 6(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 6(+7)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 7(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 7(+7)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 7(+7)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 7(+7)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 7(+7)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 8(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 8(+7)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 9(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 9(+6)/15	Reducer 2: 0(+1)/11	Reducer 3: 0/1	
+Map 1: 10(+5)/15	Reducer 2: 0(+2)/11	Reducer 3: 0/1	
+Map 1: 11(+4)/15	Reducer 2: 0(+3)/11	Reducer 3: 0/1	
+Map 1: 12(+3)/15	Reducer 2: 0(+4)/11	Reducer 3: 0/1	
+Map 1: 13(+2)/15	Reducer 2: 0(+5)/11	Reducer 3: 0/1	
+Map 1: 14(+1)/15	Reducer 2: 0(+6)/11	Reducer 3: 0/1	
+Map 1: 15/15	Reducer 2: 5(+6)/11	Reducer 3: 0/1	
+Map 1: 15/15	Reducer 2: 6(+5)/11	Reducer 3: 0/1	
+Map 1: 15/15	Reducer 2: 11/11	Reducer 3: 0/1	
+Map 1: 15/15	Reducer 2: 11/11	Reducer 3: 0(+1)/1	
+Map 1: 15/15	Reducer 2: 11/11	Reducer 3: 1/1	
+Loading data to table default.q1_pricing_summary_report
+Table default.q1_pricing_summary_report stats: [numFiles=1, numRows=4, totalSize=580, rawDataSize=576]
+OK
+Time taken: 56.36 seconds
+Time:64.32
+
+Logging initialized using configuration in jar:file:/home/ashulyak/hive/lib/hive-common-1.2.1.jar!/hive-log4j.properties
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/home/ashulyak/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/ashulyak/tez/apache-tez-0.7.0-src/tez_minimal_jars/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+set hive.execution.engine=tez
+
+
+DROP TABLE lineitem
+OK
+Time taken: 1.478 seconds
+
+DROP TABLE q1_pricing_summary_report
+OK
+Time taken: 0.107 seconds
+
+
+Create external table lineitem (L_ORDERKEY INT, L_PARTKEY INT, L_SUPPKEY INT, L_LINENUMBER INT, L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE, L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING, L_SHIPDATE STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING, L_SHIPINSTRUCT STRING, L_SHIPMODE STRING, L_COMMENT STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' STORED AS TEXTFILE LOCATION '/tpch/lineitem'
+OK
+Time taken: 0.292 seconds
+
+
+CREATE TABLE q1_pricing_summary_report ( L_RETURNFLAG STRING, L_LINESTATUS STRING, SUM_QTY DOUBLE, SUM_BASE_PRICE DOUBLE, SUM_DISC_PRICE DOUBLE, SUM_CHARGE DOUBLE, AVE_QTY DOUBLE, AVE_PRICE DOUBLE, AVE_DISC DOUBLE, COUNT_ORDER INT)
+OK
+Time taken: 0.091 seconds
+set mapred.min.split.size=536870912
+
+
+INSERT OVERWRITE TABLE q1_pricing_summary_report 
+SELECT 
+  L_RETURNFLAG, L_LINESTATUS, SUM(L_QUANTITY), SUM(L_EXTENDEDPRICE), SUM(L_EXTENDEDPRICE*(1-L_DISCOUNT)), SUM(L_EXTENDEDPRICE*(1-L_DISCOUNT)*(1+L_TAX)), AVG(L_QUANTITY), AVG(L_EXTENDEDPRICE), AVG(L_DISCOUNT), COUNT(1) 
+FROM 
+  lineitem 
+WHERE 
+  L_SHIPDATE<='1998-09-01'
+GROUP BY L_RETURNFLAG, L_LINESTATUS 
+ORDER BY L_RETURNFLAG, L_LINESTATUS
+Query ID = ashulyak_20160605155656_8910a342-8095-4322-9342-33cc9ae914d3
+Total jobs = 1
+Launching Job 1 out of 1
+
+
+Status: Running (Executing on YARN cluster with App id application_1465156363502_0011)
+
+Map 1: -/-	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0/15	Reducer 2: 0/11	Reducer 3: 0/1	
+
+Logging initialized using configuration in jar:file:/home/ashulyak/hive/lib/hive-common-1.2.1.jar!/hive-log4j.properties
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/home/ashulyak/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/ashulyak/tez/apache-tez-0.7.0-src/tez_minimal_jars/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+set hive.execution.engine=tez
+
+
+DROP TABLE lineitem
+OK
+Time taken: 1.491 seconds
+
+DROP TABLE q1_pricing_summary_report
+OK
+Time taken: 0.102 seconds
+
+
+Create external table lineitem (L_ORDERKEY INT, L_PARTKEY INT, L_SUPPKEY INT, L_LINENUMBER INT, L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE, L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING, L_SHIPDATE STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING, L_SHIPINSTRUCT STRING, L_SHIPMODE STRING, L_COMMENT STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' STORED AS TEXTFILE LOCATION '/tpch/lineitem'
+OK
+Time taken: 0.305 seconds
+
+
+CREATE TABLE q1_pricing_summary_report ( L_RETURNFLAG STRING, L_LINESTATUS STRING, SUM_QTY DOUBLE, SUM_BASE_PRICE DOUBLE, SUM_DISC_PRICE DOUBLE, SUM_CHARGE DOUBLE, AVE_QTY DOUBLE, AVE_PRICE DOUBLE, AVE_DISC DOUBLE, COUNT_ORDER INT)
+OK
+Time taken: 0.099 seconds
+set mapred.min.split.size=536870912
+
+
+INSERT OVERWRITE TABLE q1_pricing_summary_report 
+SELECT 
+  L_RETURNFLAG, L_LINESTATUS, SUM(L_QUANTITY), SUM(L_EXTENDEDPRICE), SUM(L_EXTENDEDPRICE*(1-L_DISCOUNT)), SUM(L_EXTENDEDPRICE*(1-L_DISCOUNT)*(1+L_TAX)), AVG(L_QUANTITY), AVG(L_EXTENDEDPRICE), AVG(L_DISCOUNT), COUNT(1) 
+FROM 
+  lineitem 
+WHERE 
+  L_SHIPDATE<='1998-09-01'
+GROUP BY L_RETURNFLAG, L_LINESTATUS 
+ORDER BY L_RETURNFLAG, L_LINESTATUS
+Query ID = ashulyak_20160605165136_c254c044-47ed-418e-ace0-b716913e81f3
+Total jobs = 1
+Launching Job 1 out of 1
+
+
+Status: Running (Executing on YARN cluster with App id application_1465163297518_0002)
+
+Map 1: -/-	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+1)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+2)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+3)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+4)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+5)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+7)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+7)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+7)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+7)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+7)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 1(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 1(+7)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 2(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 2(+7)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 3(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 3(+7)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 4(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 5(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 5(+7)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 6(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 6(+7)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 7(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 7(+7)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 7(+7)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 7(+7)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 7(+7)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 8(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 8(+7)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 9(+6)/15	Reducer 2: 0(+1)/11	Reducer 3: 0/1	
+Map 1: 10(+5)/15	Reducer 2: 0(+2)/11	Reducer 3: 0/1	
+Map 1: 11(+4)/15	Reducer 2: 0(+3)/11	Reducer 3: 0/1	
+Map 1: 12(+3)/15	Reducer 2: 0(+4)/11	Reducer 3: 0/1	
+Map 1: 13(+2)/15	Reducer 2: 0(+5)/11	Reducer 3: 0/1	
+Map 1: 14(+1)/15	Reducer 2: 0(+6)/11	Reducer 3: 0/1	
+Map 1: 14(+0)/15	Reducer 2: 0(+6)/11	Reducer 3: 0/1	
+Map 1: 15/15	Reducer 2: 6(+4)/11	Reducer 3: 0/1	
+Map 1: 15/15	Reducer 2: 6(+5)/11	Reducer 3: 0/1	
+Map 1: 15/15	Reducer 2: 9(+2)/11	Reducer 3: 0/1	
+Map 1: 15/15	Reducer 2: 11/11	Reducer 3: 0(+1)/1	
+Map 1: 15/15	Reducer 2: 11/11	Reducer 3: 1/1	
+Loading data to table default.q1_pricing_summary_report
+Table default.q1_pricing_summary_report stats: [numFiles=1, numRows=4, totalSize=580, rawDataSize=576]
+OK
+Time taken: 57.625 seconds
+Time:65.56

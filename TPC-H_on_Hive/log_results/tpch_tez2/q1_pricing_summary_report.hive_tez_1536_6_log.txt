@@ -1,0 +1,321 @@
+
+Logging initialized using configuration in jar:file:/home/ashulyak/hive/lib/hive-common-1.2.1.jar!/hive-log4j.properties
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/home/ashulyak/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/ashulyak/tez/apache-tez-0.7.0-src/tez_minimal_jars/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+set hive.execution.engine=tez
+
+
+DROP TABLE lineitem
+OK
+Time taken: 1.523 seconds
+
+DROP TABLE q1_pricing_summary_report
+OK
+Time taken: 0.102 seconds
+
+
+Create external table lineitem (L_ORDERKEY INT, L_PARTKEY INT, L_SUPPKEY INT, L_LINENUMBER INT, L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE, L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING, L_SHIPDATE STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING, L_SHIPINSTRUCT STRING, L_SHIPMODE STRING, L_COMMENT STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' STORED AS TEXTFILE LOCATION '/tpch/lineitem'
+OK
+Time taken: 0.278 seconds
+
+
+CREATE TABLE q1_pricing_summary_report ( L_RETURNFLAG STRING, L_LINESTATUS STRING, SUM_QTY DOUBLE, SUM_BASE_PRICE DOUBLE, SUM_DISC_PRICE DOUBLE, SUM_CHARGE DOUBLE, AVE_QTY DOUBLE, AVE_PRICE DOUBLE, AVE_DISC DOUBLE, COUNT_ORDER INT)
+OK
+Time taken: 0.091 seconds
+set mapred.min.split.size=536870912
+set explain_level=3
+
+INSERT OVERWRITE TABLE q1_pricing_summary_report 
+SELECT 
+  L_RETURNFLAG, L_LINESTATUS, SUM(L_QUANTITY), SUM(L_EXTENDEDPRICE), SUM(L_EXTENDEDPRICE*(1-L_DISCOUNT)), SUM(L_EXTENDEDPRICE*(1-L_DISCOUNT)*(1+L_TAX)), AVG(L_QUANTITY), AVG(L_EXTENDEDPRICE), AVG(L_DISCOUNT), COUNT(1) 
+FROM 
+  lineitem 
+WHERE 
+  L_SHIPDATE<='1998-09-01'
+GROUP BY L_RETURNFLAG, L_LINESTATUS 
+ORDER BY L_RETURNFLAG, L_LINESTATUS
+Query ID = ashulyak_20160717124602_45441684-1e8c-409d-a647-0010aadb5506
+Total jobs = 1
+Launching Job 1 out of 1
+
+
+Status: Running (Executing on YARN cluster with App id application_1468776482894_0002)
+
+Map 1: -/-	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+1)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+2)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+3)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+4)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+5)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 1(+5)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 2(+4)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 2(+5)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 2(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 3(+5)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 3(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 4(+5)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 4(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 5(+5)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 5(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 6(+5)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 6(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 6(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 6(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 6(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 7(+5)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 8(+5)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 9(+5)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 9(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 10(+5)/15	Reducer 2: 0(+1)/11	Reducer 3: 0/1	
+Map 1: 11(+4)/15	Reducer 2: 0(+2)/11	Reducer 3: 0/1	
+Map 1: 12(+3)/15	Reducer 2: 0(+3)/11	Reducer 3: 0/1	
+Map 1: 13(+2)/15	Reducer 2: 0(+3)/11	Reducer 3: 0/1	
+Map 1: 13(+2)/15	Reducer 2: 0(+4)/11	Reducer 3: 0/1	
+Map 1: 13(+2)/15	Reducer 2: 0(+4)/11	Reducer 3: 0/1	
+Map 1: 14(+1)/15	Reducer 2: 0(+5)/11	Reducer 3: 0/1	
+Map 1: 15/15	Reducer 2: 4(+5)/11	Reducer 3: 0/1	
+Map 1: 15/15	Reducer 2: 6(+5)/11	Reducer 3: 0/1	
+Map 1: 15/15	Reducer 2: 11/11	Reducer 3: 0(+1)/1	
+Map 1: 15/15	Reducer 2: 11/11	Reducer 3: 1/1	
+Loading data to table default.q1_pricing_summary_report
+Table default.q1_pricing_summary_report stats: [numFiles=1, numRows=4, totalSize=580, rawDataSize=576]
+OK
+Time taken: 61.234 seconds
+Time:69.26
+
+Logging initialized using configuration in jar:file:/home/ashulyak/hive/lib/hive-common-1.2.1.jar!/hive-log4j.properties
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/home/ashulyak/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/ashulyak/tez/apache-tez-0.7.0-src/tez_minimal_jars/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+set hive.execution.engine=tez
+
+
+DROP TABLE lineitem
+OK
+Time taken: 1.618 seconds
+
+DROP TABLE q1_pricing_summary_report
+OK
+Time taken: 0.107 seconds
+
+
+Create external table lineitem (L_ORDERKEY INT, L_PARTKEY INT, L_SUPPKEY INT, L_LINENUMBER INT, L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE, L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING, L_SHIPDATE STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING, L_SHIPINSTRUCT STRING, L_SHIPMODE STRING, L_COMMENT STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' STORED AS TEXTFILE LOCATION '/tpch/lineitem'
+OK
+Time taken: 0.275 seconds
+
+
+CREATE TABLE q1_pricing_summary_report ( L_RETURNFLAG STRING, L_LINESTATUS STRING, SUM_QTY DOUBLE, SUM_BASE_PRICE DOUBLE, SUM_DISC_PRICE DOUBLE, SUM_CHARGE DOUBLE, AVE_QTY DOUBLE, AVE_PRICE DOUBLE, AVE_DISC DOUBLE, COUNT_ORDER INT)
+OK
+Time taken: 0.082 seconds
+set mapred.min.split.size=536870912
+set hive.user.explain=true
+Query returned non-zero code: 1, cause: hive configuration hive.user.explain does not exists.
+Command exited with non-zero status 1
+Time:8.24
+
+Logging initialized using configuration in jar:file:/home/ashulyak/hive/lib/hive-common-1.2.1.jar!/hive-log4j.properties
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/home/ashulyak/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/ashulyak/tez/apache-tez-0.7.0-src/tez_minimal_jars/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+set hive.execution.engine=tez
+
+
+DROP TABLE lineitem
+OK
+Time taken: 1.477 seconds
+
+DROP TABLE q1_pricing_summary_report
+OK
+Time taken: 0.098 seconds
+
+
+Create external table lineitem (L_ORDERKEY INT, L_PARTKEY INT, L_SUPPKEY INT, L_LINENUMBER INT, L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE, L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING, L_SHIPDATE STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING, L_SHIPINSTRUCT STRING, L_SHIPMODE STRING, L_COMMENT STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' STORED AS TEXTFILE LOCATION '/tpch/lineitem'
+OK
+Time taken: 0.283 seconds
+
+
+CREATE TABLE q1_pricing_summary_report ( L_RETURNFLAG STRING, L_LINESTATUS STRING, SUM_QTY DOUBLE, SUM_BASE_PRICE DOUBLE, SUM_DISC_PRICE DOUBLE, SUM_CHARGE DOUBLE, AVE_QTY DOUBLE, AVE_PRICE DOUBLE, AVE_DISC DOUBLE, COUNT_ORDER INT)
+OK
+Time taken: 0.091 seconds
+set mapred.min.split.size=536870912
+set hive.explain.user=true
+set explain_level=3
+
+INSERT OVERWRITE TABLE q1_pricing_summary_report 
+SELECT 
+  L_RETURNFLAG, L_LINESTATUS, SUM(L_QUANTITY), SUM(L_EXTENDEDPRICE), SUM(L_EXTENDEDPRICE*(1-L_DISCOUNT)), SUM(L_EXTENDEDPRICE*(1-L_DISCOUNT)*(1+L_TAX)), AVG(L_QUANTITY), AVG(L_EXTENDEDPRICE), AVG(L_DISCOUNT), COUNT(1) 
+FROM 
+  lineitem 
+WHERE 
+  L_SHIPDATE<='1998-09-01'
+GROUP BY L_RETURNFLAG, L_LINESTATUS 
+ORDER BY L_RETURNFLAG, L_LINESTATUS
+Query ID = ashulyak_20160717164533_76c83e60-3d06-4585-a5b0-5211c56e0a6e
+Total jobs = 1
+Launching Job 1 out of 1
+
+
+Status: Running (Executing on YARN cluster with App id application_1468776482894_0010)
+
+Map 1: -/-	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+1)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+2)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+3)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+4)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+5)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 1(+5)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 1(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 2(+5)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 2(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 3(+5)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 3(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 4(+5)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 4(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 5(+5)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 5(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 6(+5)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 6(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 6(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 6(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 6(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 7(+5)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 7(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 8(+5)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 8(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 9(+5)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 10(+4)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 10(+5)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 11(+4)/15	Reducer 2: 0(+2)/11	Reducer 3: 0/1	
+Map 1: 12(+3)/15	Reducer 2: 0(+3)/11	Reducer 3: 0/1	
+Map 1: 12(+3)/15	Reducer 2: 0(+3)/11	Reducer 3: 0/1	
+Map 1: 13(+2)/15	Reducer 2: 0(+4)/11	Reducer 3: 0/1	
+Map 1: 13(+2)/15	Reducer 2: 0(+4)/11	Reducer 3: 0/1	
+Map 1: 14(+1)/15	Reducer 2: 0(+5)/11	Reducer 3: 0/1	
+Map 1: 15/15	Reducer 2: 5(+6)/11	Reducer 3: 0/1	
+Map 1: 15/15	Reducer 2: 6(+5)/11	Reducer 3: 0/1	
+Map 1: 15/15	Reducer 2: 11/11	Reducer 3: 0(+1)/1	
+Map 1: 15/15	Reducer 2: 11/11	Reducer 3: 1/1	
+Loading data to table default.q1_pricing_summary_report
+Table default.q1_pricing_summary_report stats: [numFiles=1, numRows=4, totalSize=580, rawDataSize=576]
+OK
+Time taken: 61.355 seconds
+Time:69.33
+
+Logging initialized using configuration in jar:file:/home/ashulyak/hive/lib/hive-common-1.2.1.jar!/hive-log4j.properties
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/home/ashulyak/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/ashulyak/tez/apache-tez-0.7.0-src/tez_minimal_jars/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+set hive.execution.engine=tez
+
+
+DROP TABLE lineitem
+OK
+Time taken: 1.463 seconds
+
+DROP TABLE q1_pricing_summary_report
+OK
+Time taken: 0.104 seconds
+
+
+Create external table lineitem (L_ORDERKEY INT, L_PARTKEY INT, L_SUPPKEY INT, L_LINENUMBER INT, L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE, L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING, L_SHIPDATE STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING, L_SHIPINSTRUCT STRING, L_SHIPMODE STRING, L_COMMENT STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' STORED AS TEXTFILE LOCATION '/tpch/lineitem'
+OK
+Time taken: 0.277 seconds
+
+
+CREATE TABLE q1_pricing_summary_report ( L_RETURNFLAG STRING, L_LINESTATUS STRING, SUM_QTY DOUBLE, SUM_BASE_PRICE DOUBLE, SUM_DISC_PRICE DOUBLE, SUM_CHARGE DOUBLE, AVE_QTY DOUBLE, AVE_PRICE DOUBLE, AVE_DISC DOUBLE, COUNT_ORDER INT)
+OK
+Time taken: 0.091 seconds
+set mapred.min.split.size=536870912
+set hive.explain.user=true
+set explain_level=3
+
+INSERT OVERWRITE TABLE q1_pricing_summary_report 
+SELECT 
+  L_RETURNFLAG, L_LINESTATUS, SUM(L_QUANTITY), SUM(L_EXTENDEDPRICE), SUM(L_EXTENDEDPRICE*(1-L_DISCOUNT)), SUM(L_EXTENDEDPRICE*(1-L_DISCOUNT)*(1+L_TAX)), AVG(L_QUANTITY), AVG(L_EXTENDEDPRICE), AVG(L_DISCOUNT), COUNT(1) 
+FROM 
+  lineitem 
+WHERE 
+  L_SHIPDATE<='1998-09-01'
+GROUP BY L_RETURNFLAG, L_LINESTATUS 
+ORDER BY L_RETURNFLAG, L_LINESTATUS
+Query ID = ashulyak_20160717182035_0baaf9c7-eea9-45cf-8e62-bd5ddac3c0d7
+Total jobs = 1
+Launching Job 1 out of 1
+
+
+Status: Running (Executing on YARN cluster with App id application_1468776482894_0011)
+
+Map 1: -/-	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+1)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+2)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+3)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+4)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+5)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 0(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 1(+5)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 1(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 2(+5)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 2(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 3(+5)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 3(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 4(+5)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 5(+4)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 5(+5)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 5(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 6(+5)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 6(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 6(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 6(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 6(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 7(+5)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 7(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 8(+5)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 8(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 9(+5)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 9(+6)/15	Reducer 2: 0/11	Reducer 3: 0/1	
+Map 1: 10(+5)/15	Reducer 2: 0(+1)/11	Reducer 3: 0/1	
+Map 1: 11(+4)/15	Reducer 2: 0(+2)/11	Reducer 3: 0/1	
+Map 1: 12(+3)/15	Reducer 2: 0(+3)/11	Reducer 3: 0/1	
+Map 1: 12(+3)/15	Reducer 2: 0(+3)/11	Reducer 3: 0/1	
+Map 1: 13(+2)/15	Reducer 2: 0(+4)/11	Reducer 3: 0/1	
+Map 1: 13(+2)/15	Reducer 2: 0(+4)/11	Reducer 3: 0/1	
+Map 1: 14(+1)/15	Reducer 2: 0(+5)/11	Reducer 3: 0/1	
+Map 1: 15/15	Reducer 2: 0(+5)/11	Reducer 3: 0/1	
+Map 1: 15/15	Reducer 2: 6(+5)/11	Reducer 3: 0/1	
+Map 1: 15/15	Reducer 2: 7(+4)/11	Reducer 3: 0/1	
+Map 1: 15/15	Reducer 2: 11/11	Reducer 3: 0(+1)/1	
+Map 1: 15/15	Reducer 2: 11/11	Reducer 3: 1/1	
+Loading data to table default.q1_pricing_summary_report
+Table default.q1_pricing_summary_report stats: [numFiles=1, numRows=4, totalSize=580, rawDataSize=576]
+OK
+Time taken: 61.152 seconds
+Time:69.00

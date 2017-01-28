@@ -1,0 +1,117 @@
+# started on Wed Jan 20 12:26:14 2016
+
+#           time             counts unit events
+     1.000291785         76,576,813      cycles                   
+     1.000291785         60,513,971      stalled-cycles-frontend  
+     2.000625184          3,959,776      cycles                   
+     2.000625184          3,564,516      stalled-cycles-frontend  
+     3.000875036          3,463,872      cycles                   
+     3.000875036          3,075,474      stalled-cycles-frontend  
+     4.001238881         81,706,591      cycles                   
+     4.001238881         53,614,842      stalled-cycles-frontend  
+     5.001582095         58,448,030      cycles                   
+     5.001582095         37,273,212      stalled-cycles-frontend   [99.66%]
+     6.001853494        102,982,166      cycles                   
+     6.001853494         65,617,906      stalled-cycles-frontend   [99.88%]
+     7.002105837          3,665,739      cycles                   
+     7.002105837          3,218,805      stalled-cycles-frontend  
+     8.002346530          2,985,237      cycles                   
+     8.002346530          2,660,401      stalled-cycles-frontend  
+     9.002596591          3,069,189      cycles                   
+     9.002596591          2,742,848      stalled-cycles-frontend  
+    10.002846381          3,055,467      cycles                   
+    10.002846381          2,726,638      stalled-cycles-frontend  
+    11.003096890          3,091,181      cycles                   
+    11.003096890          2,744,950      stalled-cycles-frontend  
+    12.003390667         45,125,839      cycles                   
+    12.003390667         28,324,348      stalled-cycles-frontend  
+    13.003728419      4,577,113,161      cycles                   
+    13.003728419      2,284,662,167      stalled-cycles-frontend  
+    14.004110625      6,581,985,061      cycles                   
+    14.004110625      3,474,303,272      stalled-cycles-frontend  
+    15.004413686      3,330,271,996      cycles                   
+    15.004413686      1,796,643,797      stalled-cycles-frontend  
+    16.004707684      4,440,256,657      cycles                   
+    16.004707684      2,652,491,400      stalled-cycles-frontend  
+    17.005155323        264,626,692      cycles                   
+    17.005155323        125,289,289      stalled-cycles-frontend  
+    18.005564225         20,688,201      cycles                   
+    18.005564225         14,029,361      stalled-cycles-frontend  
+    19.005877859      1,342,477,127      cycles                   
+    19.005877859        737,168,692      stalled-cycles-frontend   [99.97%]
+    20.006229924      6,375,334,235      cycles                   
+    20.006229924      3,468,701,315      stalled-cycles-frontend  
+    21.006600688     12,084,626,493      cycles                   
+    21.006600688      7,573,755,938      stalled-cycles-frontend   [99.91%]
+    22.007051656     16,610,379,392      cycles                   
+    22.007051656     11,097,471,546      stalled-cycles-frontend   [99.93%]
+    23.007510121     18,593,763,109      cycles                   
+    23.007510121     12,456,358,395      stalled-cycles-frontend   [99.94%]
+    24.007999706     19,775,053,146      cycles                   
+    24.007999706     13,158,647,947      stalled-cycles-frontend  
+    25.008478123     22,140,160,201      cycles                   
+    25.008478123     15,179,317,351      stalled-cycles-frontend  
+#           time             counts unit events
+    26.008976625     22,094,638,881      cycles                   
+    26.008976625     14,960,097,295      stalled-cycles-frontend  
+    27.010269753     21,756,225,653      cycles                   
+    27.010269753     14,764,518,797      stalled-cycles-frontend  
+    28.010762644     21,858,606,306      cycles                   
+    28.010762644     14,609,542,859      stalled-cycles-frontend  
+    29.011272759     21,672,594,155      cycles                   
+    29.011272759     14,368,254,688      stalled-cycles-frontend  
+    30.011777787     20,961,494,162      cycles                   
+    30.011777787     13,570,881,120      stalled-cycles-frontend  
+    31.012288657     20,396,938,185      cycles                   
+    31.012288657     12,802,880,266      stalled-cycles-frontend  
+    32.012782066     21,379,818,141      cycles                   
+    32.012782066     13,427,671,710      stalled-cycles-frontend  
+    33.013273162     20,916,716,744      cycles                   
+    33.013273162     12,603,041,527      stalled-cycles-frontend  
+    34.013775559     20,623,355,328      cycles                   
+    34.013775559     12,152,112,726      stalled-cycles-frontend  
+    35.014259240     19,656,198,983      cycles                   
+    35.014259240     11,087,831,735      stalled-cycles-frontend  
+    36.014749878     20,582,214,642      cycles                   
+    36.014749878     12,072,618,144      stalled-cycles-frontend  
+    37.015253703     19,551,219,684      cycles                   
+    37.015253703     10,847,762,343      stalled-cycles-frontend  
+    38.015732850     20,675,355,987      cycles                   
+    38.015732850     12,040,085,246      stalled-cycles-frontend  
+    39.016216468     19,233,891,682      cycles                   
+    39.016216468     10,560,578,486      stalled-cycles-frontend  
+    40.016689971     18,789,084,968      cycles                   
+    40.016689971     10,750,513,183      stalled-cycles-frontend  
+    41.017161960     21,079,804,011      cycles                   
+    41.017161960     12,868,478,832      stalled-cycles-frontend  
+    42.017652513     18,839,265,386      cycles                   
+    42.017652513     10,143,491,083      stalled-cycles-frontend  
+    43.018137400     18,354,907,266      cycles                   
+    43.018137400      9,470,801,460      stalled-cycles-frontend  
+    44.018619367     17,483,399,163      cycles                   
+    44.018619367      8,614,672,170      stalled-cycles-frontend  
+    45.019113145     15,044,319,869      cycles                   
+    45.019113145      7,389,897,659      stalled-cycles-frontend  
+    46.019535738     12,842,422,881      cycles                   
+    46.019535738      6,166,486,475      stalled-cycles-frontend  
+    47.019956630      4,480,373,310      cycles                   
+    47.019956630      1,405,717,419      stalled-cycles-frontend  
+    48.020411334      4,979,855,041      cycles                   
+    48.020411334      2,729,955,137      stalled-cycles-frontend  
+    49.020812571      6,295,767,250      cycles                   
+    49.020812571      3,375,570,452      stalled-cycles-frontend  
+    50.021264412      3,154,120,579      cycles                   
+    50.021264412      1,392,099,087      stalled-cycles-frontend  
+#           time             counts unit events
+    51.021690193      3,475,440,422      cycles                   
+    51.021690193      1,572,131,192      stalled-cycles-frontend  
+    52.022066564      3,330,524,722      cycles                   
+    52.022066564      1,447,114,098      stalled-cycles-frontend  
+    53.022431772      3,086,277,320      cycles                   
+    53.022431772      1,325,800,660      stalled-cycles-frontend  
+    54.022789791      3,615,219,304      cycles                   
+    54.022789791      1,620,202,802      stalled-cycles-frontend  
+    55.023102136      3,916,722,912      cycles                   
+    55.023102136      1,842,066,212      stalled-cycles-frontend  
+    55.581325903      2,396,587,657      cycles                   
+    55.581325903      1,325,011,848      stalled-cycles-frontend  

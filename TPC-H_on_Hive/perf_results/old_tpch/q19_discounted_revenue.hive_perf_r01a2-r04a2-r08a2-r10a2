@@ -1,0 +1,2703 @@
+# started on Tue Oct  6 22:04:34 2015
+
+#           time             counts unit events
+     1.000172997        1362.972946      task-clock (msec)        
+     1.000172997                522      context-switches         
+     1.000172997                122      cpu-migrations           
+     1.000172997             17,680      page-faults              
+     1.000172997      3,769,686,042      cycles                   
+     1.000172997      1,925,711,568      stalled-cycles-frontend  
+     1.000172997                  0      stalled-cycles-backend   
+     1.000172997      3,907,380,973      instructions             
+     1.000172997        705,485,624      branches                 
+     1.000172997         42,504,919      branch-misses            
+     2.000418303        2559.595932      task-clock (msec)        
+     2.000418303                198      context-switches         
+     2.000418303                 40      cpu-migrations           
+     2.000418303             20,651      page-faults              
+     2.000418303      7,197,156,453      cycles                   
+     2.000418303      3,503,676,499      stalled-cycles-frontend  
+     2.000418303                  0      stalled-cycles-backend   
+     2.000418303      8,165,965,319      instructions             
+     2.000418303      1,493,676,139      branches                 
+     2.000418303         79,570,897      branch-misses            
+     3.000621984        1572.509405      task-clock (msec)        
+     3.000621984                145      context-switches         
+     3.000621984                 31      cpu-migrations           
+     3.000621984              9,019      page-faults              
+     3.000621984      4,283,127,137      cycles                   
+     3.000621984      2,157,161,482      stalled-cycles-frontend  
+     3.000621984                  0      stalled-cycles-backend   
+     3.000621984      4,799,470,460      instructions             
+     3.000621984        880,732,042      branches                 
+     3.000621984         43,182,570      branch-misses            
+     4.000853248          11.470807      task-clock (msec)        
+     4.000853248                 92      context-switches         
+     4.000853248                 33      cpu-migrations           
+     4.000853248                  1      page-faults              
+     4.000853248         14,187,376      cycles                   
+     4.000853248          9,821,196      stalled-cycles-frontend  
+     4.000853248                  0      stalled-cycles-backend   
+     4.000853248          6,869,662      instructions             
+     4.000853248          1,228,145      branches                 
+     4.000853248            182,708      branch-misses            
+     5.001102959        1893.941909      task-clock (msec)        
+     5.001102959                565      context-switches         
+     5.001102959                 91      cpu-migrations           
+     5.001102959             12,481      page-faults              
+     5.001102959      4,932,598,347      cycles                   
+     5.001102959      2,529,264,223      stalled-cycles-frontend  
+     5.001102959                  0      stalled-cycles-backend   
+     5.001102959      5,653,113,325      instructions             
+     5.001102959      1,063,492,599      branches                 
+     5.001102959         41,667,524      branch-misses            
+     6.001291514        1567.547928      task-clock (msec)        
+     6.001291514                269      context-switches         
+     6.001291514                 49      cpu-migrations           
+     6.001291514                936      page-faults              
+     6.001291514      4,491,704,687      cycles                   
+     6.001291514      2,348,906,625      stalled-cycles-frontend  
+     6.001291514                  0      stalled-cycles-backend   
+     6.001291514      4,247,492,702      instructions             
+     6.001291514        781,097,634      branches                 
+     6.001291514         49,452,485      branch-misses            
+     7.001493726        1739.212433      task-clock (msec)        
+     7.001493726                233      context-switches         
+     7.001493726                 36      cpu-migrations           
+     7.001493726              2,260      page-faults              
+     7.001493726      4,962,057,705      cycles                   
+     7.001493726      2,588,726,254      stalled-cycles-frontend  
+     7.001493726                  0      stalled-cycles-backend   
+     7.001493726      4,779,453,315      instructions             
+     7.001493726        886,505,673      branches                 
+     7.001493726         57,450,614      branch-misses            
+     8.001689171        1042.677088      task-clock (msec)        
+     8.001689171                229      context-switches         
+     8.001689171                 12      cpu-migrations           
+     8.001689171              3,539      page-faults              
+     8.001689171      3,062,634,035      cycles                   
+     8.001689171      1,397,076,523      stalled-cycles-frontend  
+     8.001689171                  0      stalled-cycles-backend   
+     8.001689171      5,206,504,856      instructions             
+     8.001689171        950,186,778      branches                 
+     8.001689171         13,656,320      branch-misses            
+     9.001876891        1710.545139      task-clock (msec)        
+     9.001876891                440      context-switches         
+     9.001876891                 50      cpu-migrations           
+     9.001876891              2,847      page-faults              
+     9.001876891      4,865,024,602      cycles                   
+     9.001876891      2,602,102,042      stalled-cycles-frontend  
+     9.001876891                  0      stalled-cycles-backend   
+     9.001876891      4,255,406,386      instructions             
+     9.001876891        776,457,435      branches                 
+     9.001876891         60,043,234      branch-misses            
+    10.002076363         824.208069      task-clock (msec)        
+    10.002076363                294      context-switches         
+    10.002076363                 55      cpu-migrations           
+    10.002076363              2,112      page-faults              
+    10.002076363      2,062,799,395      cycles                   
+    10.002076363      1,118,545,763      stalled-cycles-frontend  
+    10.002076363                  0      stalled-cycles-backend   
+    10.002076363      1,907,742,420      instructions             
+    10.002076363        349,238,002      branches                 
+    10.002076363         23,326,927      branch-misses            
+    11.002274157        1448.466133      task-clock (msec)        
+    11.002274157                603      context-switches         
+    11.002274157                 45      cpu-migrations           
+    11.002274157              2,786      page-faults              
+    11.002274157      4,158,692,894      cycles                   
+    11.002274157      2,350,611,643      stalled-cycles-frontend  
+    11.002274157                  0      stalled-cycles-backend   
+    11.002274157      3,951,010,242      instructions             
+    11.002274157        752,210,483      branches                 
+    11.002274157         35,025,851      branch-misses            
+    12.002480730        1332.145408      task-clock (msec)        
+    12.002480730              1,710      context-switches         
+    12.002480730                 93      cpu-migrations           
+    12.002480730              1,793      page-faults              
+    12.002480730      3,595,933,167      cycles                   
+    12.002480730      1,986,616,072      stalled-cycles-frontend  
+    12.002480730                  0      stalled-cycles-backend   
+    12.002480730      3,462,216,874      instructions             
+    12.002480730        626,934,145      branches                 
+    12.002480730         35,588,004      branch-misses            
+    13.002676443         329.688761      task-clock (msec)        
+    13.002676443                301      context-switches         
+    13.002676443                 49      cpu-migrations           
+    13.002676443                841      page-faults              
+    13.002676443        924,014,408      cycles                   
+    13.002676443        531,826,047      stalled-cycles-frontend  
+    13.002676443                  0      stalled-cycles-backend   
+    13.002676443        906,720,799      instructions             
+    13.002676443        172,957,145      branches                 
+    13.002676443          7,337,598      branch-misses            
+    14.002879927           2.255608      task-clock (msec)        
+    14.002879927                 33      context-switches         
+    14.002879927                  2      cpu-migrations           
+    14.002879927                  0      page-faults              
+    14.002879927          6,178,911      cycles                   
+    14.002879927          4,765,498      stalled-cycles-frontend  
+    14.002879927                  0      stalled-cycles-backend   
+    14.002879927          1,823,239      instructions             
+    14.002879927            313,532      branches                 
+    14.002879927             61,637      branch-misses            
+    15.003073547           2.312254      task-clock (msec)        
+    15.003073547                 28      context-switches         
+    15.003073547                  6      cpu-migrations           
+    15.003073547                  3      page-faults              
+    15.003073547          6,309,184      cycles                   
+    15.003073547          5,002,985      stalled-cycles-frontend  
+    15.003073547                  0      stalled-cycles-backend   
+    15.003073547          1,690,515      instructions             
+    15.003073547            289,294      branches                 
+    15.003073547             56,597      branch-misses            
+    16.003339774           2.186713      task-clock (msec)        
+    16.003339774                 33      context-switches         
+    16.003339774                  1      cpu-migrations           
+    16.003339774                  0      page-faults              
+    16.003339774          5,924,860      cycles                   
+    16.003339774          4,545,082      stalled-cycles-frontend  
+    16.003339774                  0      stalled-cycles-backend   
+    16.003339774          1,757,354      instructions             
+    16.003339774            304,168      branches                 
+    16.003339774             59,486      branch-misses            
+    17.003630676         494.866023      task-clock (msec)        
+    17.003630676                 94      context-switches         
+    17.003630676                 13      cpu-migrations           
+    17.003630676              3,081      page-faults              
+    17.003630676      1,164,367,706      cycles                   
+    17.003630676        554,990,663      stalled-cycles-frontend  
+    17.003630676                  0      stalled-cycles-backend   
+    17.003630676      1,669,513,368      instructions             
+    17.003630676        322,278,490      branches                 
+    17.003630676          8,135,974      branch-misses            
+    18.003877243          34.468468      task-clock (msec)        
+    18.003877243                 48      context-switches         
+    18.003877243                  4      cpu-migrations           
+    18.003877243                 34      page-faults              
+    18.003877243         85,352,051      cycles                   
+    18.003877243         48,108,348      stalled-cycles-frontend  
+    18.003877243                  0      stalled-cycles-backend   
+    18.003877243         87,325,816      instructions             
+    18.003877243         16,190,889      branches                 
+    18.003877243            713,543      branch-misses            
+    19.004105111         242.684275      task-clock (msec)        
+    19.004105111                 90      context-switches         
+    19.004105111                  2      cpu-migrations           
+    19.004105111              2,813      page-faults              
+    19.004105111        678,581,739      cycles                   
+    19.004105111        486,139,278      stalled-cycles-frontend  
+    19.004105111                  0      stalled-cycles-backend   
+    19.004105111        548,348,614      instructions             
+    19.004105111        112,756,455      branches                 
+    19.004105111          3,505,293      branch-misses            
+    20.004373933         385.521481      task-clock (msec)        
+    20.004373933                 90      context-switches         
+    20.004373933                  4      cpu-migrations           
+    20.004373933              2,662      page-faults              
+    20.004373933      1,077,388,074      cycles                   
+    20.004373933        725,222,639      stalled-cycles-frontend  
+    20.004373933                  0      stalled-cycles-backend   
+    20.004373933      1,066,427,566      instructions             
+    20.004373933        208,684,308      branches                 
+    20.004373933          4,463,623      branch-misses            
+    21.004614253         371.040258      task-clock (msec)        
+    21.004614253                 97      context-switches         
+    21.004614253                 16      cpu-migrations           
+    21.004614253              3,903      page-faults              
+    21.004614253      1,035,318,034      cycles                   
+    21.004614253        645,367,935      stalled-cycles-frontend  
+    21.004614253                  0      stalled-cycles-backend   
+    21.004614253      1,134,529,356      instructions             
+    21.004614253        206,535,248      branches                 
+    21.004614253          4,845,127      branch-misses            
+    22.004860611          44.132433      task-clock (msec)        
+    22.004860611                 71      context-switches         
+    22.004860611                  1      cpu-migrations           
+    22.004860611                  0      page-faults              
+    22.004860611        123,348,122      cycles                   
+    22.004860611         93,371,210      stalled-cycles-frontend  
+    22.004860611                  0      stalled-cycles-backend   
+    22.004860611         74,821,424      instructions             
+    22.004860611         13,504,269      branches                 
+    22.004860611            772,802      branch-misses            
+    23.005077277           1.371078      task-clock (msec)        
+    23.005077277                 24      context-switches         
+    23.005077277                  0      cpu-migrations           
+    23.005077277                  0      page-faults              
+    23.005077277          3,542,908      cycles                   
+    23.005077277          3,160,740      stalled-cycles-frontend  
+    23.005077277                  0      stalled-cycles-backend   
+    23.005077277            615,635      instructions             
+    23.005077277            113,138      branches                 
+    23.005077277             14,211      branch-misses            
+    24.005282172          33.887371      task-clock (msec)        
+    24.005282172                 55      context-switches         
+    24.005282172                  2      cpu-migrations           
+    24.005282172                  2      page-faults              
+    24.005282172         94,501,974      cycles                   
+    24.005282172         71,358,577      stalled-cycles-frontend  
+    24.005282172                  0      stalled-cycles-backend   
+    24.005282172         57,495,260      instructions             
+    24.005282172         10,408,873      branches                 
+    24.005282172            564,404      branch-misses            
+    25.005483538          28.412204      task-clock (msec)        
+    25.005483538                 60      context-switches         
+    25.005483538                  3      cpu-migrations           
+    25.005483538                  2      page-faults              
+    25.005483538         79,218,949      cycles                   
+    25.005483538         56,303,070      stalled-cycles-frontend  
+    25.005483538                  0      stalled-cycles-backend   
+    25.005483538         56,952,162      instructions             
+    25.005483538         10,309,027      branches                 
+    25.005483538            526,122      branch-misses            
+#           time             counts unit events
+    26.005661843          62.814531      task-clock (msec)        
+    26.005661843                 72      context-switches         
+    26.005661843                  5      cpu-migrations           
+    26.005661843                  0      page-faults              
+    26.005661843        175,358,409      cycles                   
+    26.005661843        127,578,685      stalled-cycles-frontend  
+    26.005661843                  0      stalled-cycles-backend   
+    26.005661843        117,828,213      instructions             
+    26.005661843         21,966,099      branches                 
+    26.005661843          1,140,571      branch-misses            
+    27.005865110          43.157399      task-clock (msec)        
+    27.005865110                 54      context-switches         
+    27.005865110                  5      cpu-migrations           
+    27.005865110                  1      page-faults              
+    27.005865110        120,401,470      cycles                   
+    27.005865110         84,163,695      stalled-cycles-frontend  
+    27.005865110                  0      stalled-cycles-backend   
+    27.005865110         87,649,849      instructions             
+    27.005865110         15,924,042      branches                 
+    27.005865110            859,703      branch-misses            
+    28.006089176          50.178414      task-clock (msec)        
+    28.006089176                 72      context-switches         
+    28.006089176                  5      cpu-migrations           
+    28.006089176                  0      page-faults              
+    28.006089176        140,150,588      cycles                   
+    28.006089176         99,837,667      stalled-cycles-frontend  
+    28.006089176                  0      stalled-cycles-backend   
+    28.006089176        101,437,980      instructions             
+    28.006089176         18,028,715      branches                 
+    28.006089176            946,179      branch-misses            
+    29.006291386          42.121791      task-clock (msec)        
+    29.006291386                 59      context-switches         
+    29.006291386                 13      cpu-migrations           
+    29.006291386                 10      page-faults              
+    29.006291386        117,572,173      cycles                   
+    29.006291386         87,312,435      stalled-cycles-frontend  
+    29.006291386                  0      stalled-cycles-backend   
+    29.006291386         73,504,701      instructions             
+    29.006291386         13,398,791      branches                 
+    29.006291386            686,271      branch-misses            
+    30.006507246          99.132993      task-clock (msec)        
+    30.006507246                335      context-switches         
+    30.006507246                 27      cpu-migrations           
+    30.006507246                  6      page-faults              
+    30.006507246        276,812,035      cycles                   
+    30.006507246        193,567,121      stalled-cycles-frontend  
+    30.006507246                  0      stalled-cycles-backend   
+    30.006507246        151,193,887      instructions             
+    30.006507246         35,838,343      branches                 
+    30.006507246          1,086,835      branch-misses            
+    31.006727512          36.205160      task-clock (msec)        
+    31.006727512                 77      context-switches         
+    31.006727512                  7      cpu-migrations           
+    31.006727512                  1      page-faults              
+    31.006727512        101,024,035      cycles                   
+    31.006727512         76,272,812      stalled-cycles-frontend  
+    31.006727512                  0      stalled-cycles-backend   
+    31.006727512         59,581,641      instructions             
+    31.006727512         10,742,845      branches                 
+    31.006727512            601,303      branch-misses            
+    32.006947086          34.096309      task-clock (msec)        
+    32.006947086                 80      context-switches         
+    32.006947086                  1      cpu-migrations           
+    32.006947086                  0      page-faults              
+    32.006947086         95,150,484      cycles                   
+    32.006947086         71,640,497      stalled-cycles-frontend  
+    32.006947086                  0      stalled-cycles-backend   
+    32.006947086         58,569,003      instructions             
+    32.006947086         10,581,436      branches                 
+    32.006947086            571,200      branch-misses            
+    33.007150308          33.755609      task-clock (msec)        
+    33.007150308                 71      context-switches         
+    33.007150308                  3      cpu-migrations           
+    33.007150308                  1      page-faults              
+    33.007150308         94,166,663      cycles                   
+    33.007150308         69,917,681      stalled-cycles-frontend  
+    33.007150308                  0      stalled-cycles-backend   
+    33.007150308         58,591,369      instructions             
+    33.007150308         10,582,735      branches                 
+    33.007150308            577,452      branch-misses            
+    34.007361536          22.423376      task-clock (msec)        
+    34.007361536                 50      context-switches         
+    34.007361536                  6      cpu-migrations           
+    34.007361536                  1      page-faults              
+    34.007361536         62,461,053      cycles                   
+    34.007361536         36,268,285      stalled-cycles-frontend  
+    34.007361536                  0      stalled-cycles-backend   
+    34.007361536         59,125,893      instructions             
+    34.007361536         10,686,837      branches                 
+    34.007361536            571,603      branch-misses            
+    35.007572337          22.576350      task-clock (msec)        
+    35.007572337                 50      context-switches         
+    35.007572337                 15      cpu-migrations           
+    35.007572337                  0      page-faults              
+    35.007572337         62,907,918      cycles                   
+    35.007572337         36,962,063      stalled-cycles-frontend  
+    35.007572337                  0      stalled-cycles-backend   
+    35.007572337         58,563,010      instructions             
+    35.007572337         10,573,066      branches                 
+    35.007572337            563,096      branch-misses            
+    36.007783001          39.103299      task-clock (msec)        
+    36.007783001                 72      context-switches         
+    36.007783001                  6      cpu-migrations           
+    36.007783001                  1      page-faults              
+    36.007783001        109,088,122      cycles                   
+    36.007783001         79,415,329      stalled-cycles-frontend  
+    36.007783001                  0      stalled-cycles-backend   
+    36.007783001         73,568,595      instructions             
+    36.007783001         13,309,814      branches                 
+    36.007783001            782,557      branch-misses            
+    37.007979125          33.222889      task-clock (msec)        
+    37.007979125                 68      context-switches         
+    37.007979125                  3      cpu-migrations           
+    37.007979125                  1      page-faults              
+    37.007979125         92,684,900      cycles                   
+    37.007979125         68,587,119      stalled-cycles-frontend  
+    37.007979125                  0      stalled-cycles-backend   
+    37.007979125         61,437,342      instructions             
+    37.007979125         11,075,140      branches                 
+    37.007979125            573,096      branch-misses            
+    38.008185543          28.577820      task-clock (msec)        
+    38.008185543                 80      context-switches         
+    38.008185543                  6      cpu-migrations           
+    38.008185543                  1      page-faults              
+    38.008185543         79,703,115      cycles                   
+    38.008185543         55,498,310      stalled-cycles-frontend  
+    38.008185543                  0      stalled-cycles-backend   
+    38.008185543         59,897,810      instructions             
+    38.008185543         10,834,433      branches                 
+    38.008185543            574,883      branch-misses            
+    39.008385601          39.440833      task-clock (msec)        
+    39.008385601                 90      context-switches         
+    39.008385601                 11      cpu-migrations           
+    39.008385601                  0      page-faults              
+    39.008385601        110,068,455      cycles                   
+    39.008385601         81,210,005      stalled-cycles-frontend  
+    39.008385601                  0      stalled-cycles-backend   
+    39.008385601         71,575,858      instructions             
+    39.008385601         12,930,097      branches                 
+    39.008385601            747,826      branch-misses            
+    40.008612906           0.677990      task-clock (msec)        
+    40.008612906                 24      context-switches         
+    40.008612906                  0      cpu-migrations           
+    40.008612906                  3      page-faults              
+    40.008612906          1,708,073      cycles                   
+    40.008612906          1,491,033      stalled-cycles-frontend  
+    40.008612906                  0      stalled-cycles-backend   
+    40.008612906            295,451      instructions             
+    40.008612906             53,617      branches                 
+    40.008612906              7,688      branch-misses            
+    41.091272055          22.680450      task-clock (msec)        
+    41.091272055                 50      context-switches         
+    41.091272055                  4      cpu-migrations           
+    41.091272055                  1      page-faults              
+    41.091272055         60,554,472      cycles                   
+    41.091272055         34,058,474      stalled-cycles-frontend  
+    41.091272055                  0      stalled-cycles-backend   
+    41.091272055         59,877,117      instructions             
+    41.091272055         10,832,075      branches                 
+    41.091272055            579,831      branch-misses            
+    42.091536133           1.464456      task-clock (msec)        
+    42.091536133                 22      context-switches         
+    42.091536133                  0      cpu-migrations           
+    42.091536133                  2      page-faults              
+    42.091536133          1,785,183      cycles                   
+    42.091536133          1,398,105      stalled-cycles-frontend  
+    42.091536133                  0      stalled-cycles-backend   
+    42.091536133            710,636      instructions             
+    42.091536133            137,673      branches                 
+    42.091536133             13,729      branch-misses            
+    43.091824243           0.492092      task-clock (msec)        
+    43.091824243                 22      context-switches         
+    43.091824243                  0      cpu-migrations           
+    43.091824243                  0      page-faults              
+    43.091824243            487,617      cycles                   
+    43.091824243            392,964      stalled-cycles-frontend  
+    43.091824243                  0      stalled-cycles-backend   
+    43.091824243            135,503      instructions             
+    43.091824243             25,998      branches                 
+    43.091824243              4,504      branch-misses            
+    44.092129021           0.552251      task-clock (msec)        
+    44.092129021                 22      context-switches         
+    44.092129021                  1      cpu-migrations           
+    44.092129021                  0      page-faults              
+    44.092129021            632,870      cycles                   
+    44.092129021            529,397      stalled-cycles-frontend  
+    44.092129021                  0      stalled-cycles-backend   
+    44.092129021            141,646      instructions             
+    44.092129021             27,155      branches                 
+    44.092129021              6,199      branch-misses            
+    45.092368228           0.565393      task-clock (msec)        
+    45.092368228                 22      context-switches         
+    45.092368228                  0      cpu-migrations           
+    45.092368228                  0      page-faults              
+    45.092368228            599,873      cycles                   
+    45.092368228            496,615      stalled-cycles-frontend  
+    45.092368228                  0      stalled-cycles-backend   
+    45.092368228            140,312      instructions             
+    45.092368228             26,813      branches                 
+    45.092368228              6,478      branch-misses            
+    46.092577693           2.417770      task-clock (msec)        
+    46.092577693                 29      context-switches         
+    46.092577693                  4      cpu-migrations           
+    46.092577693                  0      page-faults              
+    46.092577693          3,202,380      cycles                   
+    46.092577693          2,587,575      stalled-cycles-frontend  
+    46.092577693                  0      stalled-cycles-backend   
+    46.092577693            816,359      instructions             
+    46.092577693            139,837      branches                 
+    46.092577693             26,096      branch-misses            
+    47.092771174          21.248425      task-clock (msec)        
+    47.092771174                 48      context-switches         
+    47.092771174                  3      cpu-migrations           
+    47.092771174                  1      page-faults              
+    47.092771174         59,180,705      cycles                   
+    47.092771174         33,071,466      stalled-cycles-frontend  
+    47.092771174                  0      stalled-cycles-backend   
+    47.092771174         58,571,753      instructions             
+    47.092771174         10,572,898      branches                 
+    47.092771174            570,313      branch-misses            
+    48.092984843          32.855342      task-clock (msec)        
+    48.092984843                 59      context-switches         
+    48.092984843                  4      cpu-migrations           
+    48.092984843                  0      page-faults              
+    48.092984843         91,656,655      cycles                   
+    48.092984843         68,985,112      stalled-cycles-frontend  
+    48.092984843                  0      stalled-cycles-backend   
+    48.092984843         58,182,861      instructions             
+    48.092984843         10,503,649      branches                 
+    48.092984843            574,804      branch-misses            
+    49.093197811          37.353733      task-clock (msec)        
+    49.093197811                 73      context-switches         
+    49.093197811                  3      cpu-migrations           
+    49.093197811                  0      page-faults              
+    49.093197811        104,268,138      cycles                   
+    49.093197811         80,128,289      stalled-cycles-frontend  
+    49.093197811                  0      stalled-cycles-backend   
+    49.093197811         58,142,812      instructions             
+    49.093197811         10,496,478      branches                 
+    49.093197811            622,825      branch-misses            
+    50.093417842          73.621465      task-clock (msec)        
+    50.093417842                 85      context-switches         
+    50.093417842                  7      cpu-migrations           
+    50.093417842                  1      page-faults              
+    50.093417842        205,544,633      cycles                   
+    50.093417842        153,610,728      stalled-cycles-frontend  
+    50.093417842                  0      stalled-cycles-backend   
+    50.093417842        134,609,082      instructions             
+    50.093417842         25,276,457      branches                 
+    50.093417842          1,278,581      branch-misses            
+#           time             counts unit events
+    51.093642412          63.298124      task-clock (msec)        
+    51.093642412                 80      context-switches         
+    51.093642412                  4      cpu-migrations           
+    51.093642412                  0      page-faults              
+    51.093642412        176,788,477      cycles                   
+    51.093642412        131,181,640      stalled-cycles-frontend  
+    51.093642412                  0      stalled-cycles-backend   
+    51.093642412        116,515,525      instructions             
+    51.093642412         20,985,113      branches                 
+    51.093642412          1,267,882      branch-misses            
+    52.093842997          33.185912      task-clock (msec)        
+    52.093842997                 59      context-switches         
+    52.093842997                  6      cpu-migrations           
+    52.093842997                  0      page-faults              
+    52.093842997         92,548,415      cycles                   
+    52.093842997         67,164,665      stalled-cycles-frontend  
+    52.093842997                  0      stalled-cycles-backend   
+    52.093842997         58,842,527      instructions             
+    52.093842997         10,639,171      branches                 
+    52.093842997            592,724      branch-misses            
+    53.094041316          35.392951      task-clock (msec)        
+    53.094041316                 79      context-switches         
+    53.094041316                  3      cpu-migrations           
+    53.094041316                  0      page-faults              
+    53.094041316         98,793,430      cycles                   
+    53.094041316         74,456,609      stalled-cycles-frontend  
+    53.094041316                  0      stalled-cycles-backend   
+    53.094041316         59,454,361      instructions             
+    53.094041316         10,750,832      branches                 
+    53.094041316            646,253      branch-misses            
+    56.188779381         109.972307      task-clock (msec)        
+    56.188779381                285      context-switches         
+    56.188779381                 22      cpu-migrations           
+    56.188779381                  6      page-faults              
+    56.188779381        306,753,107      cycles                   
+    56.188779381        213,285,329      stalled-cycles-frontend  
+    56.188779381                  0      stalled-cycles-backend   
+    56.188779381        213,647,702      instructions             
+    56.188779381         39,727,718      branches                 
+    56.188779381          2,189,161      branch-misses            
+    57.188984027          32.103899      task-clock (msec)        
+    57.188984027                 79      context-switches         
+    57.188984027                  4      cpu-migrations           
+    57.188984027                  0      page-faults              
+    57.188984027         89,587,772      cycles                   
+    57.188984027         64,591,984      stalled-cycles-frontend  
+    57.188984027                  0      stalled-cycles-backend   
+    57.188984027         62,246,103      instructions             
+    57.188984027         11,248,915      branches                 
+    57.188984027            616,665      branch-misses            
+    58.189206929          33.249720      task-clock (msec)        
+    58.189206929                 58      context-switches         
+    58.189206929                  5      cpu-migrations           
+    58.189206929                  0      page-faults              
+    58.189206929         92,745,232      cycles                   
+    58.189206929         66,760,412      stalled-cycles-frontend  
+    58.189206929                  0      stalled-cycles-backend   
+    58.189206929         64,365,013      instructions             
+    58.189206929         11,663,108      branches                 
+    58.189206929            648,571      branch-misses            
+    59.189412937          37.761145      task-clock (msec)        
+    59.189412937                 53      context-switches         
+    59.189412937                  6      cpu-migrations           
+    59.189412937                  0      page-faults              
+    59.189412937        105,338,922      cycles                   
+    59.189412937         78,591,680      stalled-cycles-frontend  
+    59.189412937                  0      stalled-cycles-backend   
+    59.189412937         67,093,278      instructions             
+    59.189412937         12,154,511      branches                 
+    59.189412937            624,490      branch-misses            
+    60.189619577          30.345194      task-clock (msec)        
+    60.189619577                 51      context-switches         
+    60.189619577                  9      cpu-migrations           
+    60.189619577                  0      page-faults              
+    60.189619577         84,626,388      cycles                   
+    60.189619577         60,467,742      stalled-cycles-frontend  
+    60.189619577                  0      stalled-cycles-backend   
+    60.189619577         59,887,129      instructions             
+    60.189619577         10,811,671      branches                 
+    60.189619577            600,545      branch-misses            
+    61.189811858          31.984610      task-clock (msec)        
+    61.189811858                 49      context-switches         
+    61.189811858                  0      cpu-migrations           
+    61.189811858                  1      page-faults              
+    61.189811858         89,229,239      cycles                   
+    61.189811858         65,327,851      stalled-cycles-frontend  
+    61.189811858                  0      stalled-cycles-backend   
+    61.189811858         59,252,612      instructions             
+    61.189811858         10,689,385      branches                 
+    61.189811858            595,508      branch-misses            
+    62.190007371          23.186586      task-clock (msec)        
+    62.190007371                 50      context-switches         
+    62.190007371                  3      cpu-migrations           
+    62.190007371                  0      page-faults              
+    62.190007371         64,600,871      cycles                   
+    62.190007371         37,920,944      stalled-cycles-frontend  
+    62.190007371                  0      stalled-cycles-backend   
+    62.190007371         59,741,594      instructions             
+    62.190007371         10,782,447      branches                 
+    62.190007371            587,712      branch-misses            
+    63.190226792          22.510374      task-clock (msec)        
+    63.190226792                 50      context-switches         
+    63.190226792                 25      cpu-migrations           
+    63.190226792                  0      page-faults              
+    63.190226792         62,687,634      cycles                   
+    63.190226792         36,370,147      stalled-cycles-frontend  
+    63.190226792                  0      stalled-cycles-backend   
+    63.190226792         58,854,121      instructions             
+    63.190226792         10,619,459      branches                 
+    63.190226792            576,802      branch-misses            
+    64.190443047          30.696114      task-clock (msec)        
+    64.190443047                 51      context-switches         
+    64.190443047                 13      cpu-migrations           
+    64.190443047                  1      page-faults              
+    64.190443047         85,596,236      cycles                   
+    64.190443047         51,881,868      stalled-cycles-frontend  
+    64.190443047                  0      stalled-cycles-backend   
+    64.190443047         78,151,090      instructions             
+    64.190443047         14,140,076      branches                 
+    64.190443047            770,786      branch-misses            
+    65.190645484          32.629682      task-clock (msec)        
+    65.190645484                 66      context-switches         
+    65.190645484                  4      cpu-migrations           
+    65.190645484                  0      page-faults              
+    65.190645484         91,047,224      cycles                   
+    65.190645484         67,295,356      stalled-cycles-frontend  
+    65.190645484                  0      stalled-cycles-backend   
+    65.190645484         59,517,485      instructions             
+    65.190645484         10,739,139      branches                 
+    65.190645484            594,952      branch-misses            
+    66.190840631          29.733694      task-clock (msec)        
+    66.190840631                 42      context-switches         
+    66.190840631                  5      cpu-migrations           
+    66.190840631                  0      page-faults              
+    66.190840631         82,968,173      cycles                   
+    66.190840631         58,679,868      stalled-cycles-frontend  
+    66.190840631                  0      stalled-cycles-backend   
+    66.190840631         59,796,739      instructions             
+    66.190840631         10,928,870      branches                 
+    66.190840631            527,473      branch-misses            
+    67.191041790           7.796932      task-clock (msec)        
+    67.191041790                 38      context-switches         
+    67.191041790                  4      cpu-migrations           
+    67.191041790                  0      page-faults              
+    67.191041790         21,597,814      cycles                   
+    67.191041790         16,673,770      stalled-cycles-frontend  
+    67.191041790                  0      stalled-cycles-backend   
+    67.191041790          8,785,091      instructions             
+    67.191041790          1,506,406      branches                 
+    67.191041790            214,510      branch-misses            
+    68.191224037          26.500061      task-clock (msec)        
+    68.191224037                 55      context-switches         
+    68.191224037                 12      cpu-migrations           
+    68.191224037                  0      page-faults              
+    68.191224037         73,874,427      cycles                   
+    68.191224037         48,691,591      stalled-cycles-frontend  
+    68.191224037                  0      stalled-cycles-backend   
+    68.191224037         59,957,072      instructions             
+    68.191224037         10,820,268      branches                 
+    68.191224037            598,270      branch-misses            
+    69.191424701          36.906417      task-clock (msec)        
+    69.191424701                 52      context-switches         
+    69.191424701                  6      cpu-migrations           
+    69.191424701                  0      page-faults              
+    69.191424701        102,937,232      cycles                   
+    69.191424701         78,631,995      stalled-cycles-frontend  
+    69.191424701                  0      stalled-cycles-backend   
+    69.191424701         59,155,700      instructions             
+    69.191424701         10,678,493      branches                 
+    69.191424701            634,831      branch-misses            
+    70.191632569          37.358271      task-clock (msec)        
+    70.191632569                 69      context-switches         
+    70.191632569                  8      cpu-migrations           
+    70.191632569                  1      page-faults              
+    70.191632569        104,169,796      cycles                   
+    70.191632569         79,792,515      stalled-cycles-frontend  
+    70.191632569                  0      stalled-cycles-backend   
+    70.191632569         60,183,566      instructions             
+    70.191632569         10,856,006      branches                 
+    70.191632569            652,068      branch-misses            
+    71.191842552          37.852734      task-clock (msec)        
+    71.191842552                 72      context-switches         
+    71.191842552                  5      cpu-migrations           
+    71.191842552                  0      page-faults              
+    71.191842552        105,626,227      cycles                   
+    71.191842552         81,619,566      stalled-cycles-frontend  
+    71.191842552                  0      stalled-cycles-backend   
+    71.191842552         58,673,089      instructions             
+    71.191842552         10,588,549      branches                 
+    71.191842552            619,898      branch-misses            
+    72.192051221          36.529378      task-clock (msec)        
+    72.192051221                 83      context-switches         
+    72.192051221                  6      cpu-migrations           
+    72.192051221                  2      page-faults              
+    72.192051221        101,844,593      cycles                   
+    72.192051221         76,614,794      stalled-cycles-frontend  
+    72.192051221                  0      stalled-cycles-backend   
+    72.192051221         62,605,273      instructions             
+    72.192051221         11,307,261      branches                 
+    72.192051221            683,113      branch-misses            
+    73.192243651          48.480733      task-clock (msec)        
+    73.192243651                 79      context-switches         
+    73.192243651                  5      cpu-migrations           
+    73.192243651                  3      page-faults              
+    73.192243651        135,375,893      cycles                   
+    73.192243651        101,235,957      stalled-cycles-frontend  
+    73.192243651                  0      stalled-cycles-backend   
+    73.192243651         84,149,716      instructions             
+    73.192243651         15,271,238      branches                 
+    73.192243651            938,101      branch-misses            
+    74.192455392          55.578834      task-clock (msec)        
+    74.192455392                 68      context-switches         
+    74.192455392                 13      cpu-migrations           
+    74.192455392                  4      page-faults              
+    74.192455392        155,158,749      cycles                   
+    74.192455392        114,228,871      stalled-cycles-frontend  
+    74.192455392                  0      stalled-cycles-backend   
+    74.192455392        106,823,078      instructions             
+    74.192455392         19,654,759      branches                 
+    74.192455392          1,084,058      branch-misses            
+    75.192640873          43.748384      task-clock (msec)        
+    75.192640873                114      context-switches         
+    75.192640873                 18      cpu-migrations           
+    75.192640873                  1      page-faults              
+    75.192640873        122,035,437      cycles                   
+    75.192640873         89,561,557      stalled-cycles-frontend  
+    75.192640873                  0      stalled-cycles-backend   
+    75.192640873         73,171,977      instructions             
+    75.192640873         14,455,006      branches                 
+    75.192640873            687,185      branch-misses            
+    76.192834570          35.651460      task-clock (msec)        
+    76.192834570                 54      context-switches         
+    76.192834570                  6      cpu-migrations           
+    76.192834570                  1      page-faults              
+    76.192834570         99,484,319      cycles                   
+    76.192834570         73,150,663      stalled-cycles-frontend  
+    76.192834570                  0      stalled-cycles-backend   
+    76.192834570         61,993,734      instructions             
+    76.192834570         11,167,345      branches                 
+    76.192834570            657,810      branch-misses            
+    77.193060321          22.499620      task-clock (msec)        
+    77.193060321                 48      context-switches         
+    77.193060321                  6      cpu-migrations           
+    77.193060321                  0      page-faults              
+    77.193060321         62,696,296      cycles                   
+    77.193060321         35,877,764      stalled-cycles-frontend  
+    77.193060321                  0      stalled-cycles-backend   
+    77.193060321         59,755,651      instructions             
+    77.193060321         10,803,870      branches                 
+    77.193060321            596,913      branch-misses            
+#           time             counts unit events
+    78.193243355          22.019929      task-clock (msec)        
+    78.193243355                 47      context-switches         
+    78.193243355                  6      cpu-migrations           
+    78.193243355                  0      page-faults              
+    78.193243355         61,347,301      cycles                   
+    78.193243355         35,558,396      stalled-cycles-frontend  
+    78.193243355                  0      stalled-cycles-backend   
+    78.193243355         58,202,319      instructions             
+    78.193243355         10,518,237      branches                 
+    78.193243355            565,963      branch-misses            
+    79.193435682          32.825295      task-clock (msec)        
+    79.193435682                 71      context-switches         
+    79.193435682                  4      cpu-migrations           
+    79.193435682                  0      page-faults              
+    79.193435682         91,609,308      cycles                   
+    79.193435682         67,596,310      stalled-cycles-frontend  
+    79.193435682                  0      stalled-cycles-backend   
+    79.193435682         58,241,471      instructions             
+    79.193435682         10,526,942      branches                 
+    79.193435682            579,045      branch-misses            
+    80.193640829          20.968840      task-clock (msec)        
+    80.193640829                 48      context-switches         
+    80.193640829                  5      cpu-migrations           
+    80.193640829                  0      page-faults              
+    80.193640829         58,428,619      cycles                   
+    80.193640829         32,306,579      stalled-cycles-frontend  
+    80.193640829                  0      stalled-cycles-backend   
+    80.193640829         58,208,556      instructions             
+    80.193640829         10,523,719      branches                 
+    80.193640829            565,827      branch-misses            
+    81.193839958          27.249525      task-clock (msec)        
+    81.193839958                 60      context-switches         
+    81.193839958                  9      cpu-migrations           
+    81.193839958                  1      page-faults              
+    81.193839958         75,941,075      cycles                   
+    81.193839958         43,649,807      stalled-cycles-frontend  
+    81.193839958                  0      stalled-cycles-backend   
+    81.193839958         71,856,102      instructions             
+    81.193839958         13,028,250      branches                 
+    81.193839958            758,610      branch-misses            
+    82.194017590          26.412705      task-clock (msec)        
+    82.194017590                 49      context-switches         
+    82.194017590                  7      cpu-migrations           
+    82.194017590                  0      page-faults              
+    82.194017590         73,641,741      cycles                   
+    82.194017590         45,734,199      stalled-cycles-frontend  
+    82.194017590                  0      stalled-cycles-backend   
+    82.194017590         63,900,050      instructions             
+    82.194017590         11,562,155      branches                 
+    82.194017590            640,255      branch-misses            
+    83.194216881          34.751512      task-clock (msec)        
+    83.194216881                 49      context-switches         
+    83.194216881                  9      cpu-migrations           
+    83.194216881                  1      page-faults              
+    83.194216881         96,950,632      cycles                   
+    83.194216881         71,156,088      stalled-cycles-frontend  
+    83.194216881                  0      stalled-cycles-backend   
+    83.194216881         62,878,821      instructions             
+    83.194216881         11,319,176      branches                 
+    83.194216881            604,712      branch-misses            
+    84.194394109          95.724887      task-clock (msec)        
+    84.194394109                 64      context-switches         
+    84.194394109                  9      cpu-migrations           
+    84.194394109                  1      page-faults              
+    84.194394109        267,489,266      cycles                   
+    84.194394109        151,568,651      stalled-cycles-frontend  
+    84.194394109                  0      stalled-cycles-backend   
+    84.194394109        274,588,391      instructions             
+    84.194394109         51,669,821      branches                 
+    84.194394109          2,448,585      branch-misses            
+    85.194579916          69.291922      task-clock (msec)        
+    85.194579916                 59      context-switches         
+    85.194579916                 11      cpu-migrations           
+    85.194579916                  0      page-faults              
+    85.194579916        193,493,645      cycles                   
+    85.194579916        124,979,619      stalled-cycles-frontend  
+    85.194579916                  0      stalled-cycles-backend   
+    85.194579916        162,722,065      instructions             
+    85.194579916         29,863,642      branches                 
+    85.194579916          1,689,493      branch-misses            
+    86.194767790          30.547205      task-clock (msec)        
+    86.194767790                 48      context-switches         
+    86.194767790                  3      cpu-migrations           
+    86.194767790                  1      page-faults              
+    86.194767790         85,202,326      cycles                   
+    86.194767790         62,004,919      stalled-cycles-frontend  
+    86.194767790                  0      stalled-cycles-backend   
+    86.194767790         57,231,977      instructions             
+    86.194767790         10,355,768      branches                 
+    86.194767790            555,164      branch-misses            
+    87.194955986          30.887437      task-clock (msec)        
+    87.194955986                 47      context-switches         
+    87.194955986                  2      cpu-migrations           
+    87.194955986                  0      page-faults              
+    87.194955986         86,154,910      cycles                   
+    87.194955986         62,946,883      stalled-cycles-frontend  
+    87.194955986                  0      stalled-cycles-backend   
+    87.194955986         57,621,897      instructions             
+    87.194955986         10,422,881      branches                 
+    87.194955986            568,560      branch-misses            
+    88.195136776          89.764152      task-clock (msec)        
+    88.195136776                 58      context-switches         
+    88.195136776                  9      cpu-migrations           
+    88.195136776                  1      page-faults              
+    88.195136776        250,852,005      cycles                   
+    88.195136776        118,428,217      stalled-cycles-frontend  
+    88.195136776                  0      stalled-cycles-backend   
+    88.195136776        303,725,561      instructions             
+    88.195136776         55,541,158      branches                 
+    88.195136776          2,774,093      branch-misses            
+    89.195336226          35.986384      task-clock (msec)        
+    89.195336226                 65      context-switches         
+    89.195336226                  8      cpu-migrations           
+    89.195336226                  1      page-faults              
+    89.195336226        100,389,348      cycles                   
+    89.195336226         75,208,683      stalled-cycles-frontend  
+    89.195336226                  0      stalled-cycles-backend   
+    89.195336226         61,917,214      instructions             
+    89.195336226         11,252,525      branches                 
+    89.195336226            642,115      branch-misses            
+    90.195534761          26.322550      task-clock (msec)        
+    90.195534761                 54      context-switches         
+    90.195534761                 10      cpu-migrations           
+    90.195534761                  1      page-faults              
+    90.195534761         73,312,188      cycles                   
+    90.195534761         45,460,451      stalled-cycles-frontend  
+    90.195534761                  0      stalled-cycles-backend   
+    90.195534761         64,672,970      instructions             
+    90.195534761         11,685,983      branches                 
+    90.195534761            665,180      branch-misses            
+    91.195740270          33.492375      task-clock (msec)        
+    91.195740270                 61      context-switches         
+    91.195740270                 14      cpu-migrations           
+    91.195740270                  0      page-faults              
+    91.195740270         93,363,177      cycles                   
+    91.195740270         69,393,201      stalled-cycles-frontend  
+    91.195740270                  0      stalled-cycles-backend   
+    91.195740270         58,081,699      instructions             
+    91.195740270         10,536,744      branches                 
+    91.195740270            611,077      branch-misses            
+    92.195947417          27.166837      task-clock (msec)        
+    92.195947417                 37      context-switches         
+    92.195947417                  9      cpu-migrations           
+    92.195947417                  0      page-faults              
+    92.195947417         75,774,430      cycles                   
+    92.195947417         52,724,511      stalled-cycles-frontend  
+    92.195947417                  0      stalled-cycles-backend   
+    92.195947417         58,121,191      instructions             
+    92.195947417         10,599,293      branches                 
+    92.195947417            496,123      branch-misses            
+    93.196161241           5.498706      task-clock (msec)        
+    93.196161241                 33      context-switches         
+    93.196161241                  0      cpu-migrations           
+    93.196161241                  0      page-faults              
+    93.196161241         15,189,263      cycles                   
+    93.196161241         12,276,678      stalled-cycles-frontend  
+    93.196161241                  0      stalled-cycles-backend   
+    93.196161241          4,712,281      instructions             
+    93.196161241            794,554      branches                 
+    93.196161241            145,530      branch-misses            
+    94.196353782          39.571037      task-clock (msec)        
+    94.196353782                 66      context-switches         
+    94.196353782                  6      cpu-migrations           
+    94.196353782                  0      page-faults              
+    94.196353782        110,420,826      cycles                   
+    94.196353782         71,026,796      stalled-cycles-frontend  
+    94.196353782                  0      stalled-cycles-backend   
+    94.196353782         96,453,990      instructions             
+    94.196353782         17,368,580      branches                 
+    94.196353782            970,433      branch-misses            
+    95.196577522          34.369349      task-clock (msec)        
+    95.196577522                110      context-switches         
+    95.196577522                 25      cpu-migrations           
+    95.196577522                  2      page-faults              
+    95.196577522         95,730,186      cycles                   
+    95.196577522         62,308,951      stalled-cycles-frontend  
+    95.196577522                  0      stalled-cycles-backend   
+    95.196577522         74,054,323      instructions             
+    95.196577522         14,490,798      branches                 
+    95.196577522            712,662      branch-misses            
+    96.196792041          38.012586      task-clock (msec)        
+    96.196792041                 55      context-switches         
+    96.196792041                 11      cpu-migrations           
+    96.196792041                  0      page-faults              
+    96.196792041        106,047,145      cycles                   
+    96.196792041         59,711,878      stalled-cycles-frontend  
+    96.196792041                  0      stalled-cycles-backend   
+    96.196792041        104,112,565      instructions             
+    96.196792041         19,040,638      branches                 
+    96.196792041          1,090,964      branch-misses            
+    97.197011091          61.575939      task-clock (msec)        
+    97.197011091                 51      context-switches         
+    97.197011091                  7      cpu-migrations           
+    97.197011091                  4      page-faults              
+    97.197011091        171,974,318      cycles                   
+    97.197011091        105,590,848      stalled-cycles-frontend  
+    97.197011091                  0      stalled-cycles-backend   
+    97.197011091        158,096,841      instructions             
+    97.197011091         29,580,446      branches                 
+    97.197011091          1,295,817      branch-misses            
+    98.197197604          35.704700      task-clock (msec)        
+    98.197197604                 66      context-switches         
+    98.197197604                  5      cpu-migrations           
+    98.197197604                  1      page-faults              
+    98.197197604         99,589,955      cycles                   
+    98.197197604         74,764,254      stalled-cycles-frontend  
+    98.197197604                  0      stalled-cycles-backend   
+    98.197197604         60,806,056      instructions             
+    98.197197604         11,022,789      branches                 
+    98.197197604            584,980      branch-misses            
+    99.197403756          28.807299      task-clock (msec)        
+    99.197403756                 48      context-switches         
+    99.197403756                  4      cpu-migrations           
+    99.197403756                  1      page-faults              
+    99.197403756         80,299,513      cycles                   
+    99.197403756         58,388,628      stalled-cycles-frontend  
+    99.197403756                  0      stalled-cycles-backend   
+    99.197403756         56,050,269      instructions             
+    99.197403756         10,173,663      branches                 
+    99.197403756            503,095      branch-misses            
+   100.978019223           1.702749      task-clock (msec)        
+   100.978019223                 47      context-switches         
+   100.978019223                  3      cpu-migrations           
+   100.978019223                  0      page-faults              
+   100.978019223          4,524,244      cycles                   
+   100.978019223          3,957,316      stalled-cycles-frontend  
+   100.978019223                  0      stalled-cycles-backend   
+   100.978019223            807,659      instructions             
+   100.978019223            142,500      branches                 
+   100.978019223             24,367      branch-misses            
+   101.978210106          19.475155      task-clock (msec)        
+   101.978210106                 47      context-switches         
+   101.978210106                  6      cpu-migrations           
+   101.978210106                  1      page-faults              
+   101.978210106         54,253,387      cycles                   
+   101.978210106         29,890,136      stalled-cycles-frontend  
+   101.978210106                  0      stalled-cycles-backend   
+   101.978210106         55,832,924      instructions             
+   101.978210106         10,123,526      branches                 
+   101.978210106            508,000      branch-misses            
+   102.978414177          30.226793      task-clock (msec)        
+   102.978414177                 47      context-switches         
+   102.978414177                  7      cpu-migrations           
+   102.978414177                  0      page-faults              
+   102.978414177         84,317,494      cycles                   
+   102.978414177         61,217,918      stalled-cycles-frontend  
+   102.978414177                  0      stalled-cycles-backend   
+   102.978414177         55,881,267      instructions             
+   102.978414177         10,132,543      branches                 
+   102.978414177            534,534      branch-misses            
+#           time             counts unit events
+   103.978609325          45.279278      task-clock (msec)        
+   103.978609325                 57      context-switches         
+   103.978609325                  8      cpu-migrations           
+   103.978609325                  0      page-faults              
+   103.978609325        126,365,853      cycles                   
+   103.978609325         79,311,692      stalled-cycles-frontend  
+   103.978609325                  0      stalled-cycles-backend   
+   103.978609325        113,086,843      instructions             
+   103.978609325         20,672,007      branches                 
+   103.978609325          1,122,248      branch-misses            
+   104.978806396          20.590650      task-clock (msec)        
+   104.978806396                 48      context-switches         
+   104.978806396                  2      cpu-migrations           
+   104.978806396                  1      page-faults              
+   104.978806396         57,343,714      cycles                   
+   104.978806396         32,744,782      stalled-cycles-frontend  
+   104.978806396                  0      stalled-cycles-backend   
+   104.978806396         56,403,161      instructions             
+   104.978806396         10,231,084      branches                 
+   104.978806396            517,961      branch-misses            
+   105.978979867          25.416505      task-clock (msec)        
+   105.978979867                 51      context-switches         
+   105.978979867                  7      cpu-migrations           
+   105.978979867                  1      page-faults              
+   105.978979867         70,824,977      cycles                   
+   105.978979867         46,219,759      stalled-cycles-frontend  
+   105.978979867                  0      stalled-cycles-backend   
+   105.978979867         57,703,106      instructions             
+   105.978979867         10,474,573      branches                 
+   105.978979867            575,049      branch-misses            
+   106.979161965          38.223687      task-clock (msec)        
+   106.979161965                 51      context-switches         
+   106.979161965                  4      cpu-migrations           
+   106.979161965                  3      page-faults              
+   106.979161965        106,674,763      cycles                   
+   106.979161965         66,573,027      stalled-cycles-frontend  
+   106.979161965                  0      stalled-cycles-backend   
+   106.979161965         93,919,133      instructions             
+   106.979161965         17,172,654      branches                 
+   106.979161965            997,575      branch-misses            
+   107.979392586          28.066667      task-clock (msec)        
+   107.979392586                 49      context-switches         
+   107.979392586                  0      cpu-migrations           
+   107.979392586                  3      page-faults              
+   107.979392586         78,265,871      cycles                   
+   107.979392586         47,143,058      stalled-cycles-frontend  
+   107.979392586                  0      stalled-cycles-backend   
+   107.979392586         72,723,150      instructions             
+   107.979392586         13,182,423      branches                 
+   107.979392586            693,147      branch-misses            
+   108.979585672          23.773382      task-clock (msec)        
+   108.979585672                 49      context-switches         
+   108.979585672                  7      cpu-migrations           
+   108.979585672                  1      page-faults              
+   108.979585672         66,064,998      cycles                   
+   108.979585672         41,809,870      stalled-cycles-frontend  
+   108.979585672                  0      stalled-cycles-backend   
+   108.979585672         56,629,887      instructions             
+   108.979585672         10,281,816      branches                 
+   108.979585672            547,863      branch-misses            
+   109.979786039          34.508966      task-clock (msec)        
+   109.979786039                 65      context-switches         
+   109.979786039                  6      cpu-migrations           
+   109.979786039                  1      page-faults              
+   109.979786039         96,265,987      cycles                   
+   109.979786039         74,312,488      stalled-cycles-frontend  
+   109.979786039                  0      stalled-cycles-backend   
+   109.979786039         55,583,371      instructions             
+   109.979786039         10,086,182      branches                 
+   109.979786039            541,699      branch-misses            
+   110.979990299          42.231554      task-clock (msec)        
+   110.979990299                 68      context-switches         
+   110.979990299                 10      cpu-migrations           
+   110.979990299                  1      page-faults              
+   110.979990299        116,330,196      cycles                   
+   110.979990299         88,051,911      stalled-cycles-frontend  
+   110.979990299                  0      stalled-cycles-backend   
+   110.979990299         69,295,481      instructions             
+   110.979990299         12,669,136      branches                 
+   110.979990299            775,462      branch-misses            
+   111.980184482          34.862438      task-clock (msec)        
+   111.980184482                 49      context-switches         
+   111.980184482                  0      cpu-migrations           
+   111.980184482                  0      page-faults              
+   111.980184482         97,225,852      cycles                   
+   111.980184482         75,532,053      stalled-cycles-frontend  
+   111.980184482                  0      stalled-cycles-backend   
+   111.980184482         55,490,332      instructions             
+   111.980184482         10,073,963      branches                 
+   111.980184482            529,982      branch-misses            
+   112.980367078          31.102400      task-clock (msec)        
+   112.980367078                 47      context-switches         
+   112.980367078                  9      cpu-migrations           
+   112.980367078                  0      page-faults              
+   112.980367078         86,756,533      cycles                   
+   112.980367078         64,068,788      stalled-cycles-frontend  
+   112.980367078                  0      stalled-cycles-backend   
+   112.980367078         55,373,917      instructions             
+   112.980367078         10,051,680      branches                 
+   112.980367078            533,859      branch-misses            
+   113.980541980          29.202336      task-clock (msec)        
+   113.980541980                 56      context-switches         
+   113.980541980                  9      cpu-migrations           
+   113.980541980                  0      page-faults              
+   113.980541980         81,455,908      cycles                   
+   113.980541980         58,402,533      stalled-cycles-frontend  
+   113.980541980                  0      stalled-cycles-backend   
+   113.980541980         55,479,419      instructions             
+   113.980541980         10,071,859      branches                 
+   113.980541980            521,452      branch-misses            
+   114.980726151          39.674910      task-clock (msec)        
+   114.980726151                105      context-switches         
+   114.980726151                 23      cpu-migrations           
+   114.980726151                  4      page-faults              
+   114.980726151        110,590,945      cycles                   
+   114.980726151         79,672,132      stalled-cycles-frontend  
+   114.980726151                  0      stalled-cycles-backend   
+   114.980726151         70,353,219      instructions             
+   114.980726151         13,717,989      branches                 
+   114.980726151            640,585      branch-misses            
+   115.980904550          31.121463      task-clock (msec)        
+   115.980904550                 50      context-switches         
+   115.980904550                  9      cpu-migrations           
+   115.980904550                  0      page-faults              
+   115.980904550         86,813,596      cycles                   
+   115.980904550         63,066,701      stalled-cycles-frontend  
+   115.980904550                  0      stalled-cycles-backend   
+   115.980904550         57,067,104      instructions             
+   115.980904550         10,350,891      branches                 
+   115.980904550            551,490      branch-misses            
+   116.981088889          26.143673      task-clock (msec)        
+   116.981088889                 51      context-switches         
+   116.981088889                  9      cpu-migrations           
+   116.981088889                  0      page-faults              
+   116.981088889         72,820,231      cycles                   
+   116.981088889         48,850,477      stalled-cycles-frontend  
+   116.981088889                  0      stalled-cycles-backend   
+   116.981088889         56,342,192      instructions             
+   116.981088889         10,236,906      branches                 
+   116.981088889            521,064      branch-misses            
+   117.981275567          30.672784      task-clock (msec)        
+   117.981275567                 49      context-switches         
+   117.981275567                  7      cpu-migrations           
+   117.981275567                  0      page-faults              
+   117.981275567         85,542,248      cycles                   
+   117.981275567         62,512,768      stalled-cycles-frontend  
+   117.981275567                  0      stalled-cycles-backend   
+   117.981275567         55,874,167      instructions             
+   117.981275567         10,142,072      branches                 
+   117.981275567            524,562      branch-misses            
+   118.981465656          19.729582      task-clock (msec)        
+   118.981465656                 46      context-switches         
+   118.981465656                  5      cpu-migrations           
+   118.981465656                  0      page-faults              
+   118.981465656         54,970,064      cycles                   
+   118.981465656         30,662,399      stalled-cycles-frontend  
+   118.981465656                  0      stalled-cycles-backend   
+   118.981465656         55,830,371      instructions             
+   118.981465656         10,134,910      branches                 
+   118.981465656            504,300      branch-misses            
+   119.981650816          19.050280      task-clock (msec)        
+   119.981650816                 48      context-switches         
+   119.981650816                 10      cpu-migrations           
+   119.981650816                  0      page-faults              
+   119.981650816         53,064,350      cycles                   
+   119.981650816         29,000,488      stalled-cycles-frontend  
+   119.981650816                  0      stalled-cycles-backend   
+   119.981650816         55,418,171      instructions             
+   119.981650816         10,061,993      branches                 
+   119.981650816            496,566      branch-misses            
+   120.981833272          24.444850      task-clock (msec)        
+   120.981833272                 51      context-switches         
+   120.981833272                  2      cpu-migrations           
+   120.981833272                  0      page-faults              
+   120.981833272         68,127,242      cycles                   
+   120.981833272         37,431,737      stalled-cycles-frontend  
+   120.981833272                  0      stalled-cycles-backend   
+   120.981833272         68,840,184      instructions             
+   120.981833272         12,586,927      branches                 
+   120.981833272            687,129      branch-misses            
+   121.982047794          22.103723      task-clock (msec)        
+   121.982047794                 50      context-switches         
+   121.982047794                  4      cpu-migrations           
+   121.982047794                  1      page-faults              
+   121.982047794         61,601,214      cycles                   
+   121.982047794         33,794,407      stalled-cycles-frontend  
+   121.982047794                  0      stalled-cycles-backend   
+   121.982047794         63,597,465      instructions             
+   121.982047794         11,579,489      branches                 
+   121.982047794            589,416      branch-misses            
+   122.982227794          24.530045      task-clock (msec)        
+   122.982227794                 55      context-switches         
+   122.982227794                  6      cpu-migrations           
+   122.982227794                  0      page-faults              
+   122.982227794         68,367,108      cycles                   
+   122.982227794         37,834,610      stalled-cycles-frontend  
+   122.982227794                  0      stalled-cycles-backend   
+   122.982227794         68,005,628      instructions             
+   122.982227794         12,394,780      branches                 
+   122.982227794            694,538      branch-misses            
+   123.982415730          19.273144      task-clock (msec)        
+   123.982415730                 47      context-switches         
+   123.982415730                  2      cpu-migrations           
+   123.982415730                  0      page-faults              
+   123.982415730         53,686,835      cycles                   
+   123.982415730         29,508,186      stalled-cycles-frontend  
+   123.982415730                  0      stalled-cycles-backend   
+   123.982415730         55,691,355      instructions             
+   123.982415730         10,105,218      branches                 
+   123.982415730            500,228      branch-misses            
+   124.982613786          21.529274      task-clock (msec)        
+   124.982613786                 49      context-switches         
+   124.982613786                  7      cpu-migrations           
+   124.982613786                  0      page-faults              
+   124.982613786         59,995,014      cycles                   
+   124.982613786         33,340,612      stalled-cycles-frontend  
+   124.982613786                  0      stalled-cycles-backend   
+   124.982613786         60,515,608      instructions             
+   124.982613786         10,968,680      branches                 
+   124.982613786            584,925      branch-misses            
+   125.982803771          19.091476      task-clock (msec)        
+   125.982803771                 47      context-switches         
+   125.982803771                  2      cpu-migrations           
+   125.982803771                  0      page-faults              
+   125.982803771         53,195,979      cycles                   
+   125.982803771         29,190,852      stalled-cycles-frontend  
+   125.982803771                  0      stalled-cycles-backend   
+   125.982803771         55,401,862      instructions             
+   125.982803771         10,053,743      branches                 
+   125.982803771            498,243      branch-misses            
+   126.983005185          19.319997      task-clock (msec)        
+   126.983005185                 51      context-switches         
+   126.983005185                  3      cpu-migrations           
+   126.983005185                  0      page-faults              
+   126.983005185         54,477,613      cycles                   
+   126.983005185         30,391,549      stalled-cycles-frontend  
+   126.983005185                  0      stalled-cycles-backend   
+   126.983005185         55,767,571      instructions             
+   126.983005185         10,121,770      branches                 
+   126.983005185            505,531      branch-misses            
+   127.983185962          59.385473      task-clock (msec)        
+   127.983185962                 55      context-switches         
+   127.983185962                  6      cpu-migrations           
+   127.983185962                  0      page-faults              
+   127.983185962        165,811,071      cycles                   
+   127.983185962        115,428,205      stalled-cycles-frontend  
+   127.983185962                  0      stalled-cycles-backend   
+   127.983185962        132,530,484      instructions             
+   127.983185962         25,243,593      branches                 
+   127.983185962          1,126,315      branch-misses            
+#           time             counts unit events
+   128.983371631          20.844918      task-clock (msec)        
+   128.983371631                 47      context-switches         
+   128.983371631                  6      cpu-migrations           
+   128.983371631                  0      page-faults              
+   128.983371631         58,046,087      cycles                   
+   128.983371631         34,274,227      stalled-cycles-frontend  
+   128.983371631                  0      stalled-cycles-backend   
+   128.983371631         55,644,755      instructions             
+   128.983371631         10,099,475      branches                 
+   128.983371631            508,472      branch-misses            
+   129.983577936          28.112116      task-clock (msec)        
+   129.983577936                 52      context-switches         
+   129.983577936                  9      cpu-migrations           
+   129.983577936                  1      page-faults              
+   129.983577936         78,381,819      cycles                   
+   129.983577936         42,077,826      stalled-cycles-frontend  
+   129.983577936                  0      stalled-cycles-backend   
+   129.983577936         82,190,238      instructions             
+   129.983577936         14,838,934      branches                 
+   129.983577936            802,600      branch-misses            
+   130.983759683         110.804323      task-clock (msec)        
+   130.983759683                 50      context-switches         
+   130.983759683                 20      cpu-migrations           
+   130.983759683                327      page-faults              
+   130.983759683        309,647,753      cycles                   
+   130.983759683        181,672,151      stalled-cycles-frontend  
+   130.983759683                  0      stalled-cycles-backend   
+   130.983759683        324,468,583      instructions             
+   130.983759683         61,235,241      branches                 
+   130.983759683          2,352,252      branch-misses            
+   131.983955174          27.220343      task-clock (msec)        
+   131.983955174                 54      context-switches         
+   131.983955174                 11      cpu-migrations           
+   131.983955174                  1      page-faults              
+   131.983955174         75,877,796      cycles                   
+   131.983955174         43,910,089      stalled-cycles-frontend  
+   131.983955174                  0      stalled-cycles-backend   
+   131.983955174         72,829,131      instructions             
+   131.983955174         13,294,282      branches                 
+   131.983955174            705,495      branch-misses            
+   132.984141960          28.420555      task-clock (msec)        
+   132.984141960                 97      context-switches         
+   132.984141960                 25      cpu-migrations           
+   132.984141960                  1      page-faults              
+   132.984141960         79,137,447      cycles                   
+   132.984141960         47,285,876      stalled-cycles-frontend  
+   132.984141960                  0      stalled-cycles-backend   
+   132.984141960         70,022,402      instructions             
+   132.984141960         13,626,410      branches                 
+   132.984141960            631,221      branch-misses            
+   133.984346449          30.701478      task-clock (msec)        
+   133.984346449                 52      context-switches         
+   133.984346449                  8      cpu-migrations           
+   133.984346449                  1      page-faults              
+   133.984346449         85,631,293      cycles                   
+   133.984346449         45,986,281      stalled-cycles-frontend  
+   133.984346449                  0      stalled-cycles-backend   
+   133.984346449         87,685,639      instructions             
+   133.984346449         15,985,424      branches                 
+   133.984346449            924,446      branch-misses            
+   134.984546485          26.019899      task-clock (msec)        
+   134.984546485                 28      context-switches         
+   134.984546485                  7      cpu-migrations           
+   134.984546485                  0      page-faults              
+   134.984546485         72,756,606      cycles                   
+   134.984546485         50,106,086      stalled-cycles-frontend  
+   134.984546485                  0      stalled-cycles-backend   
+   134.984546485         56,695,224      instructions             
+   134.984546485         10,441,152      branches                 
+   134.984546485            491,202      branch-misses            
+   135.984742430          79.771554      task-clock (msec)        
+   135.984742430                 44      context-switches         
+   135.984742430                  5      cpu-migrations           
+   135.984742430                796      page-faults              
+   135.984742430        222,805,567      cycles                   
+   135.984742430        109,648,432      stalled-cycles-frontend  
+   135.984742430                  0      stalled-cycles-backend   
+   135.984742430        278,614,689      instructions             
+   135.984742430         52,810,694      branches                 
+   135.984742430          1,963,004      branch-misses            
+   136.984940121          33.359809      task-clock (msec)        
+   136.984940121                 55      context-switches         
+   136.984940121                  4      cpu-migrations           
+   136.984940121                  0      page-faults              
+   136.984940121         93,032,236      cycles                   
+   136.984940121         68,247,662      stalled-cycles-frontend  
+   136.984940121                  0      stalled-cycles-backend   
+   136.984940121         61,230,590      instructions             
+   136.984940121         11,143,180      branches                 
+   136.984940121            584,745      branch-misses            
+   137.985119618          19.841196      task-clock (msec)        
+   137.985119618                 51      context-switches         
+   137.985119618                 13      cpu-migrations           
+   137.985119618                  3      page-faults              
+   137.985119618         55,248,854      cycles                   
+   137.985119618         31,718,062      stalled-cycles-frontend  
+   137.985119618                  0      stalled-cycles-backend   
+   137.985119618         55,038,735      instructions             
+   137.985119618          9,998,350      branches                 
+   137.985119618            478,301      branch-misses            
+   138.985321724          20.770462      task-clock (msec)        
+   138.985321724                 49      context-switches         
+   138.985321724                  6      cpu-migrations           
+   138.985321724                  1      page-faults              
+   138.985321724         57,873,897      cycles                   
+   138.985321724         32,577,574      stalled-cycles-frontend  
+   138.985321724                  0      stalled-cycles-backend   
+   138.985321724         59,254,112      instructions             
+   138.985321724         10,838,309      branches                 
+   138.985321724            526,131      branch-misses            
+   139.985500684          30.307674      task-clock (msec)        
+   139.985500684                 53      context-switches         
+   139.985500684                  6      cpu-migrations           
+   139.985500684                  1      page-faults              
+   139.985500684         84,554,868      cycles                   
+   139.985500684         44,956,436      stalled-cycles-frontend  
+   139.985500684                  0      stalled-cycles-backend   
+   139.985500684         89,785,845      instructions             
+   139.985500684         16,501,035      branches                 
+   139.985500684            865,824      branch-misses            
+   140.985687440          19.819233      task-clock (msec)        
+   140.985687440                 51      context-switches         
+   140.985687440                 10      cpu-migrations           
+   140.985687440                  0      page-faults              
+   140.985687440         55,228,412      cycles                   
+   140.985687440         31,145,320      stalled-cycles-frontend  
+   140.985687440                  0      stalled-cycles-backend   
+   140.985687440         56,240,131      instructions             
+   140.985687440         10,223,589      branches                 
+   140.985687440            504,218      branch-misses            
+   141.985873050          26.406438      task-clock (msec)        
+   141.985873050                 50      context-switches         
+   141.985873050                  2      cpu-migrations           
+   141.985873050                  0      page-faults              
+   141.985873050         73,586,323      cycles                   
+   141.985873050         51,256,472      stalled-cycles-frontend  
+   141.985873050                  0      stalled-cycles-backend   
+   141.985873050         57,421,226      instructions             
+   141.985873050         10,415,074      branches                 
+   141.985873050            494,851      branch-misses            
+   142.986058351          38.073325      task-clock (msec)        
+   142.986058351                 51      context-switches         
+   142.986058351                  6      cpu-migrations           
+   142.986058351                  0      page-faults              
+   142.986058351        107,173,342      cycles                   
+   142.986058351         70,710,500      stalled-cycles-frontend  
+   142.986058351                  0      stalled-cycles-backend   
+   142.986058351         86,304,543      instructions             
+   142.986058351         15,775,971      branches                 
+   142.986058351            875,917      branch-misses            
+   143.986235136          19.304929      task-clock (msec)        
+   143.986235136                 47      context-switches         
+   143.986235136                  9      cpu-migrations           
+   143.986235136                  1      page-faults              
+   143.986235136         53,773,550      cycles                   
+   143.986235136         30,374,389      stalled-cycles-frontend  
+   143.986235136                  0      stalled-cycles-backend   
+   143.986235136         54,781,818      instructions             
+   143.986235136          9,955,088      branches                 
+   143.986235136            477,762      branch-misses            
+   144.986413910          19.334424      task-clock (msec)        
+   144.986413910                 49      context-switches         
+   144.986413910                  1      cpu-migrations           
+   144.986413910                  0      page-faults              
+   144.986413910         53,865,440      cycles                   
+   144.986413910         29,898,266      stalled-cycles-frontend  
+   144.986413910                  0      stalled-cycles-backend   
+   144.986413910         55,756,361      instructions             
+   144.986413910         10,139,959      branches                 
+   144.986413910            496,384      branch-misses            
+   145.986581461          21.286441      task-clock (msec)        
+   145.986581461                 49      context-switches         
+   145.986581461                  3      cpu-migrations           
+   145.986581461                  0      page-faults              
+   145.986581461         59,326,595      cycles                   
+   145.986581461         33,532,836      stalled-cycles-frontend  
+   145.986581461                  0      stalled-cycles-backend   
+   145.986581461         59,491,933      instructions             
+   145.986581461         10,820,754      branches                 
+   145.986581461            550,957      branch-misses            
+   146.986760051          18.703053      task-clock (msec)        
+   146.986760051                 48      context-switches         
+   146.986760051                  1      cpu-migrations           
+   146.986760051                  0      page-faults              
+   146.986760051         52,290,375      cycles                   
+   146.986760051         28,826,423      stalled-cycles-frontend  
+   146.986760051                  0      stalled-cycles-backend   
+   146.986760051         54,742,248      instructions             
+   146.986760051          9,952,398      branches                 
+   146.986760051            482,953      branch-misses            
+   147.986936563          18.218775      task-clock (msec)        
+   147.986936563                 47      context-switches         
+   147.986936563                  2      cpu-migrations           
+   147.986936563                  0      page-faults              
+   147.986936563         50,740,419      cycles                   
+   147.986936563         27,562,026      stalled-cycles-frontend  
+   147.986936563                  0      stalled-cycles-backend   
+   147.986936563         54,238,712      instructions             
+   147.986936563          9,856,018      branches                 
+   147.986936563            466,983      branch-misses            
+   148.987122459          29.632824      task-clock (msec)        
+   148.987122459                 49      context-switches         
+   148.987122459                  6      cpu-migrations           
+   148.987122459                  0      page-faults              
+   148.987122459         82,638,306      cycles                   
+   148.987122459         61,622,512      stalled-cycles-frontend  
+   148.987122459                  0      stalled-cycles-backend   
+   148.987122459         55,031,013      instructions             
+   148.987122459         10,004,476      branches                 
+   148.987122459            510,998      branch-misses            
+   149.987320409          19.226563      task-clock (msec)        
+   149.987320409                 48      context-switches         
+   149.987320409                  8      cpu-migrations           
+   149.987320409                  0      page-faults              
+   149.987320409         53,533,472      cycles                   
+   149.987320409         30,398,362      stalled-cycles-frontend  
+   149.987320409                  0      stalled-cycles-backend   
+   149.987320409         54,247,968      instructions             
+   149.987320409          9,858,494      branches                 
+   149.987320409            470,073      branch-misses            
+   150.987527556          31.157677      task-clock (msec)        
+   150.987527556                 95      context-switches         
+   150.987527556                 19      cpu-migrations           
+   150.987527556                  2      page-faults              
+   150.987527556         86,757,298      cycles                   
+   150.987527556         56,264,204      stalled-cycles-frontend  
+   150.987527556                  0      stalled-cycles-backend   
+   150.987527556         69,158,991      instructions             
+   150.987527556         13,540,884      branches                 
+   150.987527556            611,088      branch-misses            
+   151.987731131          19.536066      task-clock (msec)        
+   151.987731131                 48      context-switches         
+   151.987731131                  4      cpu-migrations           
+   151.987731131                  1      page-faults              
+   151.987731131         54,404,760      cycles                   
+   151.987731131         30,990,318      stalled-cycles-frontend  
+   151.987731131                  0      stalled-cycles-backend   
+   151.987731131         54,879,112      instructions             
+   151.987731131          9,956,174      branches                 
+   151.987731131            477,673      branch-misses            
+   152.987918254          25.870101      task-clock (msec)        
+   152.987918254                 47      context-switches         
+   152.987918254                  6      cpu-migrations           
+   152.987918254                  0      page-faults              
+   152.987918254         72,122,932      cycles                   
+   152.987918254         50,574,325      stalled-cycles-frontend  
+   152.987918254                  0      stalled-cycles-backend   
+   152.987918254         54,243,292      instructions             
+   152.987918254          9,857,980      branches                 
+   152.987918254            499,393      branch-misses            
+#           time             counts unit events
+   153.988112720          21.545653      task-clock (msec)        
+   153.988112720                 49      context-switches         
+   153.988112720                  4      cpu-migrations           
+   153.988112720                  0      page-faults              
+   153.988112720         60,005,443      cycles                   
+   153.988112720         32,735,881      stalled-cycles-frontend  
+   153.988112720                  0      stalled-cycles-backend   
+   153.988112720         62,652,992      instructions             
+   153.988112720         11,337,813      branches                 
+   153.988112720            585,720      branch-misses            
+   154.988312983          18.475810      task-clock (msec)        
+   154.988312983                 47      context-switches         
+   154.988312983                 13      cpu-migrations           
+   154.988312983                  1      page-faults              
+   154.988312983         51,459,393      cycles                   
+   154.988312983         28,267,096      stalled-cycles-frontend  
+   154.988312983                  0      stalled-cycles-backend   
+   154.988312983         54,276,996      instructions             
+   154.988312983          9,865,168      branches                 
+   154.988312983            469,531      branch-misses            
+   155.988509270          19.578630      task-clock (msec)        
+   155.988509270                 50      context-switches         
+   155.988509270                 13      cpu-migrations           
+   155.988509270                  1      page-faults              
+   155.988509270         54,524,521      cycles                   
+   155.988509270         30,855,164      stalled-cycles-frontend  
+   155.988509270                  0      stalled-cycles-backend   
+   155.988509270         55,252,668      instructions             
+   155.988509270         10,048,516      branches                 
+   155.988509270            484,554      branch-misses            
+   156.988708360          29.559758      task-clock (msec)        
+   156.988708360                 52      context-switches         
+   156.988708360                  6      cpu-migrations           
+   156.988708360                  0      page-faults              
+   156.988708360         82,436,416      cycles                   
+   156.988708360         59,762,471      stalled-cycles-frontend  
+   156.988708360                  0      stalled-cycles-backend   
+   156.988708360         55,658,906      instructions             
+   156.988708360         10,119,966      branches                 
+   156.988708360            519,459      branch-misses            
+   157.988905690          25.874198      task-clock (msec)        
+   157.988905690                 47      context-switches         
+   157.988905690                  0      cpu-migrations           
+   157.988905690                  0      page-faults              
+   157.988905690         72,151,848      cycles                   
+   157.988905690         51,052,580      stalled-cycles-frontend  
+   157.988905690                  0      stalled-cycles-backend   
+   157.988905690         54,649,907      instructions             
+   157.988905690          9,930,461      branches                 
+   157.988905690            477,260      branch-misses            
+   158.989084001          25.124951      task-clock (msec)        
+   158.989084001                 47      context-switches         
+   158.989084001                  1      cpu-migrations           
+   158.989084001                  0      page-faults              
+   158.989084001         70,044,283      cycles                   
+   158.989084001         49,237,228      stalled-cycles-frontend  
+   158.989084001                  0      stalled-cycles-backend   
+   158.989084001         54,192,572      instructions             
+   158.989084001          9,847,919      branches                 
+   158.989084001            461,797      branch-misses            
+   159.989271195          18.015571      task-clock (msec)        
+   159.989271195                 48      context-switches         
+   159.989271195                  1      cpu-migrations           
+   159.989271195                  0      page-faults              
+   159.989271195         50,971,425      cycles                   
+   159.989271195         27,824,971      stalled-cycles-frontend  
+   159.989271195                  0      stalled-cycles-backend   
+   159.989271195         54,225,533      instructions             
+   159.989271195          9,854,625      branches                 
+   159.989271195            468,886      branch-misses            
+   162.207994003          36.815883      task-clock (msec)        
+   162.207994003                 99      context-switches         
+   162.207994003                  9      cpu-migrations           
+   162.207994003                  0      page-faults              
+   162.207994003        103,200,445      cycles                   
+   162.207994003         56,691,336      stalled-cycles-frontend  
+   162.207994003                  0      stalled-cycles-backend   
+   162.207994003        108,869,297      instructions             
+   162.207994003         19,784,871      branches                 
+   162.207994003            944,251      branch-misses            
+   163.208191647          19.519195      task-clock (msec)        
+   163.208191647                 50      context-switches         
+   163.208191647                  1      cpu-migrations           
+   163.208191647                  0      page-faults              
+   163.208191647         54,366,623      cycles                   
+   163.208191647         30,536,402      stalled-cycles-frontend  
+   163.208191647                  0      stalled-cycles-backend   
+   163.208191647         55,414,015      instructions             
+   163.208191647         10,079,432      branches                 
+   163.208191647            501,032      branch-misses            
+   164.208386986          24.981369      task-clock (msec)        
+   164.208386986                 49      context-switches         
+   164.208386986                  5      cpu-migrations           
+   164.208386986                  2      page-faults              
+   164.208386986         69,631,309      cycles                   
+   164.208386986         43,317,118      stalled-cycles-frontend  
+   164.208386986                  0      stalled-cycles-backend   
+   164.208386986         62,392,528      instructions             
+   164.208386986         11,307,995      branches                 
+   164.208386986            591,999      branch-misses            
+   165.208566202          23.798796      task-clock (msec)        
+   165.208566202                 51      context-switches         
+   165.208566202                  2      cpu-migrations           
+   165.208566202                  6      page-faults              
+   165.208566202         66,334,065      cycles                   
+   165.208566202         37,303,540      stalled-cycles-frontend  
+   165.208566202                  0      stalled-cycles-backend   
+   165.208566202         66,114,702      instructions             
+   165.208566202         12,014,578      branches                 
+   165.208566202            648,966      branch-misses            
+   166.208745205          18.804265      task-clock (msec)        
+   166.208745205                 48      context-switches         
+   166.208745205                  5      cpu-migrations           
+   166.208745205                  0      page-faults              
+   166.208745205         52,384,775      cycles                   
+   166.208745205         28,978,789      stalled-cycles-frontend  
+   166.208745205                  0      stalled-cycles-backend   
+   166.208745205         54,595,496      instructions             
+   166.208745205          9,922,589      branches                 
+   166.208745205            483,722      branch-misses            
+   167.208929499          21.412299      task-clock (msec)        
+   167.208929499                 47      context-switches         
+   167.208929499                  3      cpu-migrations           
+   167.208929499                  0      page-faults              
+   167.208929499         59,670,479      cycles                   
+   167.208929499         37,289,108      stalled-cycles-frontend  
+   167.208929499                  0      stalled-cycles-backend   
+   167.208929499         54,159,132      instructions             
+   167.208929499          9,849,098      branches                 
+   167.208929499            485,545      branch-misses            
+   168.209116474          40.414737      task-clock (msec)        
+   168.209116474                 96      context-switches         
+   168.209116474                 25      cpu-migrations           
+   168.209116474                  2      page-faults              
+   168.209116474        112,645,103      cycles                   
+   168.209116474         83,612,328      stalled-cycles-frontend  
+   168.209116474                  0      stalled-cycles-backend   
+   168.209116474         70,697,323      instructions             
+   168.209116474         13,772,003      branches                 
+   168.209116474            643,756      branch-misses            
+   169.209333926          31.931110      task-clock (msec)        
+   169.209333926                 62      context-switches         
+   169.209333926                 11      cpu-migrations           
+   169.209333926                  6      page-faults              
+   169.209333926         89,083,888      cycles                   
+   169.209333926         56,651,056      stalled-cycles-frontend  
+   169.209333926                  0      stalled-cycles-backend   
+   169.209333926         77,256,725      instructions             
+   169.209333926         14,134,966      branches                 
+   169.209333926            775,134      branch-misses            
+   170.209536479          37.747189      task-clock (msec)        
+   170.209536479                 51      context-switches         
+   170.209536479                  8      cpu-migrations           
+   170.209536479                  0      page-faults              
+   170.209536479        105,303,477      cycles                   
+   170.209536479         70,962,305      stalled-cycles-frontend  
+   170.209536479                  0      stalled-cycles-backend   
+   170.209536479         83,099,221      instructions             
+   170.209536479         15,100,529      branches                 
+   170.209536479            816,476      branch-misses            
+   171.209732421          24.167445      task-clock (msec)        
+   171.209732421                 55      context-switches         
+   171.209732421                 11      cpu-migrations           
+   171.209732421                  0      page-faults              
+   171.209732421         67,329,658      cycles                   
+   171.209732421         41,017,584      stalled-cycles-frontend  
+   171.209732421                  0      stalled-cycles-backend   
+   171.209732421         62,118,386      instructions             
+   171.209732421         11,270,288      branches                 
+   171.209732421            585,785      branch-misses            
+   172.209936117          36.620818      task-clock (msec)        
+   172.209936117                 52      context-switches         
+   172.209936117                 15      cpu-migrations           
+   172.209936117                  1      page-faults              
+   172.209936117        102,126,214      cycles                   
+   172.209936117         80,190,401      stalled-cycles-frontend  
+   172.209936117                  0      stalled-cycles-backend   
+   172.209936117         54,251,889      instructions             
+   172.209936117          9,870,104      branches                 
+   172.209936117            481,077      branch-misses            
+   173.210126718          18.252540      task-clock (msec)        
+   173.210126718                 47      context-switches         
+   173.210126718                  0      cpu-migrations           
+   173.210126718                  0      page-faults              
+   173.210126718         50,843,660      cycles                   
+   173.210126718         27,909,557      stalled-cycles-frontend  
+   173.210126718                  0      stalled-cycles-backend   
+   173.210126718         54,010,036      instructions             
+   173.210126718          9,820,085      branches                 
+   173.210126718            462,249      branch-misses            
+   174.210320370          21.333082      task-clock (msec)        
+   174.210320370                 48      context-switches         
+   174.210320370                  8      cpu-migrations           
+   174.210320370                  0      page-faults              
+   174.210320370         59,427,332      cycles                   
+   174.210320370         36,563,060      stalled-cycles-frontend  
+   174.210320370                  0      stalled-cycles-backend   
+   174.210320370         54,047,955      instructions             
+   174.210320370          9,827,653      branches                 
+   174.210320370            458,121      branch-misses            
+   175.210516159          49.293088      task-clock (msec)        
+   175.210516159                 50      context-switches         
+   175.210516159                 12      cpu-migrations           
+   175.210516159                  8      page-faults              
+   175.210516159        137,659,902      cycles                   
+   175.210516159         68,078,233      stalled-cycles-frontend  
+   175.210516159                  0      stalled-cycles-backend   
+   175.210516159        168,559,984      instructions             
+   175.210516159         31,322,601      branches                 
+   175.210516159          1,295,731      branch-misses            
+   176.210702150          26.240432      task-clock (msec)        
+   176.210702150                 51      context-switches         
+   176.210702150                 25      cpu-migrations           
+   176.210702150                  0      page-faults              
+   176.210702150         73,152,582      cycles                   
+   176.210702150         40,048,255      stalled-cycles-frontend  
+   176.210702150                  0      stalled-cycles-backend   
+   176.210702150         74,782,367      instructions             
+   176.210702150         13,565,413      branches                 
+   176.210702150            732,434      branch-misses            
+   177.210878642          44.916115      task-clock (msec)        
+   177.210878642                 55      context-switches         
+   177.210878642                 20      cpu-migrations           
+   177.210878642                  0      page-faults              
+   177.210878642        125,357,154      cycles                   
+   177.210878642         86,813,521      stalled-cycles-frontend  
+   177.210878642                  0      stalled-cycles-backend   
+   177.210878642         90,187,532      instructions             
+   177.210878642         16,577,805      branches                 
+   177.210878642            852,569      branch-misses            
+   178.211071740          19.452488      task-clock (msec)        
+   178.211071740                 53      context-switches         
+   178.211071740                  1      cpu-migrations           
+   178.211071740                  1      page-faults              
+   178.211071740         54,213,750      cycles                   
+   178.211071740         31,596,576      stalled-cycles-frontend  
+   178.211071740                  0      stalled-cycles-backend   
+   178.211071740         54,608,810      instructions             
+   178.211071740          9,933,393      branches                 
+   178.211071740            465,429      branch-misses            
+   179.211268361          32.805044      task-clock (msec)        
+   179.211268361                 49      context-switches         
+   179.211268361                  5      cpu-migrations           
+   179.211268361                  0      page-faults              
+   179.211268361         91,486,711      cycles                   
+   179.211268361         47,156,992      stalled-cycles-frontend  
+   179.211268361                  0      stalled-cycles-backend   
+   179.211268361         99,590,867      instructions             
+   179.211268361         18,256,941      branches                 
+   179.211268361            970,641      branch-misses            
+#           time             counts unit events
+   180.211457415          22.061250      task-clock (msec)        
+   180.211457415                 57      context-switches         
+   180.211457415                  2      cpu-migrations           
+   180.211457415                  3      page-faults              
+   180.211457415         61,449,403      cycles                   
+   180.211457415         35,864,059      stalled-cycles-frontend  
+   180.211457415                  0      stalled-cycles-backend   
+   180.211457415         60,316,446      instructions             
+   180.211457415         10,998,265      branches                 
+   180.211457415            553,958      branch-misses            
+   181.211653198          18.616746      task-clock (msec)        
+   181.211653198                 48      context-switches         
+   181.211653198                  6      cpu-migrations           
+   181.211653198                  0      page-faults              
+   181.211653198         51,838,673      cycles                   
+   181.211653198         28,756,419      stalled-cycles-frontend  
+   181.211653198                  0      stalled-cycles-backend   
+   181.211653198         54,345,894      instructions             
+   181.211653198          9,884,541      branches                 
+   181.211653198            465,632      branch-misses            
+   182.211835803          18.324390      task-clock (msec)        
+   182.211835803                 47      context-switches         
+   182.211835803                  3      cpu-migrations           
+   182.211835803                  0      page-faults              
+   182.211835803         51,394,947      cycles                   
+   182.211835803         28,358,345      stalled-cycles-frontend  
+   182.211835803                  0      stalled-cycles-backend   
+   182.211835803         54,273,814      instructions             
+   182.211835803          9,870,074      branches                 
+   182.211835803            465,566      branch-misses            
+   183.212032797          17.788637      task-clock (msec)        
+   183.212032797                 47      context-switches         
+   183.212032797                  0      cpu-migrations           
+   183.212032797                  0      page-faults              
+   183.212032797         50,215,690      cycles                   
+   183.212032797         27,416,234      stalled-cycles-frontend  
+   183.212032797                  0      stalled-cycles-backend   
+   183.212032797         53,816,684      instructions             
+   183.212032797          9,788,535      branches                 
+   183.212032797            454,859      branch-misses            
+   184.212210391          15.072423      task-clock (msec)        
+   184.212210391                 30      context-switches         
+   184.212210391                  5      cpu-migrations           
+   184.212210391                  0      page-faults              
+   184.212210391         42,058,355      cycles                   
+   184.212210391         22,110,086      stalled-cycles-frontend  
+   184.212210391                  0      stalled-cycles-backend   
+   184.212210391         49,605,040      instructions             
+   184.212210391          9,096,082      branches                 
+   184.212210391            344,925      branch-misses            
+   185.212397691          26.619313      task-clock (msec)        
+   185.212397691                114      context-switches         
+   185.212397691                 21      cpu-migrations           
+   185.212397691                  5      page-faults              
+   185.212397691         74,080,603      cycles                   
+   185.212397691         50,965,805      stalled-cycles-frontend  
+   185.212397691                  0      stalled-cycles-backend   
+   185.212397691         34,861,204      instructions             
+   185.212397691         10,824,177      branches                 
+   185.212397691            260,256      branch-misses            
+   186.212603251          33.897567      task-clock (msec)        
+   186.212603251                 79      context-switches         
+   186.212603251                  2      cpu-migrations           
+   186.212603251                  1      page-faults              
+   186.212603251         93,519,116      cycles                   
+   186.212603251         71,225,652      stalled-cycles-frontend  
+   186.212603251                  0      stalled-cycles-backend   
+   186.212603251         55,879,695      instructions             
+   186.212603251         10,120,314      branches                 
+   186.212603251            543,324      branch-misses            
+   187.212802006          33.865576      task-clock (msec)        
+   187.212802006                 78      context-switches         
+   187.212802006                  3      cpu-migrations           
+   187.212802006                  0      page-faults              
+   187.212802006         94,478,227      cycles                   
+   187.212802006         71,788,726      stalled-cycles-frontend  
+   187.212802006                  0      stalled-cycles-backend   
+   187.212802006         56,599,474      instructions             
+   187.212802006         10,307,422      branches                 
+   187.212802006            524,911      branch-misses            
+   188.212994346          32.538788      task-clock (msec)        
+   188.212994346                 67      context-switches         
+   188.212994346                  4      cpu-migrations           
+   188.212994346                  0      page-faults              
+   188.212994346         90,779,941      cycles                   
+   188.212994346         64,412,217      stalled-cycles-frontend  
+   188.212994346                  0      stalled-cycles-backend   
+   188.212994346         63,423,663      instructions             
+   188.212994346         11,566,460      branches                 
+   188.212994346            619,260      branch-misses            
+   189.213192835         137.103633      task-clock (msec)        
+   189.213192835                 82      context-switches         
+   189.213192835                  5      cpu-migrations           
+   189.213192835              1,533      page-faults              
+   189.213192835        383,260,614      cycles                   
+   189.213192835        268,196,452      stalled-cycles-frontend  
+   189.213192835                  0      stalled-cycles-backend   
+   189.213192835        307,784,576      instructions             
+   189.213192835         58,968,794      branches                 
+   189.213192835          2,304,753      branch-misses            
+   190.213389856          33.169845      task-clock (msec)        
+   190.213389856                 86      context-switches         
+   190.213389856                  2      cpu-migrations           
+   190.213389856                  3      page-faults              
+   190.213389856         92,527,571      cycles                   
+   190.213389856         69,771,951      stalled-cycles-frontend  
+   190.213389856                  0      stalled-cycles-backend   
+   190.213389856         57,847,009      instructions             
+   190.213389856         10,547,180      branches                 
+   190.213389856            523,342      branch-misses            
+   191.213606532          76.008461      task-clock (msec)        
+   191.213606532                 82      context-switches         
+   191.213606532                  2      cpu-migrations           
+   191.213606532                  2      page-faults              
+   191.213606532        212,251,308      cycles                   
+   191.213606532        151,808,912      stalled-cycles-frontend  
+   191.213606532                  0      stalled-cycles-backend   
+   191.213606532        149,766,140      instructions             
+   191.213606532         27,497,124      branches                 
+   191.213606532          1,592,101      branch-misses            
+   192.213806704          36.845777      task-clock (msec)        
+   192.213806704                 75      context-switches         
+   192.213806704                  5      cpu-migrations           
+   192.213806704                  0      page-faults              
+   192.213806704        102,864,104      cycles                   
+   192.213806704         74,447,583      stalled-cycles-frontend  
+   192.213806704                  0      stalled-cycles-backend   
+   192.213806704         70,702,194      instructions             
+   192.213806704         12,917,055      branches                 
+   192.213806704            680,148      branch-misses            
+   193.214003645          22.681081      task-clock (msec)        
+   193.214003645                 52      context-switches         
+   193.214003645                 13      cpu-migrations           
+   193.214003645                  1      page-faults              
+   193.214003645         63,178,171      cycles                   
+   193.214003645         40,672,068      stalled-cycles-frontend  
+   193.214003645                  0      stalled-cycles-backend   
+   193.214003645         54,063,875      instructions             
+   193.214003645          9,844,722      branches                 
+   193.214003645            463,262      branch-misses            
+   194.214250824          28.028148      task-clock (msec)        
+   194.214250824                 57      context-switches         
+   194.214250824                  4      cpu-migrations           
+   194.214250824                  0      page-faults              
+   194.214250824         78,186,588      cycles                   
+   194.214250824         56,697,247      stalled-cycles-frontend  
+   194.214250824                  0      stalled-cycles-backend   
+   194.214250824         54,015,418      instructions             
+   194.214250824          9,835,021      branches                 
+   194.214250824            467,452      branch-misses            
+   195.214455996          68.211215      task-clock (msec)        
+   195.214455996                 70      context-switches         
+   195.214455996                 11      cpu-migrations           
+   195.214455996                  8      page-faults              
+   195.214455996        190,509,628      cycles                   
+   195.214455996        115,820,637      stalled-cycles-frontend  
+   195.214455996                  0      stalled-cycles-backend   
+   195.214455996        178,773,021      instructions             
+   195.214455996         32,276,303      branches                 
+   195.214455996          1,687,730      branch-misses            
+   196.214640594          27.772947      task-clock (msec)        
+   196.214640594                 80      context-switches         
+   196.214640594                  1      cpu-migrations           
+   196.214640594                  0      page-faults              
+   196.214640594         77,443,061      cycles                   
+   196.214640594         57,014,953      stalled-cycles-frontend  
+   196.214640594                  0      stalled-cycles-backend   
+   196.214640594         53,971,422      instructions             
+   196.214640594          9,831,800      branches                 
+   196.214640594            479,739      branch-misses            
+   197.214839882          30.013644      task-clock (msec)        
+   197.214839882                 84      context-switches         
+   197.214839882                  2      cpu-migrations           
+   197.214839882                  0      page-faults              
+   197.214839882         83,768,940      cycles                   
+   197.214839882         62,161,137      stalled-cycles-frontend  
+   197.214839882                  0      stalled-cycles-backend   
+   197.214839882         54,515,674      instructions             
+   197.214839882          9,937,969      branches                 
+   197.214839882            492,872      branch-misses            
+   198.215043070          28.208875      task-clock (msec)        
+   198.215043070                 72      context-switches         
+   198.215043070                  7      cpu-migrations           
+   198.215043070                  0      page-faults              
+   198.215043070         78,701,379      cycles                   
+   198.215043070         57,413,011      stalled-cycles-frontend  
+   198.215043070                  0      stalled-cycles-backend   
+   198.215043070         53,892,464      instructions             
+   198.215043070          9,815,372      branches                 
+   198.215043070            460,044      branch-misses            
+   199.215249739          25.927815      task-clock (msec)        
+   199.215249739                 59      context-switches         
+   199.215249739                  3      cpu-migrations           
+   199.215249739                  5      page-faults              
+   199.215249739         72,271,130      cycles                   
+   199.215249739         49,395,481      stalled-cycles-frontend  
+   199.215249739                  0      stalled-cycles-backend   
+   199.215249739         56,751,351      instructions             
+   199.215249739         10,337,877      branches                 
+   199.215249739            504,815      branch-misses            
+   200.215470756          28.251645      task-clock (msec)        
+   200.215470756                 51      context-switches         
+   200.215470756                  5      cpu-migrations           
+   200.215470756                  0      page-faults              
+   200.215470756         78,779,911      cycles                   
+   200.215470756         57,618,406      stalled-cycles-frontend  
+   200.215470756                  0      stalled-cycles-backend   
+   200.215470756         53,522,575      instructions             
+   200.215470756          9,760,919      branches                 
+   200.215470756            449,024      branch-misses            
+   201.266299192           1.828239      task-clock (msec)        
+   201.266299192                 33      context-switches         
+   201.266299192                  1      cpu-migrations           
+   201.266299192                  1      page-faults              
+   201.266299192          4,953,068      cycles                   
+   201.266299192          4,458,119      stalled-cycles-frontend  
+   201.266299192                  0      stalled-cycles-backend   
+   201.266299192            798,482      instructions             
+   201.266299192            143,464      branches                 
+   201.266299192             23,855      branch-misses            
+   202.266498154          26.986483      task-clock (msec)        
+   202.266498154                 99      context-switches         
+   202.266498154                 34      cpu-migrations           
+   202.266498154                  1      page-faults              
+   202.266498154         75,160,739      cycles                   
+   202.266498154         46,581,540      stalled-cycles-frontend  
+   202.266498154                  0      stalled-cycles-backend   
+   202.266498154         66,588,467      instructions             
+   202.266498154         12,908,029      branches                 
+   202.266498154            551,956      branch-misses            
+   203.266708633          39.700361      task-clock (msec)        
+   203.266708633                 77      context-switches         
+   203.266708633                  3      cpu-migrations           
+   203.266708633                  1      page-faults              
+   203.266708633        110,848,939      cycles                   
+   203.266708633         81,476,590      stalled-cycles-frontend  
+   203.266708633                  0      stalled-cycles-backend   
+   203.266708633         72,221,283      instructions             
+   203.266708633         13,144,180      branches                 
+   203.266708633            724,607      branch-misses            
+   204.266920245          73.254390      task-clock (msec)        
+   204.266920245                 77      context-switches         
+   204.266920245                  4      cpu-migrations           
+   204.266920245                  2      page-faults              
+   204.266920245        204,656,531      cycles                   
+   204.266920245        141,577,444      stalled-cycles-frontend  
+   204.266920245                  0      stalled-cycles-backend   
+   204.266920245        163,361,095      instructions             
+   204.266920245         29,518,880      branches                 
+   204.266920245          1,484,604      branch-misses            
+#           time             counts unit events
+   205.267118551          18.961104      task-clock (msec)        
+   205.267118551                 58      context-switches         
+   205.267118551                 12      cpu-migrations           
+   205.267118551                  0      page-faults              
+   205.267118551         52,810,266      cycles                   
+   205.267118551         30,182,194      stalled-cycles-frontend  
+   205.267118551                  0      stalled-cycles-backend   
+   205.267118551         54,071,318      instructions             
+   205.267118551          9,854,738      branches                 
+   205.267118551            448,711      branch-misses            
+   206.267318760          28.089495      task-clock (msec)        
+   206.267318760                 73      context-switches         
+   206.267318760                  7      cpu-migrations           
+   206.267318760                  0      page-faults              
+   206.267318760         78,352,799      cycles                   
+   206.267318760         57,328,706      stalled-cycles-frontend  
+   206.267318760                  0      stalled-cycles-backend   
+   206.267318760         53,767,064      instructions             
+   206.267318760          9,795,731      branches                 
+   206.267318760            450,595      branch-misses            
+   207.267543432          27.675820      task-clock (msec)        
+   207.267543432                 73      context-switches         
+   207.267543432                  3      cpu-migrations           
+   207.267543432                  0      page-faults              
+   207.267543432         77,234,746      cycles                   
+   207.267543432         56,333,985      stalled-cycles-frontend  
+   207.267543432                  0      stalled-cycles-backend   
+   207.267543432         53,257,798      instructions             
+   207.267543432          9,704,044      branches                 
+   207.267543432            443,611      branch-misses            
+   208.267745374          28.336269      task-clock (msec)        
+   208.267745374                 68      context-switches         
+   208.267745374                  5      cpu-migrations           
+   208.267745374                  0      page-faults              
+   208.267745374         79,001,547      cycles                   
+   208.267745374         57,838,981      stalled-cycles-frontend  
+   208.267745374                  0      stalled-cycles-backend   
+   208.267745374         53,734,693      instructions             
+   208.267745374          9,789,838      branches                 
+   208.267745374            453,993      branch-misses            
+   209.267958227          28.454061      task-clock (msec)        
+   209.267958227                 62      context-switches         
+   209.267958227                  9      cpu-migrations           
+   209.267958227                  0      page-faults              
+   209.267958227         79,332,639      cycles                   
+   209.267958227         58,169,270      stalled-cycles-frontend  
+   209.267958227                  0      stalled-cycles-backend   
+   209.267958227         53,705,593      instructions             
+   209.267958227          9,784,163      branches                 
+   209.267958227            455,006      branch-misses            
+   210.268171069          27.877032      task-clock (msec)        
+   210.268171069                 61      context-switches         
+   210.268171069                  4      cpu-migrations           
+   210.268171069                  0      page-faults              
+   210.268171069         77,691,061      cycles                   
+   210.268171069         56,631,385      stalled-cycles-frontend  
+   210.268171069                  0      stalled-cycles-backend   
+   210.268171069         53,284,020      instructions             
+   210.268171069          9,709,065      branches                 
+   210.268171069            448,657      branch-misses            
+   211.471722717          28.361622      task-clock (msec)        
+   211.471722717                 86      context-switches         
+   211.471722717                  5      cpu-migrations           
+   211.471722717                  0      page-faults              
+   211.471722717         79,088,667      cycles                   
+   211.471722717         57,824,437      stalled-cycles-frontend  
+   211.471722717                  0      stalled-cycles-backend   
+   211.471722717         53,756,638      instructions             
+   211.471722717          9,795,109      branches                 
+   211.471722717            454,799      branch-misses            
+   212.471906505          28.151519      task-clock (msec)        
+   212.471906505                 52      context-switches         
+   212.471906505                  5      cpu-migrations           
+   212.471906505                  1      page-faults              
+   212.471906505         78,497,647      cycles                   
+   212.471906505         57,087,947      stalled-cycles-frontend  
+   212.471906505                  0      stalled-cycles-backend   
+   212.471906505         53,726,946      instructions             
+   212.471906505          9,787,853      branches                 
+   212.471906505            455,213      branch-misses            
+   213.472111505          34.412944      task-clock (msec)        
+   213.472111505                 58      context-switches         
+   213.472111505                  9      cpu-migrations           
+   213.472111505                  0      page-faults              
+   213.472111505         95,946,956      cycles                   
+   213.472111505         68,284,919      stalled-cycles-frontend  
+   213.472111505                  0      stalled-cycles-backend   
+   213.472111505         66,973,116      instructions             
+   213.472111505         12,261,707      branches                 
+   213.472111505            621,405      branch-misses            
+   214.472310260          22.951464      task-clock (msec)        
+   214.472310260                 47      context-switches         
+   214.472310260                  1      cpu-migrations           
+   214.472310260                  0      page-faults              
+   214.472310260         63,923,006      cycles                   
+   214.472310260         42,113,041      stalled-cycles-frontend  
+   214.472310260                  0      stalled-cycles-backend   
+   214.472310260         53,822,715      instructions             
+   214.472310260          9,804,190      branches                 
+   214.472310260            470,143      branch-misses            
+   215.472516846          30.825718      task-clock (msec)        
+   215.472516846                 59      context-switches         
+   215.472516846                  1      cpu-migrations           
+   215.472516846                  1      page-faults              
+   215.472516846         85,957,293      cycles                   
+   215.472516846         65,090,903      stalled-cycles-frontend  
+   215.472516846                  0      stalled-cycles-backend   
+   215.472516846         53,421,306      instructions             
+   215.472516846          9,733,236      branches                 
+   215.472516846            479,002      branch-misses            
+   216.472736498         111.529628      task-clock (msec)        
+   216.472736498                 55      context-switches         
+   216.472736498                 13      cpu-migrations           
+   216.472736498                  6      page-faults              
+   216.472736498        311,703,592      cycles                   
+   216.472736498        189,861,980      stalled-cycles-frontend  
+   216.472736498                  0      stalled-cycles-backend   
+   216.472736498        306,178,386      instructions             
+   216.472736498         59,587,213      branches                 
+   216.472736498          2,426,327      branch-misses            
+   217.472910760          30.414896      task-clock (msec)        
+   217.472910760                 49      context-switches         
+   217.472910760                  9      cpu-migrations           
+   217.472910760                  0      page-faults              
+   217.472910760         84,847,203      cycles                   
+   217.472910760         42,001,994      stalled-cycles-frontend  
+   217.472910760                  0      stalled-cycles-backend   
+   217.472910760        101,005,334      instructions             
+   217.472910760         17,661,379      branches                 
+   217.472910760            883,669      branch-misses            
+   218.473092207          28.647048      task-clock (msec)        
+   218.473092207                102      context-switches         
+   218.473092207                 17      cpu-migrations           
+   218.473092207                  2      page-faults              
+   218.473092207         79,734,585      cycles                   
+   218.473092207         48,558,392      stalled-cycles-frontend  
+   218.473092207                  0      stalled-cycles-backend   
+   218.473092207         68,257,067      instructions             
+   218.473092207         13,863,679      branches                 
+   218.473092207            524,656      branch-misses            
+   219.473277170          19.160891      task-clock (msec)        
+   219.473277170                 48      context-switches         
+   219.473277170                  0      cpu-migrations           
+   219.473277170                  0      page-faults              
+   219.473277170         53,367,523      cycles                   
+   219.473277170         29,745,670      stalled-cycles-frontend  
+   219.473277170                  0      stalled-cycles-backend   
+   219.473277170         55,314,940      instructions             
+   219.473277170         10,024,848      branches                 
+   219.473277170            474,635      branch-misses            
+   220.473474540          31.365535      task-clock (msec)        
+   220.473474540                 52      context-switches         
+   220.473474540                 12      cpu-migrations           
+   220.473474540                  0      page-faults              
+   220.473474540         87,515,423      cycles                   
+   220.473474540         66,203,739      stalled-cycles-frontend  
+   220.473474540                  0      stalled-cycles-backend   
+   220.473474540         53,872,809      instructions             
+   220.473474540          9,813,400      branches                 
+   220.473474540            462,335      branch-misses            
+   221.473686592          22.976131      task-clock (msec)        
+   221.473686592                 49      context-switches         
+   221.473686592                  8      cpu-migrations           
+   221.473686592                  0      page-faults              
+   221.473686592         64,039,774      cycles                   
+   221.473686592         38,949,310      stalled-cycles-frontend  
+   221.473686592                  0      stalled-cycles-backend   
+   221.473686592         60,270,338      instructions             
+   221.473686592         11,007,056      branches                 
+   221.473686592            541,296      branch-misses            
+   222.473866682          22.743264      task-clock (msec)        
+   222.473866682                 48      context-switches         
+   222.473866682                  2      cpu-migrations           
+   222.473866682                  0      page-faults              
+   222.473866682         63,354,637      cycles                   
+   222.473866682         41,022,436      stalled-cycles-frontend  
+   222.473866682                  0      stalled-cycles-backend   
+   222.473866682         53,816,966      instructions             
+   222.473866682          9,803,490      branches                 
+   222.473866682            445,040      branch-misses            
+   223.474055812          21.445682      task-clock (msec)        
+   223.474055812                 49      context-switches         
+   223.474055812                  0      cpu-migrations           
+   223.474055812                  0      page-faults              
+   223.474055812         59,758,483      cycles                   
+   223.474055812         33,047,173      stalled-cycles-frontend  
+   223.474055812                  0      stalled-cycles-backend   
+   223.474055812         61,955,578      instructions             
+   223.474055812         11,308,933      branches                 
+   223.474055812            567,430      branch-misses            
+   224.474262184          19.094407      task-clock (msec)        
+   224.474262184                 47      context-switches         
+   224.474262184                  5      cpu-migrations           
+   224.474262184                  0      page-faults              
+   224.474262184         53,173,780      cycles                   
+   224.474262184         31,303,884      stalled-cycles-frontend  
+   224.474262184                  0      stalled-cycles-backend   
+   224.474262184         53,292,318      instructions             
+   224.474262184          9,709,990      branches                 
+   224.474262184            447,438      branch-misses            
+   225.474492765          26.236798      task-clock (msec)        
+   225.474492765                 47      context-switches         
+   225.474492765                  7      cpu-migrations           
+   225.474492765                  1      page-faults              
+   225.474492765         73,158,278      cycles                   
+   225.474492765         52,105,306      stalled-cycles-frontend  
+   225.474492765                  0      stalled-cycles-backend   
+   225.474492765         53,761,478      instructions             
+   225.474492765          9,794,612      branches                 
+   225.474492765            483,215      branch-misses            
+   226.474675791          77.078129      task-clock (msec)        
+   226.474675791                 53      context-switches         
+   226.474675791                  6      cpu-migrations           
+   226.474675791                 10      page-faults              
+   226.474675791        215,346,651      cycles                   
+   226.474675791        110,988,710      stalled-cycles-frontend  
+   226.474675791                  0      stalled-cycles-backend   
+   226.474675791        248,534,000      instructions             
+   226.474675791         46,365,471      branches                 
+   226.474675791          1,968,755      branch-misses            
+   227.475530375          40.050939      task-clock (msec)        
+   227.475530375                 51      context-switches         
+   227.475530375                  2      cpu-migrations           
+   227.475530375                  2      page-faults              
+   227.475530375        111,794,240      cycles                   
+   227.475530375         62,650,439      stalled-cycles-frontend  
+   227.475530375                  0      stalled-cycles-backend   
+   227.475530375        118,916,398      instructions             
+   227.475530375         21,874,748      branches                 
+   227.475530375          1,011,579      branch-misses            
+   228.475997699          20.037746      task-clock (msec)        
+   228.475997699                 51      context-switches         
+   228.475997699                  8      cpu-migrations           
+   228.475997699                  2      page-faults              
+   228.475997699         55,815,053      cycles                   
+   228.475997699         33,331,574      stalled-cycles-frontend  
+   228.475997699                  0      stalled-cycles-backend   
+   228.475997699         54,332,362      instructions             
+   228.475997699          9,911,399      branches                 
+   228.475997699            451,149      branch-misses            
+   229.476179290          20.628622      task-clock (msec)        
+   229.476179290                 53      context-switches         
+   229.476179290                  4      cpu-migrations           
+   229.476179290                  6      page-faults              
+   229.476179290         57,457,493      cycles                   
+   229.476179290         32,833,660      stalled-cycles-frontend  
+   229.476179290                  0      stalled-cycles-backend   
+   229.476179290         58,097,053      instructions             
+   229.476179290         10,574,139      branches                 
+   229.476179290            515,325      branch-misses            
+#           time             counts unit events
+   230.476378654          28.023750      task-clock (msec)        
+   230.476378654                 53      context-switches         
+   230.476378654                  7      cpu-migrations           
+   230.476378654                  0      page-faults              
+   230.476378654         78,129,047      cycles                   
+   230.476378654         56,784,007      stalled-cycles-frontend  
+   230.476378654                  0      stalled-cycles-backend   
+   230.476378654         54,166,003      instructions             
+   230.476378654          9,883,056      branches                 
+   230.476378654            461,830      branch-misses            
+   231.476583771          35.646300      task-clock (msec)        
+   231.476583771                 52      context-switches         
+   231.476583771                  3      cpu-migrations           
+   231.476583771                  0      page-faults              
+   231.476583771         98,821,014      cycles                   
+   231.476583771         69,069,939      stalled-cycles-frontend  
+   231.476583771                  0      stalled-cycles-backend   
+   231.476583771         74,044,876      instructions             
+   231.476583771         13,409,155      branches                 
+   231.476583771            690,722      branch-misses            
+   232.476763608          28.381821      task-clock (msec)        
+   232.476763608                 49      context-switches         
+   232.476763608                  1      cpu-migrations           
+   232.476763608                  1      page-faults              
+   232.476763608         79,131,595      cycles                   
+   232.476763608         55,999,585      stalled-cycles-frontend  
+   232.476763608                  0      stalled-cycles-backend   
+   232.476763608         57,122,503      instructions             
+   232.476763608         10,433,408      branches                 
+   232.476763608            511,826      branch-misses            
+   233.476967900          42.573642      task-clock (msec)        
+   233.476967900                 49      context-switches         
+   233.476967900                  6      cpu-migrations           
+   233.476967900                  0      page-faults              
+   233.476967900        118,837,392      cycles                   
+   233.476967900         79,373,297      stalled-cycles-frontend  
+   233.476967900                  0      stalled-cycles-backend   
+   233.476967900         93,331,920      instructions             
+   233.476967900         17,448,402      branches                 
+   233.476967900            862,607      branch-misses            
+   234.477145959          30.191876      task-clock (msec)        
+   234.477145959                109      context-switches         
+   234.477145959                 20      cpu-migrations           
+   234.477145959                  4      page-faults              
+   234.477145959         84,030,949      cycles                   
+   234.477145959         52,094,935      stalled-cycles-frontend  
+   234.477145959                  0      stalled-cycles-backend   
+   234.477145959         71,177,859      instructions             
+   234.477145959         13,959,308      branches                 
+   234.477145959            594,322      branch-misses            
+   235.477347381          20.896059      task-clock (msec)        
+   235.477347381                 49      context-switches         
+   235.477347381                  5      cpu-migrations           
+   235.477347381                  0      page-faults              
+   235.477347381         58,231,174      cycles                   
+   235.477347381         35,800,795      stalled-cycles-frontend  
+   235.477347381                  0      stalled-cycles-backend   
+   235.477347381         54,479,341      instructions             
+   235.477347381          9,911,357      branches                 
+   235.477347381            452,207      branch-misses            
+   236.477528999          18.968986      task-clock (msec)        
+   236.477528999                 50      context-switches         
+   236.477528999                  7      cpu-migrations           
+   236.477528999                  0      page-faults              
+   236.477528999         52,858,032      cycles                   
+   236.477528999         31,047,947      stalled-cycles-frontend  
+   236.477528999                  0      stalled-cycles-backend   
+   236.477528999         52,875,157      instructions             
+   236.477528999          9,643,228      branches                 
+   236.477528999            427,982      branch-misses            
+   237.477738568          17.857247      task-clock (msec)        
+   237.477738568                 47      context-switches         
+   237.477738568                  2      cpu-migrations           
+   237.477738568                  0      page-faults              
+   237.477738568         49,736,313      cycles                   
+   237.477738568         27,377,209      stalled-cycles-frontend  
+   237.477738568                  0      stalled-cycles-backend   
+   237.477738568         53,272,569      instructions             
+   237.477738568          9,712,043      branches                 
+   237.477738568            436,987      branch-misses            
+   238.477928671          17.575584      task-clock (msec)        
+   238.477928671                 47      context-switches         
+   238.477928671                  6      cpu-migrations           
+   238.477928671                  0      page-faults              
+   238.477928671         48,956,273      cycles                   
+   238.477928671         26,870,367      stalled-cycles-frontend  
+   238.477928671                  0      stalled-cycles-backend   
+   238.477928671         52,844,706      instructions             
+   238.477928671          9,636,144      branches                 
+   238.477928671            426,131      branch-misses            
+   239.478118347          18.235410      task-clock (msec)        
+   239.478118347                 49      context-switches         
+   239.478118347                  7      cpu-migrations           
+   239.478118347                  0      page-faults              
+   239.478118347         50,766,039      cycles                   
+   239.478118347         28,949,449      stalled-cycles-frontend  
+   239.478118347                  0      stalled-cycles-backend   
+   239.478118347         52,886,027      instructions             
+   239.478118347          9,643,919      branches                 
+   239.478118347            425,363      branch-misses            
+   240.478312525          33.948634      task-clock (msec)        
+   240.478312525                 49      context-switches         
+   240.478312525                  5      cpu-migrations           
+   240.478312525                  1      page-faults              
+   240.478312525         94,742,214      cycles                   
+   240.478312525         58,904,891      stalled-cycles-frontend  
+   240.478312525                  0      stalled-cycles-backend   
+   240.478312525         86,820,559      instructions             
+   240.478312525         15,914,288      branches                 
+   240.478312525            804,972      branch-misses            
+   241.478506270          31.247912      task-clock (msec)        
+   241.478506270                 50      context-switches         
+   241.478506270                  7      cpu-migrations           
+   241.478506270                  0      page-faults              
+   241.478506270         87,157,972      cycles                   
+   241.478506270         60,504,554      stalled-cycles-frontend  
+   241.478506270                  0      stalled-cycles-backend   
+   241.478506270         64,158,279      instructions             
+   241.478506270         11,689,079      branches                 
+   241.478506270            606,129      branch-misses            
+   242.478714655          17.460638      task-clock (msec)        
+   242.478714655                 47      context-switches         
+   242.478714655                  2      cpu-migrations           
+   242.478714655                  0      page-faults              
+   242.478714655         48,630,445      cycles                   
+   242.478714655         26,613,311      stalled-cycles-frontend  
+   242.478714655                  0      stalled-cycles-backend   
+   242.478714655         52,789,869      instructions             
+   242.478714655          9,626,569      branches                 
+   242.478714655            419,597      branch-misses            
+   243.478917287          17.872988      task-clock (msec)        
+   243.478917287                 47      context-switches         
+   243.478917287                  3      cpu-migrations           
+   243.478917287                  0      page-faults              
+   243.478917287         49,790,880      cycles                   
+   243.478917287         27,452,915      stalled-cycles-frontend  
+   243.478917287                  0      stalled-cycles-backend   
+   243.478917287         53,252,215      instructions             
+   243.478917287          9,709,816      branches                 
+   243.478917287            436,807      branch-misses            
+   244.479123509          26.144979      task-clock (msec)        
+   244.479123509                 49      context-switches         
+   244.479123509                  5      cpu-migrations           
+   244.479123509                  2      page-faults              
+   244.479123509         72,909,986      cycles                   
+   244.479123509         39,180,686      stalled-cycles-frontend  
+   244.479123509                  0      stalled-cycles-backend   
+   244.479123509         78,092,689      instructions             
+   244.479123509         14,261,025      branches                 
+   244.479123509            710,066      branch-misses            
+   245.479305450          18.347141      task-clock (msec)        
+   245.479305450                 49      context-switches         
+   245.479305450                  4      cpu-migrations           
+   245.479305450                  1      page-faults              
+   245.479305450         51,094,854      cycles                   
+   245.479305450         28,126,566      stalled-cycles-frontend  
+   245.479305450                  0      stalled-cycles-backend   
+   245.479305450         55,528,462      instructions             
+   245.479305450         10,106,983      branches                 
+   245.479305450            442,697      branch-misses            
+   246.479496142          11.298475      task-clock (msec)        
+   246.479496142                 27      context-switches         
+   246.479496142                  1      cpu-migrations           
+   246.479496142                  0      page-faults              
+   246.479496142         31,583,195      cycles                   
+   246.479496142         16,892,128      stalled-cycles-frontend  
+   246.479496142                  0      stalled-cycles-backend   
+   246.479496142         36,942,137      instructions             
+   246.479496142          6,809,363      branches                 
+   246.479496142            252,170      branch-misses            
+   247.479685239          15.772654      task-clock (msec)        
+   247.479685239                 44      context-switches         
+   247.479685239                  3      cpu-migrations           
+   247.479685239                  1      page-faults              
+   247.479685239         43,815,554      cycles                   
+   247.479685239         29,259,320      stalled-cycles-frontend  
+   247.479685239                  0      stalled-cycles-backend   
+   247.479685239         32,921,643      instructions             
+   247.479685239          5,929,328      branches                 
+   247.479685239            398,360      branch-misses            
+   248.479874865          17.985655      task-clock (msec)        
+   248.479874865                 47      context-switches         
+   248.479874865                  2      cpu-migrations           
+   248.479874865                  0      page-faults              
+   248.479874865         50,094,368      cycles                   
+   248.479874865         28,201,030      stalled-cycles-frontend  
+   248.479874865                  0      stalled-cycles-backend   
+   248.479874865         52,947,104      instructions             
+   248.479874865          9,661,689      branches                 
+   248.479874865            420,475      branch-misses            
+   249.480122961          22.336715      task-clock (msec)        
+   249.480122961                 56      context-switches         
+   249.480122961                  4      cpu-migrations           
+   249.480122961                  4      page-faults              
+   249.480122961         61,548,745      cycles                   
+   249.480122961         33,469,613      stalled-cycles-frontend  
+   249.480122961                  0      stalled-cycles-backend   
+   249.480122961         65,249,904      instructions             
+   249.480122961         11,914,176      branches                 
+   249.480122961            595,750      branch-misses            
+   250.480446899          48.837978      task-clock (msec)        
+   250.480446899                 97      context-switches         
+   250.480446899                 11      cpu-migrations           
+   250.480446899                  4      page-faults              
+   250.480446899         66,872,230      cycles                   
+   250.480446899         37,463,510      stalled-cycles-frontend  
+   250.480446899                  0      stalled-cycles-backend   
+   250.480446899         66,848,762      instructions             
+   250.480446899         13,138,474      branches                 
+   250.480446899            542,022      branch-misses            
+   251.480685451          37.273058      task-clock (msec)        
+   251.480685451                 48      context-switches         
+   251.480685451                  0      cpu-migrations           
+   251.480685451                  0      page-faults              
+   251.480685451         48,564,825      cycles                   
+   251.480685451         25,403,769      stalled-cycles-frontend  
+   251.480685451                  0      stalled-cycles-backend   
+   251.480685451         54,683,981      instructions             
+   251.480685451          9,919,974      branches                 
+   251.480685451            465,966      branch-misses            
+   252.480929930          27.646627      task-clock (msec)        
+   252.480929930                 48      context-switches         
+   252.480929930                  0      cpu-migrations           
+   252.480929930                  0      page-faults              
+   252.480929930         45,973,496      cycles                   
+   252.480929930         24,013,476      stalled-cycles-frontend  
+   252.480929930                  0      stalled-cycles-backend   
+   252.480929930         52,713,904      instructions             
+   252.480929930          9,615,278      branches                 
+   252.480929930            422,043      branch-misses            
+   253.481209451         608.642590      task-clock (msec)        
+   253.481209451              1,139      context-switches         
+   253.481209451                 40      cpu-migrations           
+   253.481209451                417      page-faults              
+   253.481209451      1,221,524,422      cycles                   
+   253.481209451        688,239,300      stalled-cycles-frontend  
+   253.481209451                  0      stalled-cycles-backend   
+   253.481209451      1,129,842,238      instructions             
+   253.481209451        181,474,149      branches                 
+   253.481209451         12,789,999      branch-misses            
+   254.481505845           4.491363      task-clock (msec)        
+   254.481505845                 33      context-switches         
+   254.481505845                  0      cpu-migrations           
+   254.481505845                  2      page-faults              
+   254.481505845          5,276,662      cycles                   
+   254.481505845          3,836,789      stalled-cycles-frontend  
+   254.481505845                  0      stalled-cycles-backend   
+   254.481505845          1,945,802      instructions             
+   254.481505845            344,089      branches                 
+   254.481505845             65,400      branch-misses            
+#           time             counts unit events
+   255.481792880           3.651371      task-clock (msec)        
+   255.481792880                 33      context-switches         
+   255.481792880                  0      cpu-migrations           
+   255.481792880                  0      page-faults              
+   255.481792880          4,247,081      cycles                   
+   255.481792880          3,145,751      stalled-cycles-frontend  
+   255.481792880                  0      stalled-cycles-backend   
+   255.481792880          1,324,731      instructions             
+   255.481792880            231,652      branches                 
+   255.481792880             52,348      branch-misses            
+   256.482024064           4.406195      task-clock (msec)        
+   256.482024064                 34      context-switches         
+   256.482024064                  0      cpu-migrations           
+   256.482024064                  1      page-faults              
+   256.482024064          5,151,613      cycles                   
+   256.482024064          3,713,959      stalled-cycles-frontend  
+   256.482024064                  0      stalled-cycles-backend   
+   256.482024064          1,964,535      instructions             
+   256.482024064            347,457      branches                 
+   256.482024064             65,510      branch-misses            
+   257.482295352           3.522103      task-clock (msec)        
+   257.482295352                 33      context-switches         
+   257.482295352                  1      cpu-migrations           
+   257.482295352                  0      page-faults              
+   257.482295352          4,088,624      cycles                   
+   257.482295352          2,963,568      stalled-cycles-frontend  
+   257.482295352                  0      stalled-cycles-backend   
+   257.482295352          1,364,652      instructions             
+   257.482295352            241,488      branches                 
+   257.482295352             54,252      branch-misses            
+   258.482514883           1.999272      task-clock (msec)        
+   258.482514883                 33      context-switches         
+   258.482514883                  7      cpu-migrations           
+   258.482514883                  0      page-faults              
+   258.482514883          5,273,956      cycles                   
+   258.482514883          4,152,922      stalled-cycles-frontend  
+   258.482514883                  0      stalled-cycles-backend   
+   258.482514883          1,319,822      instructions             
+   258.482514883            231,136      branches                 
+   258.482514883             53,478      branch-misses            
+   259.482696785           2.047283      task-clock (msec)        
+   259.482696785                 34      context-switches         
+   259.482696785                  0      cpu-migrations           
+   259.482696785                  0      page-faults              
+   259.482696785          5,449,631      cycles                   
+   259.482696785          4,320,026      stalled-cycles-frontend  
+   259.482696785                  0      stalled-cycles-backend   
+   259.482696785          1,330,293      instructions             
+   259.482696785            232,659      branches                 
+   259.482696785             54,176      branch-misses            
+   260.482884063           1.953390      task-clock (msec)        
+   260.482884063                 33      context-switches         
+   260.482884063                  0      cpu-migrations           
+   260.482884063                  0      page-faults              
+   260.482884063          5,235,251      cycles                   
+   260.482884063          4,142,141      stalled-cycles-frontend  
+   260.482884063                  0      stalled-cycles-backend   
+   260.482884063          1,314,836      instructions             
+   260.482884063            230,037      branches                 
+   260.482884063             49,740      branch-misses            
+   261.483113308         118.232331      task-clock (msec)        
+   261.483113308                128      context-switches         
+   261.483113308                 22      cpu-migrations           
+   261.483113308                 21      page-faults              
+   261.483113308        168,631,500      cycles                   
+   261.483113308         90,455,067      stalled-cycles-frontend  
+   261.483113308                  0      stalled-cycles-backend   
+   261.483113308        184,109,695      instructions             
+   261.483113308         34,878,009      branches                 
+   261.483113308          1,476,055      branch-misses            
+   262.483389725           3.118206      task-clock (msec)        
+   262.483389725                 34      context-switches         
+   262.483389725                  0      cpu-migrations           
+   262.483389725                  0      page-faults              
+   262.483389725          4,907,045      cycles                   
+   262.483389725          3,452,641      stalled-cycles-frontend  
+   262.483389725                  0      stalled-cycles-backend   
+   262.483389725          2,023,483      instructions             
+   262.483389725            354,120      branches                 
+   262.483389725             63,146      branch-misses            
+   263.483605228          34.137653      task-clock (msec)        
+   263.483605228                 48      context-switches         
+   263.483605228                  2      cpu-migrations           
+   263.483605228                  0      page-faults              
+   263.483605228         44,234,798      cycles                   
+   263.483605228         23,131,696      stalled-cycles-frontend  
+   263.483605228                  0      stalled-cycles-backend   
+   263.483605228         51,196,676      instructions             
+   263.483605228          9,348,466      branches                 
+   263.483605228            407,769      branch-misses            
+   264.483811827          16.593903      task-clock (msec)        
+   264.483811827                 48      context-switches         
+   264.483811827                  1      cpu-migrations           
+   264.483811827                  1      page-faults              
+   264.483811827         47,035,221      cycles                   
+   264.483811827         25,859,944      stalled-cycles-frontend  
+   264.483811827                  0      stalled-cycles-backend   
+   264.483811827         51,260,205      instructions             
+   264.483811827          9,363,569      branches                 
+   264.483811827            401,445      branch-misses            
+   265.484005417          17.070320      task-clock (msec)        
+   265.484005417                 48      context-switches         
+   265.484005417                  3      cpu-migrations           
+   265.484005417                  0      page-faults              
+   265.484005417         47,497,502      cycles                   
+   265.484005417         26,426,596      stalled-cycles-frontend  
+   265.484005417                  0      stalled-cycles-backend   
+   265.484005417         51,111,818      instructions             
+   265.484005417          9,333,104      branches                 
+   265.484005417            396,749      branch-misses            
+   266.484250746          16.725997      task-clock (msec)        
+   266.484250746                 49      context-switches         
+   266.484250746                  2      cpu-migrations           
+   266.484250746                  1      page-faults              
+   266.484250746         46,432,231      cycles                   
+   266.484250746         25,346,427      stalled-cycles-frontend  
+   266.484250746                  0      stalled-cycles-backend   
+   266.484250746         51,135,678      instructions             
+   266.484250746          9,337,999      branches                 
+   266.484250746            398,286      branch-misses            
+   267.484528480          43.709237      task-clock (msec)        
+   267.484528480                 50      context-switches         
+   267.484528480                  6      cpu-migrations           
+   267.484528480                  1      page-faults              
+   267.484528480         57,757,972      cycles                   
+   267.484528480         29,999,786      stalled-cycles-frontend  
+   267.484528480                  0      stalled-cycles-backend   
+   267.484528480         64,979,532      instructions             
+   267.484528480         11,858,868      branches                 
+   267.484528480            576,718      branch-misses            
+   268.484777515          33.486365      task-clock (msec)        
+   268.484777515                 48      context-switches         
+   268.484777515                  3      cpu-migrations           
+   268.484777515                  0      page-faults              
+   268.484777515         44,514,745      cycles                   
+   268.484777515         22,988,843      stalled-cycles-frontend  
+   268.484777515                  0      stalled-cycles-backend   
+   268.484777515         52,016,020      instructions             
+   268.484777515          9,487,689      branches                 
+   268.484777515            416,081      branch-misses            
+   269.484991637          17.291235      task-clock (msec)        
+   269.484991637                 49      context-switches         
+   269.484991637                  4      cpu-migrations           
+   269.484991637                  0      page-faults              
+   269.484991637         48,293,629      cycles                   
+   269.484991637         26,638,588      stalled-cycles-frontend  
+   269.484991637                  0      stalled-cycles-backend   
+   269.484991637         52,049,543      instructions             
+   269.484991637          9,493,322      branches                 
+   269.484991637            422,681      branch-misses            
+   270.485196750          17.236593      task-clock (msec)        
+   270.485196750                 48      context-switches         
+   270.485196750                  2      cpu-migrations           
+   270.485196750                  0      page-faults              
+   270.485196750         48,158,116      cycles                   
+   270.485196750         26,532,539      stalled-cycles-frontend  
+   270.485196750                  0      stalled-cycles-backend   
+   270.485196750         52,009,074      instructions             
+   270.485196750          9,486,456      branches                 
+   270.485196750            419,905      branch-misses            
+   271.485449740          17.635391      task-clock (msec)        
+   271.485449740                 49      context-switches         
+   271.485449740                  3      cpu-migrations           
+   271.485449740                  0      page-faults              
+   271.485449740         48,485,939      cycles                   
+   271.485449740         26,685,186      stalled-cycles-frontend  
+   271.485449740                  0      stalled-cycles-backend   
+   271.485449740         52,257,864      instructions             
+   271.485449740          9,535,675      branches                 
+   271.485449740            424,248      branch-misses            
+   272.485737443          60.275843      task-clock (msec)        
+   272.485737443                 50      context-switches         
+   272.485737443                  3      cpu-migrations           
+   272.485737443                  5      page-faults              
+   272.485737443         78,113,526      cycles                   
+   272.485737443         37,669,930      stalled-cycles-frontend  
+   272.485737443                  0      stalled-cycles-backend   
+   272.485737443         95,581,078      instructions             
+   272.485737443         17,228,379      branches                 
+   272.485737443            818,582      branch-misses            
+   273.195881245         270.965603      task-clock (msec)        
+   273.195881245                340      context-switches         
+   273.195881245                 22      cpu-migrations           
+   273.195881245                272      page-faults              
+   273.195881245        621,823,319      cycles                   
+   273.195881245        372,952,722      stalled-cycles-frontend  
+   273.195881245                  0      stalled-cycles-backend   
+   273.195881245        434,188,038      instructions             
+   273.195881245         78,199,369      branches                 
+   273.195881245          7,545,044      branch-misses            

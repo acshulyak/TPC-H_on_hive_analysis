@@ -1,0 +1,2 @@
+Running Hive query: tpch/q14_promotion_effect.hive
+Running Hive query: tpch/q14_promotion_effect.hive

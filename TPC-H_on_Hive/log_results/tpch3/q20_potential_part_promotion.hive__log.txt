@@ -1,0 +1,726 @@
+
+Logging initialized using configuration in jar:file:/home/ashulyak/hive/lib/hive-common-1.2.1.jar!/hive-log4j.properties
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/home/ashulyak/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/ashulyak/tez/apache-tez-0.7.0-src/tez_minimal_jars/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+DROP TABLE partsupp
+OK
+Time taken: 1.823 seconds
+
+DROP TABLE lineitem
+OK
+Time taken: 0.122 seconds
+
+DROP TABLE supplier
+OK
+Time taken: 0.078 seconds
+
+DROP TABLE nation
+OK
+Time taken: 0.018 seconds
+
+DROP TABLE q20_tmp1
+OK
+Time taken: 0.065 seconds
+
+DROP TABLE q20_tmp2
+OK
+Time taken: 0.058 seconds
+
+DROP TABLE q20_tmp3
+OK
+Time taken: 0.058 seconds
+
+DROP TABLE q20_tmp4
+OK
+Time taken: 0.059 seconds
+
+DROP TABLE q20_potential_part_promotion
+OK
+Time taken: 0.049 seconds
+
+
+create external table lineitem (L_ORDERKEY INT, L_PARTKEY INT, L_SUPPKEY INT, L_LINENUMBER INT, L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE, L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING, L_SHIPDATE STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING, L_SHIPINSTRUCT STRING, L_SHIPMODE STRING, L_COMMENT STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' STORED AS TEXTFILE LOCATION '/tpch/lineitem'
+OK
+Time taken: 0.349 seconds
+
+create external table supplier (S_SUPPKEY INT, S_NAME STRING, S_ADDRESS STRING, S_NATIONKEY INT, S_PHONE STRING, S_ACCTBAL DOUBLE, S_COMMENT STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' STORED AS TEXTFILE LOCATION '/tpch/supplier'
+OK
+Time taken: 0.041 seconds
+
+create external table nation (N_NATIONKEY INT, N_NAME STRING, N_REGIONKEY INT, N_COMMENT STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' STORED AS TEXTFILE LOCATION '/tpch/nation'
+OK
+Time taken: 0.042 seconds
+
+create external table partsupp (PS_PARTKEY INT, PS_SUPPKEY INT, PS_AVAILQTY INT, PS_SUPPLYCOST DOUBLE, PS_COMMENT STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' STORED AS TEXTFILE LOCATION'/tpch/partsupp'
+OK
+Time taken: 0.042 seconds
+
+
+create table q20_tmp1(p_partkey int)
+OK
+Time taken: 0.091 seconds
+
+create table q20_tmp2(l_partkey int, l_suppkey int, sum_quantity double)
+OK
+Time taken: 0.075 seconds
+
+create table q20_tmp3(ps_suppkey int, ps_availqty int, sum_quantity double)
+OK
+Time taken: 0.05 seconds
+
+create table q20_tmp4(ps_suppkey int)
+OK
+Time taken: 0.042 seconds
+
+create table q20_potential_part_promotion(s_name string, s_address string)
+OK
+Time taken: 0.05 seconds
+set mapred.min.split.size=536870912
+
+
+insert overwrite table q20_tmp1
+select distinct p_partkey
+from
+  part 
+where 
+  p_name like 'forest%'
+Query ID = ashulyak_20160605114219_2a38fb60-cd4d-4e0b-8287-440f8679736a
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1465144776816_0001, Tracking URL = http://jupiter1.ece.utexas.edu:8088/proxy/application_1465144776816_0001/
+Kill Command = /home/ashulyak/hadoop/bin/hadoop job  -kill job_1465144776816_0001
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+2016-06-05 11:42:27,264 Stage-1 map = 0%,  reduce = 0%
+2016-06-05 11:42:35,473 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 8.06 sec
+2016-06-05 11:42:39,576 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 10.48 sec
+MapReduce Total cumulative CPU time: 10 seconds 480 msec
+Ended Job = job_1465144776816_0001
+Loading data to table default.q20_tmp1
+Table default.q20_tmp1 stats: [numFiles=1, numRows=21551, totalSize=160617, rawDataSize=139066]
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 10.48 sec   HDFS Read: 40465574 HDFS Write: 160696 SUCCESS
+Total MapReduce CPU Time Spent: 10 seconds 480 msec
+OK
+Time taken: 22.079 seconds
+
+
+insert overwrite table q20_tmp2
+select 
+  l_partkey, l_suppkey, 0.5 * sum(l_quantity)
+from
+  lineitem
+where
+  l_shipdate >= '1994-01-01'
+  and l_shipdate < '1995-01-01'
+group by l_partkey, l_suppkey
+Query ID = ashulyak_20160605114241_9bceca70-a0f2-4296-91cf-db2d054e5b9a
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks not specified. Estimated from input data size: 31
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1465144776816_0002, Tracking URL = http://jupiter1.ece.utexas.edu:8088/proxy/application_1465144776816_0002/
+Kill Command = /home/ashulyak/hadoop/bin/hadoop job  -kill job_1465144776816_0002
+Hadoop job information for Stage-1: number of mappers: 29; number of reducers: 31
+2016-06-05 11:42:49,809 Stage-1 map = 0%,  reduce = 0%
+2016-06-05 11:43:06,465 Stage-1 map = 7%,  reduce = 0%, Cumulative CPU 54.11 sec
+2016-06-05 11:43:12,608 Stage-1 map = 15%,  reduce = 0%, Cumulative CPU 64.92 sec
+2016-06-05 11:43:13,641 Stage-1 map = 16%,  reduce = 0%, Cumulative CPU 65.47 sec
+2016-06-05 11:43:14,701 Stage-1 map = 21%,  reduce = 0%, Cumulative CPU 69.55 sec
+2016-06-05 11:43:28,173 Stage-1 map = 24%,  reduce = 0%, Cumulative CPU 115.6 sec
+2016-06-05 11:43:29,193 Stage-1 map = 25%,  reduce = 0%, Cumulative CPU 118.95 sec
+2016-06-05 11:43:31,229 Stage-1 map = 26%,  reduce = 0%, Cumulative CPU 121.08 sec
+2016-06-05 11:43:33,273 Stage-1 map = 29%,  reduce = 0%, Cumulative CPU 124.2 sec
+2016-06-05 11:43:34,294 Stage-1 map = 32%,  reduce = 0%, Cumulative CPU 128.06 sec
+2016-06-05 11:43:36,366 Stage-1 map = 37%,  reduce = 0%, Cumulative CPU 131.39 sec
+2016-06-05 11:43:37,395 Stage-1 map = 41%,  reduce = 0%, Cumulative CPU 135.52 sec
+2016-06-05 11:43:43,622 Stage-1 map = 43%,  reduce = 0%, Cumulative CPU 144.66 sec
+2016-06-05 11:43:47,695 Stage-1 map = 44%,  reduce = 1%, Cumulative CPU 167.98 sec
+2016-06-05 11:43:49,732 Stage-1 map = 46%,  reduce = 1%, Cumulative CPU 171.19 sec
+2016-06-05 11:43:51,792 Stage-1 map = 48%,  reduce = 1%, Cumulative CPU 173.15 sec
+2016-06-05 11:43:52,829 Stage-1 map = 55%,  reduce = 1%, Cumulative CPU 178.33 sec
+2016-06-05 11:44:01,050 Stage-1 map = 57%,  reduce = 1%, Cumulative CPU 195.5 sec
+2016-06-05 11:44:03,098 Stage-1 map = 57%,  reduce = 2%, Cumulative CPU 204.59 sec
+2016-06-05 11:44:04,119 Stage-1 map = 60%,  reduce = 2%, Cumulative CPU 208.46 sec
+2016-06-05 11:44:05,136 Stage-1 map = 63%,  reduce = 2%, Cumulative CPU 211.76 sec
+2016-06-05 11:44:06,153 Stage-1 map = 66%,  reduce = 2%, Cumulative CPU 213.41 sec
+2016-06-05 11:44:13,327 Stage-1 map = 67%,  reduce = 2%, Cumulative CPU 221.65 sec
+2016-06-05 11:44:15,364 Stage-1 map = 68%,  reduce = 2%, Cumulative CPU 234.96 sec
+2016-06-05 11:44:16,382 Stage-1 map = 70%,  reduce = 2%, Cumulative CPU 236.93 sec
+2016-06-05 11:44:17,400 Stage-1 map = 71%,  reduce = 2%, Cumulative CPU 238.58 sec
+2016-06-05 11:44:18,423 Stage-1 map = 76%,  reduce = 2%, Cumulative CPU 242.26 sec
+2016-06-05 11:44:25,576 Stage-1 map = 79%,  reduce = 2%, Cumulative CPU 251.88 sec
+2016-06-05 11:44:27,622 Stage-1 map = 80%,  reduce = 3%, Cumulative CPU 259.52 sec
+2016-06-05 11:44:28,652 Stage-1 map = 82%,  reduce = 3%, Cumulative CPU 267.19 sec
+2016-06-05 11:44:30,726 Stage-1 map = 86%,  reduce = 3%, Cumulative CPU 270.88 sec
+2016-06-05 11:44:33,809 Stage-1 map = 90%,  reduce = 3%, Cumulative CPU 279.35 sec
+2016-06-05 11:44:38,906 Stage-1 map = 91%,  reduce = 3%, Cumulative CPU 288.13 sec
+2016-06-05 11:44:39,932 Stage-1 map = 94%,  reduce = 3%, Cumulative CPU 297.56 sec
+2016-06-05 11:44:41,967 Stage-1 map = 97%,  reduce = 3%, Cumulative CPU 299.79 sec
+2016-06-05 11:44:42,996 Stage-1 map = 100%,  reduce = 3%, Cumulative CPU 308.59 sec
+2016-06-05 11:44:45,090 Stage-1 map = 100%,  reduce = 5%, Cumulative CPU 313.45 sec
+2016-06-05 11:44:46,137 Stage-1 map = 100%,  reduce = 6%, Cumulative CPU 317.68 sec
+2016-06-05 11:44:47,182 Stage-1 map = 100%,  reduce = 8%, Cumulative CPU 323.51 sec
+2016-06-05 11:44:48,212 Stage-1 map = 100%,  reduce = 13%, Cumulative CPU 344.28 sec
+2016-06-05 11:44:49,247 Stage-1 map = 100%,  reduce = 16%, Cumulative CPU 352.55 sec
+2016-06-05 11:44:52,373 Stage-1 map = 100%,  reduce = 19%, Cumulative CPU 361.02 sec
+2016-06-05 11:44:56,553 Stage-1 map = 100%,  reduce = 29%, Cumulative CPU 388.97 sec
+2016-06-05 11:44:57,578 Stage-1 map = 100%,  reduce = 35%, Cumulative CPU 405.97 sec
+2016-06-05 11:45:00,700 Stage-1 map = 100%,  reduce = 39%, Cumulative CPU 415.04 sec
+2016-06-05 11:45:02,777 Stage-1 map = 100%,  reduce = 42%, Cumulative CPU 423.64 sec
+2016-06-05 11:45:04,842 Stage-1 map = 100%,  reduce = 48%, Cumulative CPU 441.84 sec
+2016-06-05 11:45:06,908 Stage-1 map = 100%,  reduce = 52%, Cumulative CPU 450.88 sec
+2016-06-05 11:45:07,944 Stage-1 map = 100%,  reduce = 55%, Cumulative CPU 459.99 sec
+2016-06-05 11:45:08,984 Stage-1 map = 100%,  reduce = 58%, Cumulative CPU 468.34 sec
+2016-06-05 11:45:11,050 Stage-1 map = 100%,  reduce = 61%, Cumulative CPU 477.08 sec
+2016-06-05 11:45:12,098 Stage-1 map = 100%,  reduce = 65%, Cumulative CPU 485.7 sec
+2016-06-05 11:45:14,160 Stage-1 map = 100%,  reduce = 68%, Cumulative CPU 495.03 sec
+2016-06-05 11:45:15,201 Stage-1 map = 100%,  reduce = 71%, Cumulative CPU 504.04 sec
+2016-06-05 11:45:16,236 Stage-1 map = 100%,  reduce = 74%, Cumulative CPU 512.63 sec
+2016-06-05 11:45:18,305 Stage-1 map = 100%,  reduce = 77%, Cumulative CPU 521.51 sec
+2016-06-05 11:45:19,341 Stage-1 map = 100%,  reduce = 81%, Cumulative CPU 530.38 sec
+2016-06-05 11:45:20,385 Stage-1 map = 100%,  reduce = 84%, Cumulative CPU 539.1 sec
+2016-06-05 11:45:22,446 Stage-1 map = 100%,  reduce = 90%, Cumulative CPU 557.31 sec
+2016-06-05 11:45:23,475 Stage-1 map = 100%,  reduce = 94%, Cumulative CPU 566.08 sec
+2016-06-05 11:45:24,497 Stage-1 map = 100%,  reduce = 97%, Cumulative CPU 572.89 sec
+2016-06-05 11:45:25,516 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 578.98 sec
+MapReduce Total cumulative CPU time: 9 minutes 38 seconds 980 msec
+Ended Job = job_1465144776816_0002
+Loading data to table default.q20_tmp2
+Table default.q20_tmp2 stats: [numFiles=31, numRows=5441669, totalSize=98539514, rawDataSize=93097845]
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 29  Reduce: 31   Cumulative CPU: 578.98 sec   HDFS Read: 7776319110 HDFS Write: 98542025 SUCCESS
+Total MapReduce CPU Time Spent: 9 minutes 38 seconds 980 msec
+OK
+Time taken: 167.389 seconds
+
+
+insert overwrite table q20_tmp3
+select 
+  ps_suppkey, ps_availqty, sum_quantity
+from  
+  partsupp ps join q20_tmp1 t1 
+  on 
+    ps.ps_partkey = t1.p_partkey
+  join q20_tmp2 t2 
+  on 
+    ps.ps_partkey = t2.l_partkey and ps.ps_suppkey = t2.l_suppkey
+Query ID = ashulyak_20160605114529_61090502-806d-48c4-95f0-8e1ba6303799
+Total jobs = 4
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/home/ashulyak/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/ashulyak/tez/apache-tez-0.7.0-src/tez_minimal_jars/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+16/06/05 11:45:31 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Execution log at: /tmp/ashulyak/ashulyak_20160605114529_61090502-806d-48c4-95f0-8e1ba6303799.log
+2016-06-05 11:45:32	Starting to launch local task to process map join;	maximum memory = 514850816
+2016-06-05 11:45:33	Dump the side-table for tag: 1 with group count: 21551 into file: file:/tmp/ashulyak/6ee0609c-d9d1-410f-90de-7af03f40a492/hive_2016-06-05_11-45-29_286_6547950992904161064-1/-local-10007/HashTable-Stage-9/MapJoin-mapfile21--.hashtable
+2016-06-05 11:45:33	Uploaded 1 File to: file:/tmp/ashulyak/6ee0609c-d9d1-410f-90de-7af03f40a492/hive_2016-06-05_11-45-29_286_6547950992904161064-1/-local-10007/HashTable-Stage-9/MapJoin-mapfile21--.hashtable (454364 bytes)
+2016-06-05 11:45:33	End of local task; Time Taken: 0.993 sec.
+Execution completed successfully
+MapredLocal task succeeded
+Launching Job 1 out of 4
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1465144776816_0003, Tracking URL = http://jupiter1.ece.utexas.edu:8088/proxy/application_1465144776816_0003/
+Kill Command = /home/ashulyak/hadoop/bin/hadoop job  -kill job_1465144776816_0003
+Hadoop job information for Stage-9: number of mappers: 5; number of reducers: 0
+2016-06-05 11:45:40,966 Stage-9 map = 0%,  reduce = 0%
+2016-06-05 11:45:54,400 Stage-9 map = 10%,  reduce = 0%, Cumulative CPU 41.89 sec
+2016-06-05 11:45:57,455 Stage-9 map = 60%,  reduce = 0%, Cumulative CPU 44.91 sec
+2016-06-05 11:45:58,473 Stage-9 map = 70%,  reduce = 0%, Cumulative CPU 45.03 sec
+2016-06-05 11:46:00,532 Stage-9 map = 80%,  reduce = 0%, Cumulative CPU 48.19 sec
+2016-06-05 11:46:01,548 Stage-9 map = 100%,  reduce = 0%, Cumulative CPU 48.83 sec
+MapReduce Total cumulative CPU time: 48 seconds 830 msec
+Ended Job = job_1465144776816_0003
+Stage-10 is filtered out by condition resolver.
+Stage-11 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/home/ashulyak/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/ashulyak/tez/apache-tez-0.7.0-src/tez_minimal_jars/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+16/06/05 11:46:05 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Execution log at: /tmp/ashulyak/ashulyak_20160605114529_61090502-806d-48c4-95f0-8e1ba6303799.log
+2016-06-05 11:46:05	Starting to launch local task to process map join;	maximum memory = 514850816
+2016-06-05 11:46:06	Dump the side-table for tag: 0 with group count: 86204 into file: file:/tmp/ashulyak/6ee0609c-d9d1-410f-90de-7af03f40a492/hive_2016-06-05_11-45-29_286_6547950992904161064-1/-local-10005/HashTable-Stage-7/MapJoin-mapfile10--.hashtable
+2016-06-05 11:46:06	Uploaded 1 File to: file:/tmp/ashulyak/6ee0609c-d9d1-410f-90de-7af03f40a492/hive_2016-06-05_11-45-29_286_6547950992904161064-1/-local-10005/HashTable-Stage-7/MapJoin-mapfile10--.hashtable (2449254 bytes)
+2016-06-05 11:46:06	End of local task; Time Taken: 1.068 sec.
+Execution completed successfully
+MapredLocal task succeeded
+Launching Job 3 out of 4
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1465144776816_0004, Tracking URL = http://jupiter1.ece.utexas.edu:8088/proxy/application_1465144776816_0004/
+Kill Command = /home/ashulyak/hadoop/bin/hadoop job  -kill job_1465144776816_0004
+Hadoop job information for Stage-7: number of mappers: 1; number of reducers: 0
+2016-06-05 11:46:13,823 Stage-7 map = 0%,  reduce = 0%
+2016-06-05 11:46:23,065 Stage-7 map = 100%,  reduce = 0%, Cumulative CPU 9.7 sec
+MapReduce Total cumulative CPU time: 9 seconds 700 msec
+Ended Job = job_1465144776816_0004
+Loading data to table default.q20_tmp3
+Table default.q20_tmp3 stats: [numFiles=1, numRows=58782, totalSize=914165, rawDataSize=855383]
+MapReduce Jobs Launched: 
+Stage-Stage-9: Map: 5   Cumulative CPU: 48.83 sec   HDFS Read: 1204912942 HDFS Write: 2374712 SUCCESS
+Stage-Stage-7: Map: 1   Cumulative CPU: 9.7 sec   HDFS Read: 98548690 HDFS Write: 914244 SUCCESS
+Total MapReduce CPU Time Spent: 58 seconds 530 msec
+OK
+Time taken: 54.957 seconds
+
+
+insert overwrite table q20_tmp4
+select 
+  ps_suppkey
+from 
+  q20_tmp3
+where 
+  ps_availqty > sum_quantity
+group by ps_suppkey
+Query ID = ashulyak_20160605114624_a7efdf52-ad02-4925-b5f1-73043969ba68
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1465144776816_0005, Tracking URL = http://jupiter1.ece.utexas.edu:8088/proxy/application_1465144776816_0005/
+Kill Command = /home/ashulyak/hadoop/bin/hadoop job  -kill job_1465144776816_0005
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+2016-06-05 11:46:32,202 Stage-1 map = 0%,  reduce = 0%
+2016-06-05 11:46:37,318 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 4.49 sec
+2016-06-05 11:46:42,411 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 7.53 sec
+MapReduce Total cumulative CPU time: 7 seconds 530 msec
+Ended Job = job_1465144776816_0005
+Loading data to table default.q20_tmp4
+Table default.q20_tmp4 stats: [numFiles=1, numRows=44482, totalSize=261982, rawDataSize=217500]
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 7.53 sec   HDFS Read: 921730 HDFS Write: 262061 SUCCESS
+Total MapReduce CPU Time Spent: 7 seconds 530 msec
+OK
+Time taken: 19.307 seconds
+
+
+insert overwrite table q20_potential_part_promotion
+select 
+  s_name, s_address
+from 
+  supplier s join nation n
+  on
+    s.s_nationkey = n.n_nationkey
+    and n.n_name = 'CANADA'
+  join q20_tmp4 t4
+  on 
+    s.s_suppkey = t4.ps_suppkey
+order by s_name
+Query ID = ashulyak_20160605114643_d3261c6e-1486-4b7e-998a-c1ecf56c4f55
+Total jobs = 1
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/home/ashulyak/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/ashulyak/tez/apache-tez-0.7.0-src/tez_minimal_jars/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+16/06/05 11:46:45 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Execution log at: /tmp/ashulyak/ashulyak_20160605114643_d3261c6e-1486-4b7e-998a-c1ecf56c4f55.log
+2016-06-05 11:46:45	Starting to launch local task to process map join;	maximum memory = 514850816
+2016-06-05 11:46:46	Dump the side-table for tag: 1 with group count: 44482 into file: file:/tmp/ashulyak/6ee0609c-d9d1-410f-90de-7af03f40a492/hive_2016-06-05_11-46-43_584_1208840879915767718-1/-local-10004/HashTable-Stage-3/MapJoin-mapfile31--.hashtable
+2016-06-05 11:46:46	Uploaded 1 File to: file:/tmp/ashulyak/6ee0609c-d9d1-410f-90de-7af03f40a492/hive_2016-06-05_11-46-43_584_1208840879915767718-1/-local-10004/HashTable-Stage-3/MapJoin-mapfile31--.hashtable (909545 bytes)
+2016-06-05 11:46:46	Dump the side-table for tag: 1 with group count: 1 into file: file:/tmp/ashulyak/6ee0609c-d9d1-410f-90de-7af03f40a492/hive_2016-06-05_11-46-43_584_1208840879915767718-1/-local-10004/HashTable-Stage-3/MapJoin-mapfile41--.hashtable
+2016-06-05 11:46:46	Uploaded 1 File to: file:/tmp/ashulyak/6ee0609c-d9d1-410f-90de-7af03f40a492/hive_2016-06-05_11-46-43_584_1208840879915767718-1/-local-10004/HashTable-Stage-3/MapJoin-mapfile41--.hashtable (278 bytes)
+2016-06-05 11:46:46	End of local task; Time Taken: 1.141 sec.
+Execution completed successfully
+MapredLocal task succeeded
+Launching Job 1 out of 1
+Number of reduce tasks determined at compile time: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1465144776816_0006, Tracking URL = http://jupiter1.ece.utexas.edu:8088/proxy/application_1465144776816_0006/
+Kill Command = /home/ashulyak/hadoop/bin/hadoop job  -kill job_1465144776816_0006
+Hadoop job information for Stage-3: number of mappers: 1; number of reducers: 1
+2016-06-05 11:46:53,735 Stage-3 map = 0%,  reduce = 0%
+2016-06-05 11:46:58,854 Stage-3 map = 100%,  reduce = 0%, Cumulative CPU 3.66 sec
+2016-06-05 11:47:03,950 Stage-3 map = 100%,  reduce = 100%, Cumulative CPU 5.49 sec
+MapReduce Total cumulative CPU time: 5 seconds 490 msec
+Ended Job = job_1465144776816_0006
+Loading data to table default.q20_potential_part_promotion
+Table default.q20_potential_part_promotion stats: [numFiles=1, numRows=1804, totalSize=80878, rawDataSize=79074]
+MapReduce Jobs Launched: 
+Stage-Stage-3: Map: 1  Reduce: 1   Cumulative CPU: 5.49 sec   HDFS Read: 14190104 HDFS Write: 80975 SUCCESS
+Total MapReduce CPU Time Spent: 5 seconds 490 msec
+OK
+Time taken: 21.533 seconds
+Time:296.78
+
+Logging initialized using configuration in jar:file:/home/ashulyak/hive/lib/hive-common-1.2.1.jar!/hive-log4j.properties
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/home/ashulyak/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/ashulyak/tez/apache-tez-0.7.0-src/tez_minimal_jars/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+DROP TABLE partsupp
+OK
+Time taken: 1.501 seconds
+
+DROP TABLE lineitem
+OK
+Time taken: 0.106 seconds
+
+DROP TABLE supplier
+OK
+Time taken: 0.091 seconds
+
+DROP TABLE nation
+OK
+Time taken: 0.083 seconds
+
+DROP TABLE q20_tmp1
+OK
+Time taken: 0.08 seconds
+
+DROP TABLE q20_tmp2
+OK
+Time taken: 0.071 seconds
+
+DROP TABLE q20_tmp3
+OK
+Time taken: 0.075 seconds
+
+DROP TABLE q20_tmp4
+OK
+Time taken: 0.066 seconds
+
+DROP TABLE q20_potential_part_promotion
+OK
+Time taken: 0.066 seconds
+
+
+create external table lineitem (L_ORDERKEY INT, L_PARTKEY INT, L_SUPPKEY INT, L_LINENUMBER INT, L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE, L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING, L_SHIPDATE STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING, L_SHIPINSTRUCT STRING, L_SHIPMODE STRING, L_COMMENT STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' STORED AS TEXTFILE LOCATION '/tpch/lineitem'
+OK
+Time taken: 0.292 seconds
+
+create external table supplier (S_SUPPKEY INT, S_NAME STRING, S_ADDRESS STRING, S_NATIONKEY INT, S_PHONE STRING, S_ACCTBAL DOUBLE, S_COMMENT STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' STORED AS TEXTFILE LOCATION '/tpch/supplier'
+OK
+Time taken: 0.033 seconds
+
+create external table nation (N_NATIONKEY INT, N_NAME STRING, N_REGIONKEY INT, N_COMMENT STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' STORED AS TEXTFILE LOCATION '/tpch/nation'
+OK
+Time taken: 0.033 seconds
+
+create external table partsupp (PS_PARTKEY INT, PS_SUPPKEY INT, PS_AVAILQTY INT, PS_SUPPLYCOST DOUBLE, PS_COMMENT STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' STORED AS TEXTFILE LOCATION'/tpch/partsupp'
+OK
+Time taken: 0.033 seconds
+
+
+create table q20_tmp1(p_partkey int)
+OK
+Time taken: 0.075 seconds
+
+create table q20_tmp2(l_partkey int, l_suppkey int, sum_quantity double)
+OK
+Time taken: 0.083 seconds
+
+create table q20_tmp3(ps_suppkey int, ps_availqty int, sum_quantity double)
+OK
+Time taken: 0.067 seconds
+
+create table q20_tmp4(ps_suppkey int)
+OK
+Time taken: 0.041 seconds
+
+create table q20_potential_part_promotion(s_name string, s_address string)
+OK
+Time taken: 0.042 seconds
+set mapred.min.split.size=536870912
+
+
+insert overwrite table q20_tmp1
+select distinct p_partkey
+from
+  part 
+where 
+  p_name like 'forest%'
+Query ID = ashulyak_20160605121410_3087ae41-0324-4347-8652-598b4935a20f
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1465146328667_0002, Tracking URL = http://jupiter1.ece.utexas.edu:8088/proxy/application_1465146328667_0002/
+Kill Command = /home/ashulyak/hadoop/bin/hadoop job  -kill job_1465146328667_0002
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+2016-06-05 12:14:15,484 Stage-1 map = 0%,  reduce = 0%
+2016-06-05 12:14:22,694 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 5.88 sec
+2016-06-05 12:14:27,827 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 8.34 sec
+MapReduce Total cumulative CPU time: 8 seconds 340 msec
+Ended Job = job_1465146328667_0002
+Loading data to table default.q20_tmp1
+Table default.q20_tmp1 stats: [numFiles=1, numRows=21551, totalSize=160617, rawDataSize=139066]
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 8.34 sec   HDFS Read: 243348539 HDFS Write: 160696 SUCCESS
+Total MapReduce CPU Time Spent: 8 seconds 340 msec
+OK
+Time taken: 18.909 seconds
+
+
+insert overwrite table q20_tmp2
+select 
+  l_partkey, l_suppkey, 0.5 * sum(l_quantity)
+from
+  lineitem
+where
+  l_shipdate >= '1994-01-01'
+  and l_shipdate < '1995-01-01'
+group by l_partkey, l_suppkey
+Query ID = ashulyak_20160605121429_cd013319-9f49-4f50-a1aa-22b0160f7cfb
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks not specified. Estimated from input data size: 31
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1465146328667_0003, Tracking URL = http://jupiter1.ece.utexas.edu:8088/proxy/application_1465146328667_0003/
+Kill Command = /home/ashulyak/hadoop/bin/hadoop job  -kill job_1465146328667_0003
+Hadoop job information for Stage-1: number of mappers: 29; number of reducers: 31
+2016-06-05 12:14:36,615 Stage-1 map = 0%,  reduce = 0%
+2016-06-05 12:14:48,206 Stage-1 map = 7%,  reduce = 0%, Cumulative CPU 60.34 sec
+2016-06-05 12:14:49,229 Stage-1 map = 21%,  reduce = 0%, Cumulative CPU 70.73 sec
+2016-06-05 12:14:58,649 Stage-1 map = 26%,  reduce = 0%, Cumulative CPU 122.39 sec
+2016-06-05 12:14:59,692 Stage-1 map = 28%,  reduce = 0%, Cumulative CPU 132.21 sec
+2016-06-05 12:15:00,721 Stage-1 map = 41%,  reduce = 0%, Cumulative CPU 145.1 sec
+2016-06-05 12:15:09,050 Stage-1 map = 45%,  reduce = 0%, Cumulative CPU 156.84 sec
+2016-06-05 12:15:10,069 Stage-1 map = 55%,  reduce = 0%, Cumulative CPU 188.65 sec
+2016-06-05 12:15:12,173 Stage-1 map = 55%,  reduce = 1%, Cumulative CPU 189.11 sec
+2016-06-05 12:15:18,382 Stage-1 map = 66%,  reduce = 1%, Cumulative CPU 221.68 sec
+2016-06-05 12:15:19,408 Stage-1 map = 69%,  reduce = 1%, Cumulative CPU 231.81 sec
+2016-06-05 12:15:25,601 Stage-1 map = 72%,  reduce = 1%, Cumulative CPU 241.9 sec
+2016-06-05 12:15:26,623 Stage-1 map = 76%,  reduce = 2%, Cumulative CPU 251.58 sec
+2016-06-05 12:15:27,647 Stage-1 map = 79%,  reduce = 2%, Cumulative CPU 260.68 sec
+2016-06-05 12:15:29,695 Stage-1 map = 79%,  reduce = 3%, Cumulative CPU 260.79 sec
+2016-06-05 12:15:33,816 Stage-1 map = 83%,  reduce = 3%, Cumulative CPU 271.19 sec
+2016-06-05 12:15:34,835 Stage-1 map = 86%,  reduce = 3%, Cumulative CPU 280.48 sec
+2016-06-05 12:15:35,853 Stage-1 map = 90%,  reduce = 3%, Cumulative CPU 289.7 sec
+2016-06-05 12:15:41,008 Stage-1 map = 93%,  reduce = 3%, Cumulative CPU 299.01 sec
+2016-06-05 12:15:43,050 Stage-1 map = 97%,  reduce = 3%, Cumulative CPU 308.96 sec
+2016-06-05 12:15:44,077 Stage-1 map = 100%,  reduce = 3%, Cumulative CPU 318.38 sec
+2016-06-05 12:15:46,156 Stage-1 map = 100%,  reduce = 5%, Cumulative CPU 321.33 sec
+2016-06-05 12:15:48,231 Stage-1 map = 100%,  reduce = 8%, Cumulative CPU 339.35 sec
+2016-06-05 12:15:49,251 Stage-1 map = 100%,  reduce = 13%, Cumulative CPU 351.46 sec
+2016-06-05 12:15:50,285 Stage-1 map = 100%,  reduce = 16%, Cumulative CPU 359.02 sec
+2016-06-05 12:15:51,311 Stage-1 map = 100%,  reduce = 19%, Cumulative CPU 366.71 sec
+2016-06-05 12:15:56,495 Stage-1 map = 100%,  reduce = 26%, Cumulative CPU 384.48 sec
+2016-06-05 12:15:57,545 Stage-1 map = 100%,  reduce = 29%, Cumulative CPU 392.73 sec
+2016-06-05 12:15:58,579 Stage-1 map = 100%,  reduce = 32%, Cumulative CPU 401.09 sec
+2016-06-05 12:15:59,598 Stage-1 map = 100%,  reduce = 39%, Cumulative CPU 418.58 sec
+2016-06-05 12:16:03,763 Stage-1 map = 100%,  reduce = 42%, Cumulative CPU 427.25 sec
+2016-06-05 12:16:04,796 Stage-1 map = 100%,  reduce = 45%, Cumulative CPU 435.83 sec
+2016-06-05 12:16:05,824 Stage-1 map = 100%,  reduce = 48%, Cumulative CPU 443.93 sec
+2016-06-05 12:16:06,863 Stage-1 map = 100%,  reduce = 52%, Cumulative CPU 453.11 sec
+2016-06-05 12:16:07,898 Stage-1 map = 100%,  reduce = 58%, Cumulative CPU 470.47 sec
+2016-06-05 12:16:11,030 Stage-1 map = 100%,  reduce = 61%, Cumulative CPU 478.74 sec
+2016-06-05 12:16:13,097 Stage-1 map = 100%,  reduce = 65%, Cumulative CPU 487.27 sec
+2016-06-05 12:16:14,123 Stage-1 map = 100%,  reduce = 68%, Cumulative CPU 495.8 sec
+2016-06-05 12:16:15,152 Stage-1 map = 100%,  reduce = 71%, Cumulative CPU 504.59 sec
+2016-06-05 12:16:16,183 Stage-1 map = 100%,  reduce = 74%, Cumulative CPU 513.1 sec
+2016-06-05 12:16:17,211 Stage-1 map = 100%,  reduce = 77%, Cumulative CPU 521.64 sec
+2016-06-05 12:16:19,296 Stage-1 map = 100%,  reduce = 81%, Cumulative CPU 530.32 sec
+2016-06-05 12:16:21,401 Stage-1 map = 100%,  reduce = 87%, Cumulative CPU 547.88 sec
+2016-06-05 12:16:22,426 Stage-1 map = 100%,  reduce = 90%, Cumulative CPU 556.69 sec
+2016-06-05 12:16:23,451 Stage-1 map = 100%,  reduce = 94%, Cumulative CPU 564.51 sec
+2016-06-05 12:16:24,479 Stage-1 map = 100%,  reduce = 97%, Cumulative CPU 571.86 sec
+2016-06-05 12:16:25,496 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 578.01 sec
+MapReduce Total cumulative CPU time: 9 minutes 38 seconds 10 msec
+Ended Job = job_1465146328667_0003
+Loading data to table default.q20_tmp2
+Table default.q20_tmp2 stats: [numFiles=31, numRows=5441669, totalSize=98539514, rawDataSize=93097845]
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 29  Reduce: 31   Cumulative CPU: 578.01 sec   HDFS Read: 7776322532 HDFS Write: 98542025 SUCCESS
+Total MapReduce CPU Time Spent: 9 minutes 38 seconds 10 msec
+OK
+Time taken: 119.356 seconds
+
+
+insert overwrite table q20_tmp3
+select 
+  ps_suppkey, ps_availqty, sum_quantity
+from  
+  partsupp ps join q20_tmp1 t1 
+  on 
+    ps.ps_partkey = t1.p_partkey
+  join q20_tmp2 t2 
+  on 
+    ps.ps_partkey = t2.l_partkey and ps.ps_suppkey = t2.l_suppkey
+Query ID = ashulyak_20160605121628_7001c311-7479-4f62-9c9b-d1a2b8cdbdae
+Total jobs = 4
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/home/ashulyak/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/ashulyak/tez/apache-tez-0.7.0-src/tez_minimal_jars/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+16/06/05 12:16:31 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Execution log at: /tmp/ashulyak/ashulyak_20160605121628_7001c311-7479-4f62-9c9b-d1a2b8cdbdae.log
+2016-06-05 12:16:31	Starting to launch local task to process map join;	maximum memory = 514850816
+2016-06-05 12:16:32	Dump the side-table for tag: 1 with group count: 21551 into file: file:/tmp/ashulyak/2bc5b0da-9f3f-46e9-a514-0d6db0cd36c8/hive_2016-06-05_12-16-28_468_5871350455102708700-1/-local-10007/HashTable-Stage-9/MapJoin-mapfile21--.hashtable
+2016-06-05 12:16:32	Uploaded 1 File to: file:/tmp/ashulyak/2bc5b0da-9f3f-46e9-a514-0d6db0cd36c8/hive_2016-06-05_12-16-28_468_5871350455102708700-1/-local-10007/HashTable-Stage-9/MapJoin-mapfile21--.hashtable (454364 bytes)
+2016-06-05 12:16:32	End of local task; Time Taken: 1.054 sec.
+Execution completed successfully
+MapredLocal task succeeded
+Launching Job 1 out of 4
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1465146328667_0004, Tracking URL = http://jupiter1.ece.utexas.edu:8088/proxy/application_1465146328667_0004/
+Kill Command = /home/ashulyak/hadoop/bin/hadoop job  -kill job_1465146328667_0004
+Hadoop job information for Stage-9: number of mappers: 5; number of reducers: 0
+2016-06-05 12:16:37,257 Stage-9 map = 0%,  reduce = 0%
+2016-06-05 12:16:46,567 Stage-9 map = 20%,  reduce = 0%, Cumulative CPU 8.15 sec
+2016-06-05 12:16:47,585 Stage-9 map = 100%,  reduce = 0%, Cumulative CPU 46.93 sec
+MapReduce Total cumulative CPU time: 46 seconds 930 msec
+Ended Job = job_1465146328667_0004
+Stage-10 is filtered out by condition resolver.
+Stage-11 is selected by condition resolver.
+Stage-2 is filtered out by condition resolver.
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/home/ashulyak/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/ashulyak/tez/apache-tez-0.7.0-src/tez_minimal_jars/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+16/06/05 12:16:50 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Execution log at: /tmp/ashulyak/ashulyak_20160605121628_7001c311-7479-4f62-9c9b-d1a2b8cdbdae.log
+2016-06-05 12:16:50	Starting to launch local task to process map join;	maximum memory = 514850816
+2016-06-05 12:16:51	Dump the side-table for tag: 0 with group count: 86204 into file: file:/tmp/ashulyak/2bc5b0da-9f3f-46e9-a514-0d6db0cd36c8/hive_2016-06-05_12-16-28_468_5871350455102708700-1/-local-10005/HashTable-Stage-7/MapJoin-mapfile10--.hashtable
+2016-06-05 12:16:51	Uploaded 1 File to: file:/tmp/ashulyak/2bc5b0da-9f3f-46e9-a514-0d6db0cd36c8/hive_2016-06-05_12-16-28_468_5871350455102708700-1/-local-10005/HashTable-Stage-7/MapJoin-mapfile10--.hashtable (2449254 bytes)
+2016-06-05 12:16:51	End of local task; Time Taken: 1.086 sec.
+Execution completed successfully
+MapredLocal task succeeded
+Launching Job 3 out of 4
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1465146328667_0005, Tracking URL = http://jupiter1.ece.utexas.edu:8088/proxy/application_1465146328667_0005/
+Kill Command = /home/ashulyak/hadoop/bin/hadoop job  -kill job_1465146328667_0005
+Hadoop job information for Stage-7: number of mappers: 1; number of reducers: 0
+2016-06-05 12:16:58,020 Stage-7 map = 0%,  reduce = 0%
+2016-06-05 12:17:07,214 Stage-7 map = 100%,  reduce = 0%, Cumulative CPU 9.79 sec
+MapReduce Total cumulative CPU time: 9 seconds 790 msec
+Ended Job = job_1465146328667_0005
+Loading data to table default.q20_tmp3
+Table default.q20_tmp3 stats: [numFiles=1, numRows=58782, totalSize=914165, rawDataSize=855383]
+MapReduce Jobs Launched: 
+Stage-Stage-9: Map: 5   Cumulative CPU: 46.93 sec   HDFS Read: 1204913502 HDFS Write: 2374712 SUCCESS
+Stage-Stage-7: Map: 1   Cumulative CPU: 9.79 sec   HDFS Read: 98548690 HDFS Write: 914244 SUCCESS
+Total MapReduce CPU Time Spent: 56 seconds 720 msec
+OK
+Time taken: 40.925 seconds
+
+
+insert overwrite table q20_tmp4
+select 
+  ps_suppkey
+from 
+  q20_tmp3
+where 
+  ps_availqty > sum_quantity
+group by ps_suppkey
+Query ID = ashulyak_20160605121709_9a433b92-ad6f-4c63-bec5-3853cc81a5b7
+Total jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks not specified. Estimated from input data size: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1465146328667_0006, Tracking URL = http://jupiter1.ece.utexas.edu:8088/proxy/application_1465146328667_0006/
+Kill Command = /home/ashulyak/hadoop/bin/hadoop job  -kill job_1465146328667_0006
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+2016-06-05 12:17:16,930 Stage-1 map = 0%,  reduce = 0%
+2016-06-05 12:17:22,040 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 4.49 sec
+2016-06-05 12:17:27,143 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 7.53 sec
+MapReduce Total cumulative CPU time: 7 seconds 530 msec
+Ended Job = job_1465146328667_0006
+Loading data to table default.q20_tmp4
+Table default.q20_tmp4 stats: [numFiles=1, numRows=44482, totalSize=261982, rawDataSize=217500]
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 7.53 sec   HDFS Read: 921730 HDFS Write: 262061 SUCCESS
+Total MapReduce CPU Time Spent: 7 seconds 530 msec
+OK
+Time taken: 19.924 seconds
+
+
+insert overwrite table q20_potential_part_promotion
+select 
+  s_name, s_address
+from 
+  supplier s join nation n
+  on
+    s.s_nationkey = n.n_nationkey
+    and n.n_name = 'CANADA'
+  join q20_tmp4 t4
+  on 
+    s.s_suppkey = t4.ps_suppkey
+order by s_name
+Query ID = ashulyak_20160605121729_afd97512-0ad5-4d26-a5f2-9871105c7c93
+Total jobs = 1
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/home/ashulyak/hadoop/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/ashulyak/tez/apache-tez-0.7.0-src/tez_minimal_jars/lib/slf4j-log4j12-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+16/06/05 12:17:31 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Execution log at: /tmp/ashulyak/ashulyak_20160605121729_afd97512-0ad5-4d26-a5f2-9871105c7c93.log
+2016-06-05 12:17:31	Starting to launch local task to process map join;	maximum memory = 514850816
+2016-06-05 12:17:32	Dump the side-table for tag: 1 with group count: 44482 into file: file:/tmp/ashulyak/2bc5b0da-9f3f-46e9-a514-0d6db0cd36c8/hive_2016-06-05_12-17-29_350_9076603017723335135-1/-local-10004/HashTable-Stage-3/MapJoin-mapfile31--.hashtable
+2016-06-05 12:17:32	Uploaded 1 File to: file:/tmp/ashulyak/2bc5b0da-9f3f-46e9-a514-0d6db0cd36c8/hive_2016-06-05_12-17-29_350_9076603017723335135-1/-local-10004/HashTable-Stage-3/MapJoin-mapfile31--.hashtable (909545 bytes)
+2016-06-05 12:17:32	Dump the side-table for tag: 1 with group count: 1 into file: file:/tmp/ashulyak/2bc5b0da-9f3f-46e9-a514-0d6db0cd36c8/hive_2016-06-05_12-17-29_350_9076603017723335135-1/-local-10004/HashTable-Stage-3/MapJoin-mapfile41--.hashtable
+2016-06-05 12:17:32	Uploaded 1 File to: file:/tmp/ashulyak/2bc5b0da-9f3f-46e9-a514-0d6db0cd36c8/hive_2016-06-05_12-17-29_350_9076603017723335135-1/-local-10004/HashTable-Stage-3/MapJoin-mapfile41--.hashtable (278 bytes)
+2016-06-05 12:17:32	End of local task; Time Taken: 1.175 sec.
+Execution completed successfully
+MapredLocal task succeeded
+Launching Job 1 out of 1
+Number of reduce tasks determined at compile time: 1
+In order to change the average load for a reducer (in bytes):
+  set hive.exec.reducers.bytes.per.reducer=<number>
+In order to limit the maximum number of reducers:
+  set hive.exec.reducers.max=<number>
+In order to set a constant number of reducers:
+  set mapreduce.job.reduces=<number>
+Starting Job = job_1465146328667_0007, Tracking URL = http://jupiter1.ece.utexas.edu:8088/proxy/application_1465146328667_0007/
+Kill Command = /home/ashulyak/hadoop/bin/hadoop job  -kill job_1465146328667_0007
+Hadoop job information for Stage-3: number of mappers: 1; number of reducers: 1
+2016-06-05 12:17:38,646 Stage-3 map = 0%,  reduce = 0%
+2016-06-05 12:17:43,763 Stage-3 map = 100%,  reduce = 0%, Cumulative CPU 3.73 sec
+2016-06-05 12:17:47,841 Stage-3 map = 100%,  reduce = 100%, Cumulative CPU 5.58 sec
+MapReduce Total cumulative CPU time: 5 seconds 580 msec
+Ended Job = job_1465146328667_0007
+Loading data to table default.q20_potential_part_promotion
+Table default.q20_potential_part_promotion stats: [numFiles=1, numRows=1804, totalSize=80878, rawDataSize=79074]
+MapReduce Jobs Launched: 
+Stage-Stage-3: Map: 1  Reduce: 1   Cumulative CPU: 5.58 sec   HDFS Read: 14190221 HDFS Write: 80975 SUCCESS
+Total MapReduce CPU Time Spent: 5 seconds 580 msec
+OK
+Time taken: 19.65 seconds
+Time:227.75
