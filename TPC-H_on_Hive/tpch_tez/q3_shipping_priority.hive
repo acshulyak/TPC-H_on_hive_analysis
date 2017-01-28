@@ -1,4 +1,4 @@
-hive.execution.engine=tez;
+set hive.execution.engine=tez;
 DROP TABLE orders;
 DROP TABLE lineitem;
 DROP TABLE customer;

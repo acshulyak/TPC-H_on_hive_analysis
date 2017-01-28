@@ -1,4 +1,4 @@
-hive.execution.engine=tez;
+set hive.execution.engine=tez;
 DROP TABLE lineitem;
 DROP TABLE part;
 DROP TABLE q14_promotion_effect;
