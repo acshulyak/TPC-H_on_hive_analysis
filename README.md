@@ -59,8 +59,17 @@ To execute all queries without analysis execute:
 
 Depending on what information you want to collect (log, io, perf, pin, etc.), follow one of the below instructions.
 ##Logs
+All log files will be placed in the log_results/tpch directory. If you desire, you can rename a previous log_results/tpch directory to save the previous logs and make a new log_results/tpch directory. Open the tpch_benchmark_log.sh script. The q_nums variable includes a list of TPC-H queries that will be executed. Once you edit which queries you want to execute run the tests and collect the logs by executing
+```
+./tpch_benchmark_log.sh <unique_name_appended_to_logs>
+```
 ##Query Plans
 ##I/O
+All io results files will be placed in the io_results/tpch directory. If you desire, you can rename a previous io_results/tpch directory to save the previous logs and make a new io_results/tpch directory. Open the tpch_benchmark_io.sh script. The q_nums variable includes a list of TPC-H queries that will be executed. Once you edit which queries you want to execute run the tests and collect the logs by executing
+```
+./tpch_benchmark_log.sh <unique_name_appended_to_logs>
+```
 ##Perf
+All perf results files will be placed in the perf_results/tpch directory. If you desire, you can rename a previous perf_results/tpch directory to save the previous logs and make a new perf_results/tpch directory. 
 ##Pin
 
