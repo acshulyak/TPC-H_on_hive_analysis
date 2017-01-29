@@ -71,11 +71,14 @@ All io results files will be placed in the io_results/tpch directory. If you des
 ```
 ##Perf
 All perf results files will be placed in the perf_results/tpch directory. If you desire, you can rename a previous perf_results/tpch directory to save the previous logs and make a new perf_results/tpch directory.
+
 Open the tpch_benchmark_io.sh script. The q_nums variable includes a list of TPC-H queries that will be executed. Edit which queries you want to execute.
+
 Open the perf.conf configuration, which includes lists of performance monitoring counters. Select which list to use by renaming it PERF_TESTS. You can also make a custom list of PERF_TESTS. perf.conf also has an INTERVAL variable, which specifies the periodicity of collecting performance data over the course of the test, in milliseconds.
+
 In order to collect the performance counter data on the bulk of Hive execution, perf must attach to the NodeManager process. execute ```jps``` to find the process ID of the NodeManager. Then execute
 ```
-./tpch_benchmark_perf.sh <NodeManager-PID> <<unique_name_appended_to_perf_logs>
+./tpch_benchmark_perf.sh <NodeManager-PID> <unique_name_appended_to_perf_logs>
 ```
 ##Pin
 
