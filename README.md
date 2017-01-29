@@ -9,25 +9,25 @@ This project provides the tools necessary to collect a variety of performance me
 - MySQL
 
 ##TPC-H Benchmark Suite on Hive
-1. clone this repo
+\1. clone this repo
 ```
 git clone 
 ```
-2. cd into the root directory
-3. Build the database of <#>GB size.
+\2. cd into the root directory
+\3. Build the database of <#>GB size.
 ```
 cd dbgen
 mkdir tables
 cd tables
 ../dbgen -s <#>
 ```
-4. Move tables into respective directory in TPC-H_on_hive
+\4. Move tables into respective directory in TPC-H_on_hive
 ```
 mv * ../../TPC-H_on_hive/data_<#>gb
 cd ../../TPC-H_on_hive/data_<#>gb
 ```
-5. Ensure Hadoop's hdfs server is online
-6. execute tpch_prepare_data.sh in the data\_<#>gb directory
+\5. Ensure Hadoop's hdfs server is online
+\6. execute tpch_prepare_data.sh in the data\_<#>gb directory
 ```
 ./tpch_prepare_data.sh
 ```
