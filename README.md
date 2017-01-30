@@ -81,4 +81,16 @@ In order to collect the performance counter data on the bulk of Hive execution, 
 ./tpch_benchmark_perf.sh <NodeManager-PID> <unique_name_appended_to_perf_logs>
 ```
 ##Pin
+Open the tpch_benchmark_pin.sh script. The q_nums variable includes a list of TPC-H queries that will be executed. Edit which query you want to execute. It is recommended to only execute one query at a time because Hadoop processes can become unresponsive after PIN binary instrumentation, requiring a restart. The PIN_CMD includes full command line to execute to start PIN binary instrumentation. Edit the absolute paths of the directory to match the location of PIN on your own machine. Because the majority of execution spawns from the already runing Nodemanager process, the PIN_CMD is a standalone from launching the Hive query. -pid is used to attache to the NodeManager process, and -follow_execv is used so Pin is attached to all child processes. For Hive binary instrumentation, it is recommended to use thread safe Pintools only. You can use any pintool of your choosing. It is necessary to specify an absolute path for all Pintool log and output files because the default relative path is unknown. If you want to collect and instruction trace that can be used on the Runahead Prefetch simulator, please use the Pintool found at https://github.com/acshulyak/trace_gen.
 
+In order to collect the instruction-level data on the bulk of Hive execution, pin must attach to the NodeManager process. execute ```jps``` to find the process ID of the NodeManager. Then execute
+```
+./tpch_benchmark_pin.sh <NodeManager-PID>
+```
+Depending on the Pintool of choice, and especially with the trace_gen Pintool, and large amount of data will be generated. To avoid filling up all available space on disk, monitor disk space periodically during the recording process with ```df```. If at any time you fill the need to end PIN recording short, do the following:
+
+1. ^cmd\+C on running ./tpch_benchmark_pin.sh script (until it exists entirely), then
+2. then end all hadoop background processes with its ```./stop-dfs.sh``` and ```./stop-yarn.sh``` scripts
+3. check for other hadoop processes still running by typing ```jps``` and kill them will ```kill -kill <PID>```
+4. restart hadoop background processes
+If execution sucessfully completes it is still recommended to do steps 2-4 above.
