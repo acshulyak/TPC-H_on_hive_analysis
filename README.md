@@ -1,6 +1,6 @@
 #TPC-H On Hive Analysis
 
-This project provides the tools necessary to collect a variety of performance metrics on Hive and MySQL with the TPC-H benchmark suite. These tests were done with a single-node setup in all cases. In this README, I will detail the steps necessary to recreate my experiments.
+This project provides the tools necessary to collect a variety of performance metrics on Hive with the TPC-H benchmark suite. These tests were done with a single-node setup in all cases. In this README, I will detail the steps necessary to recreate my experiments.
 
 #Setup
 ##Dependencies
