@@ -96,8 +96,8 @@ In order to collect the instruction-level data on the bulk of Hive execution, pi
 ```
 Depending on the Pintool of choice, and especially with the trace_gen Pintool, and large amount of data will be generated. To avoid filling up all available space on disk, monitor disk space periodically during the recording process with ```df```. If at any time you fill the need to end PIN recording short, do the following:
 
-1. ^cmd\+C on running ./tpch_benchmark_pin.sh script (until it exists entirely), then
-2. then end all hadoop background processes with its ```./stop-dfs.sh``` and ```./stop-yarn.sh``` scripts
+1. ^cmd\+C on running ./tpch_benchmark_pin.sh script (until it exits entirely), then
+2. end all hadoop background processes with its ```./stop-dfs.sh``` and ```./stop-yarn.sh``` scripts
 3. check for other hadoop processes still running by typing ```jps``` and kill them will ```kill -kill <PID>```
 4. restart hadoop background processes
 If execution sucessfully completes it is still recommended to do steps 2-4 above.
