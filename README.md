@@ -9,10 +9,6 @@ This project provides the tools necessary to collect a variety of performance me
 
 ##TPC-H Benchmark Suite on Hive
 1. clone this repo
-
-  ```
-  git clone 
-  ```
 2. cd into the root directory
 3. Build the database of <#>GB size.
   ```
