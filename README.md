@@ -105,3 +105,16 @@ Depending on the Pintool of choice, and especially with the trace_gen Pintool, a
 3. check for other hadoop processes still running by typing ```jps``` and kill them will ```kill -kill <PID>```
 4. restart hadoop background processes
 If execution sucessfully completes it is still recommended to do steps 2-4 above.
+
+#Results Post-Processing
+##Perf
+The perf script generates a long log file with performance counter metrics on a one second granularity. The format is user friendly, but not friendly for post-processing and excel sheets. To convert the file to a .csv, use the perf_parse.py script found in the post_processing_script directory one level down from the root directory.
+```
+cd <log-file-dir>
+python <relative-path-to-perf_parse.py> <log-file>
+```
+If you generated many log files and want to convert them to .csv files all at once, use the all_parse.py script found inthe post_processing_script directory one level down from the root directory as shown below.
+```
+cd <log-file-dir>
+python <relative-path-to-all_parse.py> <relative-path-to-perf_parse.py>
+```
