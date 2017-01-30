@@ -47,10 +47,20 @@ If you want to execute with Hadoop's built in MapReduce engine:
 rm -rf tpch
 cp -r tpch_orig tpch
 ```
+If you want to record the query plans for Hadoop's build in MapReduce engine (only edited for query's 1, 3, 6, 14, 19):
+```
+rm -rf tpch
+cp -r tpch_orig_query_plan tpch
+```
 If you want to execute with the Tez execution engine (only edited for query's 1, 3, 6, 14, 19):
 ```
 rm -rf tpch
 cp -r tpch_tez tpch
+```
+If you want to record the query plans for the Tez execution engine (only edited for query's 1, 3, 6, 14, 19):
+```
+rm -rf tpch
+cp -r tpch_tez_query_plan tpch
 ```
 To execute all queries without analysis execute:
 ```
@@ -64,6 +74,7 @@ All log files will be placed in the log_results/tpch directory. If you desire, y
 ./tpch_benchmark_log.sh <unique_name_appended_to_logs>
 ```
 ##Query Plans
+First make sure the query plan generating queries have been copied to the tpch directory as specified above in the "Run" instructions. Then follow the instructions for collecting "Logs" above. Instead of a log of the execution of the query being generated, a log of the query plan will be generated in the log_results directory.
 ##I/O
 All io results files will be placed in the io_results/tpch directory. If you desire, you can rename a previous io_results/tpch directory to save the previous logs and make a new io_results/tpch directory. Open the tpch_benchmark_io.sh script. The q_nums variable includes a list of TPC-H queries that will be executed. Once you edit which queries you want to execute run the tests and collect the logs by executing
 ```
